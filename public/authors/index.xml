@@ -1,24 +1,201 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Authors | Academic</title>
+    <title>Authors | Damien DataSci Blog</title>
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <url>/img/profile</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
+    
+    <item>
+      <title>Anna Zajac</title>
+      <link>/authors/anna-zajac/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/anna-zajac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Damien Dupré</title>
+      <link>/authors/damien-dupre/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/damien-dupre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gary McKeown</title>
+      <link>/authors/gary-mckeown/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/gary-mckeown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gawain Morrison</title>
+      <link>/authors/gawain-morrison/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/gawain-morrison/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nicole Andelic</title>
+      <link>/authors/nicole-andelic/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/authors/nicole-andelic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anna Tcherkassof</title>
+      <link>/authors/anna-tcherkassof/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/authors/anna-tcherkassof/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Michel Dubois</title>
+      <link>/authors/michel-dubois/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/authors/michel-dubois/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Brigite Meillon</title>
+      <link>/authors/brigite-meillon/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/brigite-meillon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Daniel Akpan</title>
+      <link>/authors/daniel-akpan/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/daniel-akpan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elena Elias</title>
+      <link>/authors/elena-elias/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/elena-elias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jean-Michel Adam</title>
+      <link>/authors/jean-michel-adam/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/jean-michel-adam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nicolas Bonnefond</title>
+      <link>/authors/nicolas-bonnefond/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/nicolas-bonnefond/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pascal Pizelle</title>
+      <link>/authors/pascal-pizelle/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/authors/pascal-pizelle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nadine Mandran</title>
+      <link>/authors/nadine-mandran/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>/authors/nadine-mandran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hamad Salem</title>
+      <link>/authors/hamad-salem/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>/authors/hamad-salem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mathieu Loiseau</title>
+      <link>/authors/mathieu-loiseau/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>/authors/mathieu-loiseau/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Philipe Dessus</title>
+      <link>/authors/philipe-dessus/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>/authors/philipe-dessus/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stephan Simonian</title>
+      <link>/authors/stephan-simonian/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>/authors/stephan-simonian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>F. Wild</title>
+      <link>/authors/f.-wild/</link>
+      <pubDate>Tue, 01 Nov 2011 00:00:00 +0000</pubDate>
+      <guid>/authors/f.-wild/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S. Trausan-Matu</title>
+      <link>/authors/s.-trausan-matu/</link>
+      <pubDate>Tue, 01 Nov 2011 00:00:00 +0000</pubDate>
+      <guid>/authors/s.-trausan-matu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>T. Rebedea</title>
+      <link>/authors/t.-rebedea/</link>
+      <pubDate>Tue, 01 Nov 2011 00:00:00 +0000</pubDate>
+      <guid>/authors/t.-rebedea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>V. Zampa</title>
+      <link>/authors/v.-zampa/</link>
+      <pubDate>Tue, 01 Nov 2011 00:00:00 +0000</pubDate>
+      <guid>/authors/v.-zampa/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title></title>
       <link>/authors/admin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/admin/</guid>
-      <description>&lt;p&gt;Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.&lt;/p&gt;
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.&lt;/p&gt;
+      <description>&lt;p&gt;Ph.D in Social and Experimental Psychology from the University Grenoble-Alpes, France, my researches are focusing on understanding psycho-physiological responses &amp;lsquo;in the wild&amp;rsquo;. With Anna Tcherkassof in Grenoble, I have contributed to develop the DynEmo database by recording and assessing dynamic and spontaneous facial expressions of emotions.&lt;/p&gt;
+&lt;p&gt;Whereas my thesis aimed to evaluate Emotional User eXperience of innovative technologies and designs for the company Ixiade (&lt;a href=&#34;http://www.ixiade.com&#34;&gt;www.ixiade.com&lt;/a&gt;), I have collaborated with Queen&amp;rsquo;s University and Sensum Ltd (&lt;a href=&#34;http://www.sensum.co&#34;&gt;www.sensum.co&lt;/a&gt;) to analyse emotions with physiological sensors and automatic facial expression recognition. I also worked at University College Dublin&amp;rsquo;s Insight Centre for Data Analytics in order to process and understand physiological measurements from marathon runners.&lt;/p&gt;
+&lt;p&gt;Now Assistant Professor of Business Research Methods at Dublin City University, my domain of expertise relies in multivariate time series analysis and trend extraction for supervised or unsupervised machine learning classification.&lt;/p&gt;
 </description>
     </item>
     

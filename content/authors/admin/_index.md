@@ -1,6 +1,6 @@
 ---
 # Display name
-name: Nelson Bighetti
+name: Damien Dupré
 
 # Username (this should match the folder name)
 authors:
@@ -10,32 +10,35 @@ authors:
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Assistant Professor of Business Research Methods
 
 # Organizations/Affiliations
 organizations:
-- name: Stanford University
-  url: ""
+- name: Dublin City University
+  url: "https://business.dcu.ie/staff/dr-damien-dupre/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests relies on time-series analyses of psychological and physiological measures.
 
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Emotion
+- Statistics
+- Facial Expressions
+- Wearable Devices
+- Physiology
+- Human Computer Interactions
 
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
+  - course: Ph.D. in Social & Experimental Psychology
+    institution: University Grenoble Alps, France
+    year: 2016
+  - course: M.Sc. in Social & Cognitive Science
+    institution: University Grenoble Alpes, France
+    year: 2010
+  - course: B.Sc. in Psychology
+    institution: University Grenoble Alpes, France
+    year: 2007
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
@@ -44,21 +47,21 @@ education:
 social:
 - icon: envelope
   icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:test@example.org".
+  link: '#contact'
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
+  link: https://twitter.com/damien_dupre
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://scholar.google.com/citations?user=FR2TRIEAAAAJ
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/damien-dupre
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: files/cv.pdf
+- icon: cv
+  icon_pack: ai
+  link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
@@ -70,6 +73,8 @@ user_groups:
 - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Ph.D in Social and Experimental Psychology from the University Grenoble-Alpes, France, my researches are focusing on understanding psycho-physiological responses 'in the wild'. With Anna Tcherkassof in Grenoble, I have contributed to develop the DynEmo database by recording and assessing dynamic and spontaneous facial expressions of emotions. 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Whereas my thesis aimed to evaluate Emotional User eXperience of innovative technologies and designs for the company Ixiade (www.ixiade.com), I have collaborated with Queen's University and Sensum Ltd (www.sensum.co) to analyse emotions with physiological sensors and automatic facial expression recognition. I also worked at University College Dublin's Insight Centre for Data Analytics in order to process and understand physiological measurements from marathon runners.
+
+Now Assistant Professor of Business Research Methods at Dublin City University, my domain of expertise relies in multivariate time series analysis and trend extraction for supervised or unsupervised machine learning classification. 

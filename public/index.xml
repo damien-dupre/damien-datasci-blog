@@ -1,16 +1,1303 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Academic</title>
+    <title>Damien DataSci Blog</title>
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <description>Academic</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0100</lastBuildDate>
+    <description>Damien DataSci Blog</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
-      <title>Academic</title>
+      <url>/img/profile</url>
+      <title>Damien DataSci Blog</title>
       <link>/</link>
     </image>
+    
+    <item>
+      <title>How to make an interactive tutorial to teach R?</title>
+      <link>/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</guid>
+      <description>
+
+
+&lt;p&gt;Learning is changing quickly, very quickly. With the advancement of technologies and with the help of unexpected game changer events, the future of learning is becoming online rather than onsite. This is particularly true for learning how to code (&lt;a href=&#34;https://datascienceineducation.com&#34;&gt;here is a nice book about Education in Data Science with R&lt;/a&gt;) . Coding languages such as R or Python require a combination of contextual situations to be efficiently practiced:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;p&gt;Learners need to see the output of running code. Classic slides lectures are good for general ideas but nothing can replace the direct feedback of run a code and comparing its output with expected results.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Learners need to practice. Because the first will generally not produce the expected results, learners have to use the good old “die and retry” strategy to understand their errors. However it takes time and auto determination.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Learners need to follow their own rhythm. Depending on learners’ previous experiences, the basics will be learnt faster or slower. All learners have their own pace.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Consequently, online learning is perfect for these 3 points. In the R community, I imagine that most people have actually learnt R online, at least it is my case.&lt;/p&gt;
+&lt;div id=&#34;learning-r-online&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Learning R online&lt;/h2&gt;
+&lt;p&gt;There is a lot of amazing tutorials out there which can be accessed for free on coursera or udermy platforms for example or using blogs and online books. It is also very easy to create your own tutorial using {blogdown} or {bookdown} for example. A great talk entitled “How to Get Your Materials Online With R Markdown” recently introduced the different possibilities to share your own tutorial online (here are the &lt;a href=&#34;https://resources.rstudio.com/webinars/sharing-on-short-notice-how-to-get-your-materials-online-with-r-markdown&#34;&gt;video&lt;/a&gt; and the &lt;a href=&#34;https://rstudio-education.github.io/sharing-short-notice/&#34;&gt;slides&lt;/a&gt;).
+However, few of these solutions are satisfying the first criteria. The ability to let the learners running the code by themselves usually imply that the learner has to run the code on a machine with the code and IDE required already installed.&lt;/p&gt;
+&lt;p&gt;One of these online learning platform is different, it allows the learner to watch a video or to read some slides and then to run the code via some exercises. I learnt a lot from this platform but the access of the tutorials is not free and therefore not suitable for students.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interactive-tutorials-r-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Interactive tutorials R packages&lt;/h2&gt;
+&lt;p&gt;The community around R has developed some amazing tools to create tutorials which allow learners to run their own code. There are maybe more of them but I am thinking of the {learnr} and {RTutor} packages (&lt;a href=&#34;https://swirlstats.com&#34;&gt;the {swirl} package&lt;/a&gt; also creates tutorials but these have to be used inside an IDE).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://rstudio.github.io/learnr&#34;&gt;The {learnr} package is amazing&lt;/a&gt;. It helps to create very neat interactive tutorials from a .Rmd file. Because I love Rmarkdown, I have created some of them already for my students:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://damien-dupre.shinyapps.io/learnr_dcu_warm_up&#34;&gt;WaRm Up!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://damien-dupre.shinyapps.io/learnr_dcu_data_transformation&#34;&gt;Data Transformation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://damien-dupre.shinyapps.io/learnr_dcu_data_visualisation&#34;&gt;Data Visualisation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://damien-dupre.shinyapps.io/learnr_dcu_linear_regression&#34;&gt;Linear Regression&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It is also possible to &lt;a href=&#34;https://desiree.rbind.io/post/2020/learnr-iframes&#34;&gt;integrate the {learnr} package into a blogdown website&lt;/a&gt; and to create beautiful visualisation such as the &lt;a href=&#34;https://tinystats.github.io/teacups-giraffes-and-statistics&#34;&gt;giraffe project to learn statistics&lt;/a&gt;.
+I have never used the {RTutor} package but I’m assuming it has a lot of similarities with the {learnr} package as indicated in &lt;a href=&#34;https://skranz.github.io//r/2019/04/29/RTutor_vs_Learnr.html&#34;&gt;this blog post&lt;/a&gt;.
+The {learnr} package is very nice but it has a major problem, the learners need to have their own and unique shiny session. To run a .Rmd file using the {learnr} package, this Rmarkdown has to be deployed on a shiny server and I currently know only two solutions to host a shiny app:&lt;/p&gt;
+&lt;div id=&#34;with-rstudios-shinyapps.io&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1. With RStudio’s shinyapps.io&lt;/h3&gt;
+&lt;p&gt;This option is super easy and fast to deploy a shiny app and has a free option to deploy 5 shiny apps (that I currently use for my {learnr} tutorials). However, this free option also only includes 5 users in the same time. This is great for the test of specific shiny apps but for parallel learning, it is definitely not enough.&lt;/p&gt;
+&lt;p&gt;There is the possibility to increase the number of parallel users but it is not free I’m afraid.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;with-a-cloud-instance-using-shiny-server&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2. With a cloud instance using shiny server&lt;/h3&gt;
+&lt;p&gt;The second solution involves creating a cloud instance on AWS or DigitalOcean for example and installing the shiny server to host the Rmarkdown with {learnr}. This solution involves some patience, a bit of knowledge in shell coding and is basically not free (some providers give a free tiers but only for a limited period of time). About the scalability of these solutions, it is apparently possible to scale it to multiple learners in parallel, but I never used them for this purpose so I can’t tell more about how to do it and how many parallel users can use the shiny app.&lt;/p&gt;
+&lt;p&gt;From what I know, there are two solutions to run a shiny app online which can scale up more than 5 users in the same time and unfortunately none of them are completely free (however I need to explore this AWS free tier solution).&lt;/p&gt;
+&lt;p&gt;I’m sure that there are alternative solutions and hacks that I am not aware of. For example AWS has &lt;a href=&#34;https://aws.amazon.com/blogs/opensource/getting-started-with-r-on-amazon-web-services/&#34;&gt;so many different services&lt;/a&gt; that are a mystery to me. Would it be possible to set a shiny app in an AWS ECS container or to create a lambda with a R environment? My knowledge in AWS competitors such as DigitalOcean, Microsoft Azure or Google Cloud is not good enough to suggest alternative free awesome solutions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;scale-docker-containers-with-binder&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Scale Docker containers with Binder&lt;/h2&gt;
+&lt;p&gt;I recently came across the post of by &lt;a href=&#34;https://florencia.netlify.com/2020/03/cooking-your-first-tutorial.en-us/&#34;&gt;Florencia d’Andrea&lt;/a&gt; explaining how to create an interactive tutorial with Binder, a free service which creates a scalable docker R environment attached to a github/gitlab repository. According to binder, the limit is 100 users simultaneously with is perfect for teaching!&lt;/p&gt;
+&lt;p&gt;In fact, I was already aware of online tutorial using this setup without knowing how they worked:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://noamross.github.io/gams-in-r-course/&#34;&gt;Generalized Additive Models in R&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/noamross&#34;&gt;Noam Ross&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://supervised-ml-course.netlify.com/&#34;&gt;Supervised Machine Learning Case Studies in R&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/juliasilge&#34;&gt;Julia Silge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://r-bootcamp.netlify.com&#34;&gt;R-Bootcamp&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/tladeras&#34;&gt;Ted Laderas&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/datapointier&#34;&gt;Jessica Minnier&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By following Florencia’s it is possible to create an interactive R tutorial for free very easily! The procedure described by Florencia and the three interactive tutorials examples as well as mine, are using the framework developed by &lt;a href=&#34;https://twitter.com/_inesmontani&#34;&gt;Ines Montani&lt;/a&gt; called Juniper which will make the interface between the Binder docker R environment back end and the tutorial front end. Speaking of front end, Ines is providing a very fancy template using node.js and being deployed with Gatsby. At this point I’m throwing computer science jargon but my understanding of them is very limited. The most important is that it is working very well!&lt;/p&gt;
+&lt;p&gt;It’s not a perfect solution, &lt;a href=&#34;https://education.rstudio.com/blog/2020/03/r-bootcamp/&#34;&gt;see this blog post describing pros and cons for this solution&lt;/a&gt;, however it is working and for free.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;interactive-blogdown-using-thebelabs-framework&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Interactive {blogdown} using ThebeLab’s Framework&lt;/h2&gt;
+&lt;p&gt;Even if Juniper’s framework is amazing, the content published is based on markdown files. I have nothing against markdown files but I do love Rmarkdown and I really missed them while publishing the tutorials. For this reason I googled “blogdown” + “binder” and found two very interesting discussions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The first that I found was initiated &lt;a href=&#34;https://github.com/rstudio/bookdown/issues/851&#34;&gt;here in a question about the interactivity of bookdown documents&lt;/a&gt;. Someone came across the activity of &lt;a href=&#34;https://thebelab.readthedocs.io/en/latest/&#34;&gt;ThebeLab&lt;/a&gt; which is providing interfaces to binder for python code (see examples &lt;a href=&#34;https://jupyterbook.org/01/3/plotting_the_classics&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://thebelab.readthedocs.io/en/latest/_static/activate_button.html&#34;&gt;here&lt;/a&gt;. This question was answered by &lt;a href=&#34;https://twitter.com/chrisderv&#34;&gt;Christophe Dervieux&lt;/a&gt; saying that binder was not supporting R at this time. Christophe definitely made some progress when he shared in this &lt;a href=&#34;https://twitter.com/chrisderv/status/1235668163741839373&#34;&gt;tweet&lt;/a&gt; his &lt;a href=&#34;https://rpubs.com/cderv/581740&#34;&gt;success in creating an interactive .Rmd&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The second &lt;a href=&#34;https://gitter.im/jupyterhub/binder?at=5dbdd8f33d669b28a0228191&#34;&gt;discussion was on gitter.com&lt;/a&gt; initiated by &lt;a href=&#34;https://twitter.com/RaoOfPhysics&#34;&gt;Achintya Rao&lt;/a&gt; saying that he successfully managed to create an &lt;a href=&#34;https://raoofphysics.gitlab.io/blog-test/2015/07/23/hello-r-markdown/&#34;&gt;interactive blogdown&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After being in contact with Achintya and by seeing Christophe’s code, it is possible to identify the essential component to make magic happened:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The blogdown theme or the .Rmd file need to include a code linking it to the repository connected to the binder docker R environment and to the package thebelab which is interacting between both.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In Christophe’s code, this html code is included directly in the .Rmd file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Some stuff from thebelab required for the magic --&amp;gt;
+&amp;lt;!-- Configure and load Thebe !--&amp;gt;
+&amp;lt;script type=&amp;quot;text/x-thebe-config&amp;quot;&amp;gt;
+  {
+    requestKernel: true,
+    binderOptions: {
+      repo: &amp;#39;github_username/github_reponame,
+    },
+    kernelOptions: {
+      name: &amp;quot;R&amp;quot;,
+      kernelName: &amp;quot;ir&amp;quot;,
+    },
+  }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;!-- script for thebelab --&amp;gt;
+&amp;lt;script src=&amp;quot;https://unpkg.com/thebelab@latest/lib/index.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Whereas for Achintya’s blogdown, the following code is included in a specific file &lt;code&gt;./themes/hugo-lithium/layouts/partials/head_custom.html&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- Configure and load Thebe !--&amp;gt;
+&amp;lt;script type=&amp;quot;text/x-thebe-config&amp;quot;&amp;gt;
+    {
+        bootstrap: false,
+        requestKernel: true,
+        binderOptions: {
+            repo: &amp;#39;github_username/github_reponame,
+            ref: &amp;#39;master&amp;#39;,
+            repoProvider: &amp;#39;github&amp;#39;,
+        },
+        kernelOptions: {
+            name: &amp;#39;ir&amp;#39;,
+        }
+    }
+&amp;lt;/script&amp;gt;
+&amp;lt;script src=&amp;quot;https://unpkg.com/thebelab@0.4.0/lib/index.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Both document are including a button to activate the code.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In Christophe’s code the button code and its action on the &lt;code&gt;bootstrapThebe&lt;/code&gt; function are directly included in the Rmd file:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# ad a button
+htmltools::tags$button(
+  id = &amp;quot;activateButton&amp;quot;,
+  style=&amp;quot;width: 100px; height: 50px; font-size: 1.5em;&amp;quot;, 
+  &amp;quot;Activate&amp;quot;
+)
+
+# js chunk
+// thebelab js script
+var bootstrapThebe = function() {
+    thebelab.bootstrap();
+}
+document.querySelector(&amp;quot;#activateButton&amp;quot;).addEventListener(&amp;#39;click&amp;#39;, bootstrapThebe)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For Achintya’s blogdown, the code to create the button is included in a specific file &lt;code&gt;./themes/hugo-lithium/layouts/shortcodes/code.html&lt;/code&gt; and the code to trigger the &lt;code&gt;bootstrapThebe&lt;/code&gt; is included in a specific file &lt;code&gt;./themes/hugo-lithium/layouts/partials/code.html&lt;/code&gt;. But to link these html files with the Rmd, each blogdown blog post have to include the following code:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::opts_chunk$set(collapse = TRUE, 
+                      attr.source=&amp;quot;data-executable=&amp;#39;true&amp;#39;&amp;quot;,
+                      eval = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;adding-the-link-to-the-repository-connected-to-binder&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Adding the link to the repository connected to binder&lt;/h2&gt;
+&lt;p&gt;I have hidden it to make it more generic and explicit but Christophe used the demo repo connected to binder &lt;a href=&#34;https://github.com/binder-examples/r&#34; class=&#34;uri&#34;&gt;https://github.com/binder-examples/r&lt;/a&gt; whereas Achintya has linked his blogdown to a repository hosted on his github.&lt;/p&gt;
+&lt;p&gt;In fact, the necessity of connecting a repository to binder and to indicate the link to this repository is also used in Juniper in a very similar way. However, instead of having a separated repository, Ines was connecting a branch of the same repository used for the deployment. From my github beginner experience, I think a distinct repository is easier to manage.&lt;/p&gt;
+&lt;p&gt;The necessity of having a distinct branch or repository is explained by Ines as follow in &lt;a href=&#34;https://github.com/ines/course-starter-r&#34;&gt;the readme of her template&lt;/a&gt;: “The reason they’re different is that binder forces a Docker container rebuild when a branch is updated. So, if we served our container out of master, it would rebuild every time we modified a chapter.md or an exercise.”&lt;/p&gt;
+&lt;p&gt;To build this binder docker image from a repository it is super easy, you just need two files on the root of the repository:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a R script which contains all the package to install in order to run the code in your interactive chunks&lt;/li&gt;
+&lt;li&gt;a text file containing YYYY-MM-DD snapshot at MRAN that will be used for installing libraries. &lt;a href=&#34;https://github.com/binder-examples/r&#34;&gt;See here&lt;/a&gt; for details.
+The you just need to go to binder.org fill your repository url and branch (if not master) and this is it!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can have a look at this &lt;a href=&#34;https://kind-raman-74e497.netlify.com/2015/07/23/hello-r-markdown/&#34;&gt;blogdown test containing interactive code chunks here&lt;/a&gt; (this blogdown works in the same way as Achintya’s so but it is hosted on my &lt;a href=&#34;https://github.com/damien-dupre/blog-test-damien&#34;&gt;github repository&lt;/a&gt; and uses a binder docker image connected to my &lt;a href=&#34;https://github.com/damien-dupre/thebelabr&#34;&gt;github repository&lt;/a&gt; as well).&lt;/p&gt;
+And this his what Christope’s setup looks like:
+&lt;!-- Some stuff from thebelab required for the magic --&gt;
+&lt;!-- Configure and load Thebe !--&gt;
+&lt;script type=&#34;text/x-thebe-config&#34;&gt;
+  {
+    requestKernel: true,
+    binderOptions: {
+      repo: &#34;binder-examples/r&#34;,
+    },
+    kernelOptions: {
+      name: &#34;R&#34;,
+      kernelName: &#34;ir&#34;,
+    },
+  }
+&lt;/script&gt;
+&lt;!-- script for thebelab --&gt;
+&lt;script src=&#34;https://unpkg.com/thebelab@latest/lib/index.js&#34;&gt;&lt;/script&gt;
+&lt;blockquote&gt;
+&lt;p&gt;clicking the below button will also launch the kernel and that could take some
+times to strat. Be patient…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;button id=&#34;activateButton&#34; style=&#34;width: 150px; height: 50px; font-size: 1.5em;&#34;&gt;Activate&lt;/button&gt;
+&lt;script type=&#34;text/javascript&#34;&gt;
+// thebelab js script
+var bootstrapThebe = function() {
+    thebelab.bootstrap();
+}
+document.querySelector(&#34;#activateButton&#34;).addEventListener(&#39;click&#39;, bootstrapThebe)
+&lt;/script&gt;
+&lt;p&gt;Here is a chunk, not evaluated on purpose by Rmarkdown, and to be executed interactively, directly in this document.&lt;/p&gt;
+&lt;pre class=&#34;r&#34; data-executable=&#34;true&#34; data-language=&#34;r&#34;&gt;&lt;code&gt;print(&amp;quot;Hello&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;next-steps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;For the moment, thanks to Achintya and Christophe’s work, I have a blog test will 2 code chunks that are interactive. The next move will be to convert my Juniper-mardown-node.js tutorial to a thebelab –rmarkdown-blogdown.&lt;/p&gt;
+&lt;p&gt;Another interesting part would be to integrate a code evaluation system like {gradethis} for example. I’m also wondering if {learnr} would work as well!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My Data Analytics for Behavioural Research presentation: Theory, Introduction to R and Data Processing</title>
+      <link>/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</guid>
+      <description>
+
+
+&lt;p&gt;I was recently asked to give a 3 sessions lecture about Data Analytics for Behavioural Research. As it is difficult to have a broader topic, I’ve decied to present my favorite research topic: the data science of emotions. These three different lecture present very quickly:
+1. the current theories of emotions
+2. how to use R
+3. how to use R for emotion data processing&lt;/p&gt;
+&lt;p&gt;You will find my slides and code on my github or hereafter. Enjoy!&lt;/p&gt;
+&lt;iframe src=&#34;https://damien-dupre.github.io/data_analytics_for_behavioural_research/slides_summer_school.html&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>`dplyrshortcut` package: How to create keyboard shortcuts for dplyr functions on RStudio IDE </title>
+      <link>/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</link>
+      <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</guid>
+      <description>
+
+
+&lt;p&gt;People are saying that if you are repeating a code more than twice, then make a function for it. The idea of &lt;code&gt;dplyrshortcut&lt;/code&gt; is that if you are using a function more than twice, then use a keyboard shortcut.&lt;/p&gt;
+&lt;div id=&#34;installation&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Installation&lt;/h1&gt;
+&lt;p&gt;You can install the development version of &lt;code&gt;dplyrshortcut&lt;/code&gt; with the devtools package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.packages(&amp;quot;devtools&amp;quot;)
+devtools::install_github(&amp;quot;damien-dupre/dplyrshortcut&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;use&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Use&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;dplyrshortcut&lt;/code&gt; add functions in RStudio IDE’s Addins section.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/img_01.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;Then, in order to add the shortcut to your keyboard, use the Rstudio IDE: &lt;code&gt;Tools&amp;gt;Modify Keyboard Shortcuts...&lt;/code&gt; and associate the keyboard shortcut you prefer, such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ctrl+Shift+F for “dplyr::filter(”&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+M for “dplyr::mutate(”&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+G for “dplyr::group_by(”&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+S for “dplyr::select(”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and modify Insert Pipe Operator with Ctrl+Shift+P.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/img_02.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;And here you go! Data wrangling as fast as light speed!&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/gif_us.gif&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to organize a wedding with R: google place API, google drive, web scraping and automatic emails</title>
+      <link>/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Organizing a wedding is … challenging but as Rusers we do have a major asset! One of the most challenging part is to find a venue. Indeed there are a lot of them but some are already booked for your date. So, in order to check if a venue is already booked &lt;strong&gt;I’ll show you how I made a list of possible venues with google search API, stored the list on google drive, web scrap for their emails and send them with R.&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;setup&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Setup&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# store passwords
+library(config)
+# data wrangling
+library(plyr)
+library(tidyverse)
+library(purrr)
+library(glue)
+# google APIs
+library(googleway)
+library(googledrive)
+# webscraping
+library(rvest)
+# send emails
+library(mailR)
+library(XML)
+library(RCurl)
+# html widgets
+library(DT)
+library(leaflet)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed, message = FALSE,warning = FALSE, error = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(123)# Seed for random number generation
+options(scipen=999)# Disable scientific number format
+gmail_wedding &amp;lt;- config::get(&amp;quot;gmail_wedding&amp;quot;)
+google_key &amp;lt;- config::get(&amp;quot;google_cloud&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;list-of-venues-with-google-place-api&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;List of Venues with google place API&lt;/h1&gt;
+&lt;p&gt;Because almost everything is possible in R thanks to our awesome community, I was thinking of getting a list of venues from google. And thankfully there is a package to do that called &lt;code&gt;googleway&lt;/code&gt;. Google API has many different &lt;a href=&#34;https://console.cloud.google.com/apis/&#34;&gt;services&lt;/a&gt; related to geocoding such as Direction API, Geolocalisation API or Place API which I’m using to get venues from search key words. To use it you just need to register on google cloud your Credit/Debit Card to obtain an API key, but no worries if you use the service in a gentle way, that won’t cost you anything. I found a very useful answer from &lt;a href=&#34;https://stackoverflow.com/questions/28026897/google-place-with-r&#34;&gt;stack overflow to use the &lt;code&gt;googleway&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;list-of-targeted-cities&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;List of targeted cities&lt;/h2&gt;
+&lt;p&gt;I also don’t want to organize my wedding everywhere in France, I’d it to be in the Auvergne-Rhone-Alpes region which is a lovely area. So I wasn’t sure that by using the key word “Auvergne-Rhone-Alpes” I’ll find all the venues I wanted, so I decided to loop the search on a list of cities in this region based on their department numbers.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dept_target &amp;lt;- c(01,07,26,38,69,73,74)
+#
+list_city &amp;lt;- read.csv(
+  file = url(&amp;quot;https://sql.sh/ressources/sql-villes-france/villes_france.csv&amp;quot;),
+  header = FALSE) %&amp;gt;%
+  dplyr::select(dept = V2, city = V5, pop2010 = V15) %&amp;gt;%
+  dplyr::mutate(city = as.character(city)) %&amp;gt;%
+  dplyr::filter(dept %in% dept_target) %&amp;gt;% # filter by target departments
+  dplyr::filter(pop2010 &amp;gt; 5000) %&amp;gt;% # filter by city population size
+  magrittr::use_series(city)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;querying-google-place-api&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Querying google place API&lt;/h2&gt;
+&lt;p&gt;Once the list of cities obtained, I made a loop to query Google place for these cities. A tricky part is to get the search results from other pages. If a “next_page_token” is found, an while statement is querying for this new page. If no result is found the loop goes to the next city.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_places_final &amp;lt;- NULL
+for(city in list_city){
+  
+  #print(city)
+  
+  df_places &amp;lt;- googleway::google_places(
+    search_string = paste(&amp;quot;mariage&amp;quot;, city, &amp;quot;france&amp;quot;), 
+    key = google_key$key) # replace by your Google API key
+  
+  if(length(df_places$results) == 0) next
+  
+  df_places_results &amp;lt;- df_places$results
+  geometry &amp;lt;- df_places_results$geometry$location
+  df_places_results &amp;lt;- df_places_results[,c(&amp;quot;name&amp;quot;,&amp;quot;formatted_address&amp;quot;,&amp;quot;place_id&amp;quot;,&amp;quot;types&amp;quot;)]
+  df_places_results &amp;lt;- cbind(df_places_results,geometry)
+  
+  while (!is.null(df_places$next_page_token)) {
+    df_places &amp;lt;- googleway::google_places(
+      search_string = paste(&amp;quot;mariage&amp;quot;, city, &amp;quot;france&amp;quot;),
+      page_token = df_places$next_page_token,
+      key = google_key$key)
+    
+    df_places_next &amp;lt;- df_places$results
+    
+    if(length(df_places_next)&amp;gt;0){
+      geometry &amp;lt;- df_places_next$geometry$location
+      df_places_next &amp;lt;- df_places_next[,c(&amp;quot;name&amp;quot;,&amp;quot;formatted_address&amp;quot;,&amp;quot;place_id&amp;quot;,&amp;quot;types&amp;quot;)]
+      df_places_next &amp;lt;- cbind(df_places_next,geometry)
+      df_places_results &amp;lt;- rbind(df_places_results, df_places_next)
+    }
+    Sys.sleep(2) # time to not overload  the google API
+  }
+  df_places_final &amp;lt;- rbind(df_places_final,df_places_results)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Obviously in the search results we obtain not only wedding venues but also photographers, caterers, and wedding shops. So an easy solution is to filter by name to find “castle”, “mansions” and “domains”. It should be noticed that there are some duplicated values to be filtered as well.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_places_filtered &amp;lt;- df_places_final %&amp;gt;%
+  dplyr::filter(grepl(&amp;#39;castle|chateau|domaine|manoir|ferme&amp;#39;, name,ignore.case = TRUE)) %&amp;gt;%
+  dplyr::distinct(place_id, .keep_all = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can have an overview of the localisation of the venues thanks to the &lt;code&gt;leaflet&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;leaflet() %&amp;gt;%
+  addTiles() %&amp;gt;%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=df_places_filtered$lng, lat=df_places_filtered$lat, popup=df_places_filtered$name)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;leaflet html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;options&#34;:{&#34;crs&#34;:{&#34;crsClass&#34;:&#34;L.CRS.EPSG3857&#34;,&#34;code&#34;:null,&#34;proj4def&#34;:null,&#34;projectedBounds&#34;:null,&#34;options&#34;:{}}},&#34;calls&#34;:[{&#34;method&#34;:&#34;addTiles&#34;,&#34;args&#34;:[&#34;//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#34;,null,null,{&#34;minZoom&#34;:0,&#34;maxZoom&#34;:18,&#34;tileSize&#34;:256,&#34;subdomains&#34;:&#34;abc&#34;,&#34;errorTileUrl&#34;:&#34;&#34;,&#34;tms&#34;:false,&#34;noWrap&#34;:false,&#34;zoomOffset&#34;:0,&#34;zoomReverse&#34;:false,&#34;opacity&#34;:1,&#34;zIndex&#34;:1,&#34;detectRetina&#34;:false,&#34;attribution&#34;:&#34;&amp;copy; &lt;a href=\&#34;http://openstreetmap.org\&#34;&gt;OpenStreetMap&lt;\/a&gt; contributors, &lt;a href=\&#34;http://creativecommons.org/licenses/by-sa/2.0/\&#34;&gt;CC-BY-SA&lt;\/a&gt;&#34;}]},{&#34;method&#34;:&#34;addMarkers&#34;,&#34;args&#34;:[[45.134445,44.8498099,44.7618727,44.693697,44.962252,44.513274,45.172233,45.3845806,45.2896691,45.272893,45.5686912,45.4290487,44.3599052,44.4000708,44.420168,44.2850276,44.341104,45.0212806,45.6375943,45.638319,45.6342439,43.9208334,45.2659883,45.640583,45.6690559,45.6701508,45.6368004,45.6053503,45.557085,45.5360143,43.8361643,45.211,45.8584009,45.9306015,45.9622121,45.967671,45.836602,45.8849645,46.0013656,45.922206,45.9586478,45.8928777,45.7676899,45.953119,45.7734206,45.3854787,45.564334,45.5356481,45.5539949,46.052035,46.01948,46.0770377,46.3110146],[4.990473,4.813384,4.88122,4.651336,4.780284,4.756764,4.7135882,4.9870776,4.9860176,4.434407,5.0570937,4.6808749,4.7100999,4.6801645,4.902971,4.5167063,4.766468,5.0762442,5.212144,5.035662,5.4337298,5.3090787,5.8762486,5.584276,5.4631044,5.4570628,5.3638768,5.8696337,5.2381668,6.1077085,3.9121832,5.660498,4.7400212,4.6878662,4.6699272,4.625038,4.597133,4.6144992,4.4976458,4.559744,4.6376306,4.4342168,5.0277671,4.7042232,4.7932634,5.955362,5.93751,5.9103388,5.9878989,6.330474,6.271978,6.5462569,6.479254],null,null,null,{&#34;interactive&#34;:true,&#34;draggable&#34;:false,&#34;keyboard&#34;:true,&#34;title&#34;:&#34;&#34;,&#34;alt&#34;:&#34;&#34;,&#34;zIndexOffset&#34;:0,&#34;opacity&#34;:1,&#34;riseOnHover&#34;:false,&#34;riseOffset&#34;:250},[&#34;Domaine de Chantesse&#34;,&#34;DOMAINE DE TURZON&#34;,&#34;Le Domaine De Chanteperdrix&#34;,&#34;Bijou Venues - Chateau du Bijou&#34;,&#34;Chateau du Besset&#34;,&#34;Manoir Le Roure&#34;,&#34;Le Manoir de Munas&#34;,&#34;Domaine de La Colombière&#34;,&#34;Domaine de Clairbois&#34;,&#34;Domaine de Duby&#34;,&#34;Domaine de Grand Maison&#34;,&#34;Domaine de la Griottiere&#34;,&#34;Domaine Trusquin&#34;,&#34;Domaine de Bel&#34;,&#34;La Ferme Chapouton (hôtel, bistro gourmand, séminaire &amp; mariages)&#34;,&#34;Domaine du Clos d&#39;Hullias&#34;,&#34;Camping Saint Paul Trois Chateaux hill&#34;,&#34;Domaine Des Seigneurs&#34;,&#34;Domaine de Chanille : Salle Événementielle Réception Mariage Réunion Isère 38&#34;,&#34;Chateau de Rajat&#34;,&#34;Domaine de Suzel&#34;,&#34;Domaine de Chantegrillet&#34;,&#34;Domaine des Fontaines&#34;,&#34;Domaine du Manoir&#34;,&#34;Domaine de la Garenne&#34;,&#34;Ferme de Montin location salle isère&#34;,&#34;chateau teyssier de savy&#34;,&#34;Castle Servolex&#34;,&#34;Chateau de Cesarges&#34;,&#34;DOMAINE DU CHÂTEAU DE LA RIVE&#34;,&#34;Domaine des Rives&#34;,&#34;Castle Sassenage&#34;,&#34;Domaine des Calles&#34;,&#34;Domaine de Bellevue&#34;,&#34;Domaine Passeloup&#34;,&#34;Manoir de la Garde&#34;,&#34;Manoir Tourieux&#34;,&#34;Castle Courbeville&#34;,&#34;Domaine de Montfriol&#34;,&#34;Domaine de la Genetière&#34;,&#34;Domaine Des Coteaux D&#39;or&#34;,&#34;Un Manoir à Tarare&#34;,&#34;Domaine Fantasia&#34;,&#34;Chateau de Saint Trys&#34;,&#34;domaine de chanille siege&#34;,&#34;Castle of Montalieu&#34;,&#34;Chateau de Boigne&#34;,&#34;Domaine des Saints Pères&#34;,&#34;Chateau mariage&#34;,&#34;Castle of Saint-Sixt&#34;,&#34;Domaine de la Sapinière&#34;,&#34;Hôtel La Ferme Du Lac - Restaurant Au vieux Chalet&#34;,&#34;La Ferme du Chateau&#34;],null,null,null,null,{&#34;interactive&#34;:false,&#34;permanent&#34;:false,&#34;direction&#34;:&#34;auto&#34;,&#34;opacity&#34;:1,&#34;offset&#34;:[0,0],&#34;textsize&#34;:&#34;10px&#34;,&#34;textOnly&#34;:false,&#34;className&#34;:&#34;&#34;,&#34;sticky&#34;:true},null]}],&#34;limits&#34;:{&#34;lat&#34;:[43.8361643,46.3110146],&#34;lng&#34;:[3.9121832,6.5462569]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;obtaining-venues-website&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Obtaining venues’ website&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;googleway::google_place()&lt;/code&gt; is great to find places with their addresses, GPS coordinates and types but the first loop doesn’t provide their website URLs. In order to get them we have to query the Google place API using venues “places_id” with &lt;code&gt;googleway::google_place_details()&lt;/code&gt; by applying a small function to with &lt;code&gt;purrr&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;get_website &amp;lt;- function(place_id){
+  #print(place_id)
+  place_id &amp;lt;- as.character(place_id)
+  dat &amp;lt;- googleway::google_place_details(place_id = place_id, key = google_key$key)
+  res &amp;lt;- ifelse(is.null(dat$result$website),&amp;quot;no_website&amp;quot;,dat$result$website)
+  return(res)
+}
+
+website_list &amp;lt;- df_places_filtered$place_id %&amp;gt;%
+  purrr::map(get_website) %&amp;gt;%
+  unlist()
+df_places_filtered$website &amp;lt;- website_list&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the next stages of the process I’m going to remove the venues without website URL but if like me you are organizing your wedding I suggest to manually contact them. Most of the URL are clean but sometimes some errors are possible so it is possible to remove them with a &lt;code&gt;gsub()&lt;/code&gt; for example. I’m creating a new variable called “website_contact” which will be used as well for web scraping.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_places_filtered &amp;lt;- df_places_filtered %&amp;gt;%
+  dplyr::filter(website != &amp;quot;no_website&amp;quot;) %&amp;gt;%
+  dplyr::mutate(website = gsub(&amp;quot;\\,.*&amp;quot;,&amp;quot;&amp;quot;,website)) %&amp;gt;%
+  dplyr::mutate(website = gsub(&amp;quot;com/fr&amp;quot;,&amp;quot;com&amp;quot;,website)) %&amp;gt;%
+  dplyr::mutate(website_contact = paste0(website,&amp;quot;contact&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The list of venues is now “clean” we can start the web scraping to obtain venues’ emails.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;website-scraping-for-emails&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Website scraping for emails&lt;/h1&gt;
+&lt;p&gt;I already said that Google place is great but as far as I know it doesn’ provides venues emails. However we won’t stop here and R is providing some excellent tool like &lt;code&gt;rvest&lt;/code&gt; package in order to get information for the web. Thankfully, venues websites made their emails very easy to get on their home page or on their contact page so the idea is to web scrap these pages to see if we can find venues emails in a very short function. The function contains &lt;code&gt;trycatch&lt;/code&gt; to check the URL before scraping for emails.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;extract_email &amp;lt;- function(website){
+  #print(website)
+  url_test &amp;lt;- tryCatch(xml2::read_html(website), error=function(e) print(&amp;quot;url_error&amp;quot;))
+  if(url_test == &amp;quot;url_error&amp;quot;){
+    return(NA)
+  } else {
+    text_web &amp;lt;- xml2::read_html(website)%&amp;gt;%
+      rvest::html_text()
+    email_text &amp;lt;- unlist(regmatches(text_web, gregexpr(&amp;quot;([_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4}))&amp;quot;, text_web)))
+    email_text &amp;lt;- gsub(&amp;quot;\n&amp;quot;,&amp;quot;&amp;quot;,email_text)
+    email_text &amp;lt;- gsub(&amp;quot; &amp;quot;,&amp;quot;&amp;quot;,email_text)
+    return(email_text[1])
+  }
+}
+# web scraping home page
+email_list &amp;lt;- df_places_filtered$website %&amp;gt;%
+  purrr::map(extract_email) %&amp;gt;%
+  unlist()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_places_filtered$email &amp;lt;- email_list
+# web scraping contact page
+email_list &amp;lt;- df_places_filtered$website_contact %&amp;gt;%
+  purrr::map(extract_email) %&amp;gt;%
+  unlist()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;
+## [1] &amp;quot;url_error&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_places_filtered$email_contact &amp;lt;- email_list
+# merge email and email_contact
+df_places_filtered &amp;lt;- df_places_filtered %&amp;gt;%
+  dplyr::mutate(email = ifelse(is.na(email),email_contact,email)) %&amp;gt;%
+  dplyr::filter(!is.na(email)) %&amp;gt;%
+  dplyr::select(-email_contact, -types)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_places_filtered %&amp;gt;%
+  dplyr::select(name, website) %&amp;gt;%
+  DT::datatable(options = list(pageLength = 5))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:100%;height:auto;&#34; class=&#34;datatables html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;filter&#34;:&#34;none&#34;,&#34;data&#34;:[[&#34;1&#34;,&#34;2&#34;,&#34;3&#34;,&#34;4&#34;,&#34;5&#34;,&#34;6&#34;,&#34;7&#34;,&#34;8&#34;,&#34;9&#34;,&#34;10&#34;,&#34;11&#34;,&#34;12&#34;,&#34;13&#34;,&#34;14&#34;,&#34;15&#34;,&#34;16&#34;,&#34;17&#34;,&#34;18&#34;,&#34;19&#34;,&#34;20&#34;,&#34;21&#34;,&#34;22&#34;,&#34;23&#34;,&#34;24&#34;,&#34;25&#34;,&#34;26&#34;,&#34;27&#34;,&#34;28&#34;,&#34;29&#34;,&#34;30&#34;],[&#34;DOMAINE DE TURZON&#34;,&#34;Le Domaine De Chanteperdrix&#34;,&#34;Manoir Le Roure&#34;,&#34;Le Manoir de Munas&#34;,&#34;Domaine de La Colombière&#34;,&#34;Domaine de Duby&#34;,&#34;Domaine de Grand Maison&#34;,&#34;Domaine de la Griottiere&#34;,&#34;Domaine Trusquin&#34;,&#34;La Ferme Chapouton (hÃ´tel, bistro gourmand, sÃ©minaire &amp;amp; mariages)&#34;,&#34;Domaine du Clos d&#39;Hullias&#34;,&#34;Camping Saint Paul Trois Chateaux hill&#34;,&#34;Domaine Des Seigneurs&#34;,&#34;Domaine de Chanille : Salle Événementielle Réception Mariage Réunion Isère 38&#34;,&#34;Chateau de Rajat&#34;,&#34;Domaine des Fontaines&#34;,&#34;Domaine de la Garenne&#34;,&#34;Ferme de Montin location salle isère&#34;,&#34;chateau teyssier de savy&#34;,&#34;Castle Servolex&#34;,&#34;DOMAINE DU CHÂTEAU DE LA RIVE&#34;,&#34;Manoir de la Garde&#34;,&#34;Manoir Tourieux&#34;,&#34;Castle Courbeville&#34;,&#34;Domaine de Montfriol&#34;,&#34;Domaine de la Genetière&#34;,&#34;Un Manoir à Tarare&#34;,&#34;Domaine Fantasia&#34;,&#34;Castle of Saint-Sixt&#34;,&#34;Domaine de la Sapinière&#34;],[&#34;http://www.domainedeturzon.com/&#34;,&#34;http://www.domainedechanteperdrix.fr/&#34;,&#34;http://www.domaine-le-roure.com/&#34;,&#34;http://www.lemanoirdemunas.fr/&#34;,&#34;https://www.lacolombiere.com/&#34;,&#34;http://domainededuby.fr/&#34;,&#34;http://www.reception-grandmaison-seminaire-vienne-lyon.fr/&#34;,&#34;http://www.domainedelagriottiere.com/&#34;,&#34;http://www.domainedutrusquin.fr/&#34;,&#34;https://chapouton.com/&#34;,&#34;http://domaine-mariage-avignon-provence.com/&#34;,&#34;http://campingdelacolline.com/&#34;,&#34;http://www.domainedesseigneurs.fr/&#34;,&#34;http://www.domaine-de-chanille.com/&#34;,&#34;http://www.chateaurajat.fr/&#34;,&#34;http://www.domaine-des-fontaines.com&#34;,&#34;https://salle-de-mariage-isere.com/&#34;,&#34;http://www.fermedemontin.com/&#34;,&#34;http://www.chateau-teyssier-de-savy.fr/contact.html&#34;,&#34;http://www.chateau-servolex.com/&#34;,&#34;http://www.chateaudelarive.com/&#34;,&#34;http://www.manoirdelagarde.com/&#34;,&#34;http://www.manoirtourieux.com/&#34;,&#34;http://www.chateaudecourbeville.fr/&#34;,&#34;http://www.domainemontfriol.sitew.fr/&#34;,&#34;http://www.genetiere.fr/&#34;,&#34;https://manoirtarare.fr/&#34;,&#34;http://www.fantasiareception.fr/&#34;,&#34;http://www.chateaudesaintsixt.com/&#34;,&#34;http://www.domaine-sapiniere.com/?utm_medium=organic&amp;amp;utm_source=google&amp;amp;utm_campaign=google_my_business&#34;]],&#34;container&#34;:&#34;&lt;table class=\&#34;display\&#34;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt; &lt;\/th&gt;\n      &lt;th&gt;name&lt;\/th&gt;\n      &lt;th&gt;website&lt;\/th&gt;\n    &lt;\/tr&gt;\n  &lt;\/thead&gt;\n&lt;\/table&gt;&#34;,&#34;options&#34;:{&#34;pageLength&#34;:5,&#34;order&#34;:[],&#34;autoWidth&#34;:false,&#34;orderClasses&#34;:false,&#34;columnDefs&#34;:[{&#34;orderable&#34;:false,&#34;targets&#34;:0}],&#34;lengthMenu&#34;:[5,10,25,50,100]}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Excellent we obtained a list of some venues to email!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;google-drive-and-automatic-emails&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;google drive and automatic emails&lt;/h1&gt;
+&lt;p&gt;A classic advice for wedding planning is to setup a specific email only dedicated to this task. One advantage of Google is not only very easy email setup but also the access to a Google drive to store your documents in order to keep track. Of course it’s possible to store it locally but I found Google drive nice for sharing with your partner.&lt;/p&gt;
+&lt;p&gt;Once it’s done, Google drive documents are easily accessed with the package &lt;code&gt;googledrive&lt;/code&gt; (see &lt;a href=&#34;https://googledrive.tidyverse.org/index.html&#34; class=&#34;uri&#34;&gt;https://googledrive.tidyverse.org/index.html&lt;/a&gt; for some information about &lt;code&gt;googledrive&lt;/code&gt;).&lt;/p&gt;
+&lt;div id=&#34;upload-list-of-venues-to-google-drive&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Upload list of venues to google drive&lt;/h2&gt;
+&lt;p&gt;the workflow of &lt;code&gt;googledrive&lt;/code&gt; is quite specific, we must save the data frame locally first and then upload the file.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# first save the list of venues local
+write.csv(df_places_filtered, &amp;quot;list_venues.csv&amp;quot;,row.names = FALSE)
+# upload to google drive
+drive_upload(media = &amp;quot;list_venues.csv&amp;quot;, name = &amp;quot;list_venues&amp;quot;,type = &amp;quot;spreadsheet&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;download-list-of-venues-from-google-drive&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Download list of venues from google drive&lt;/h2&gt;
+&lt;p&gt;Once it is done, we have to download the file locally and to read it again.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# select file id from google drive
+list_venues_id &amp;lt;- drive_find() %&amp;gt;%
+  dplyr::filter(name == &amp;quot;list_venues&amp;quot;) %&amp;gt;%
+  magrittr::use_series(id)
+# download list of venues locally
+drive_download(as_id(list_venues_id),overwrite = TRUE,  type = &amp;quot;csv&amp;quot;)
+# read local list of venues file
+list_venues &amp;lt;- read.csv(&amp;quot;list_venues.csv&amp;quot;,row.names = NULL) %&amp;gt;%
+  dplyr::mutate_if(is.factor,as.character)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;select-email-to-be-send&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Select email to be send&lt;/h2&gt;
+&lt;p&gt;Now the list of venues is stored in Google drive it’s time to send our emails with R. Because it is easier for me, I’ve set up another for loop (yes it’s not great but very re insuring at least). For each row of the data frame we are going to extract the venue name and email and send the same text ask for availability at a certain date.&lt;/p&gt;
+&lt;p&gt;An important thing to be able to send emails from R is to &lt;a href=&#34;https://support.google.com/accounts/answer/6010255?hl=en&#34;&gt;&lt;em&gt;allow less secure app: Yes&lt;/em&gt;&lt;/a&gt; in gmail settings.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;email_to_send &amp;lt;- list_venues
+#
+# Email to send
+email_text &amp;lt;- &amp;quot;&amp;lt;p&amp;gt;Dear owner/manager of &amp;#39;{name}&amp;#39;, &amp;lt;br&amp;gt;&amp;lt;br&amp;gt;We are contacting you because we would like to organise our wedding &amp;lt;b&amp;gt;Sunday 9 of June 2019&amp;lt;/b&amp;gt; and your plac would be amazing for it.&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;That&amp;#39;s why we would like to know if your venue &amp;#39;{name}&amp;#39; is available &amp;lt;b&amp;gt;Sunday 9 of June 2019&amp;lt;/b&amp;gt;?&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;Best regards,&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;YOUR NAMES&amp;lt;/p&amp;gt;&amp;quot;
+#
+for(i in 1:nrow(email_to_send)){
+  df &amp;lt;- email_to_send[i,]
+  name &amp;lt;- as.character(df$name)
+  ################################
+  send.mail(from = gmail_wedding$email,
+            to = as.character(df$email),
+            subject = &amp;quot;Availability for a wedding on the 09/06/2019&amp;quot;,
+            body = glue::glue(email_text),
+            smtp = list(host.name = &amp;quot;smtp.gmail.com&amp;quot;, port = 465, 
+                        user.name = gmail_wedding$email,            
+                        passwd = gmail_wedding$passwd, ssl = TRUE),
+            authenticate = TRUE,
+            send = TRUE,
+            html = TRUE)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can have a look at the email send in your mail box in order to check that the process worked.&lt;/p&gt;
+&lt;p&gt;Then, the final stage it to update the list of venue with the contact date in order to not send an email twice.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;email_to_send &amp;lt;- email_to_send %&amp;gt;%
+  dplyr::mutate(date_contact = as.character(as.Date(Sys.Date()))) %&amp;gt;%
+  dplyr::mutate(type_contact = &amp;quot;automatic email&amp;quot;)
+# Checks in case of different batch of email sending
+id &amp;lt;- match(list_venues$name, email_to_send$name, nomatch = 0L)
+list_venues$date_contact[id != 0] &amp;lt;- email_to_send$date_contact[id]
+list_venues$type_contact[id != 0] &amp;lt;- email_to_send$type_contact[id]
+# Write data on local and Upload data from local to google drive
+write.csv(list_venues,&amp;quot;ist_venues.csv&amp;quot;,row.names = FALSE)
+drive_update(file = &amp;quot;list_venues&amp;quot;, media = &amp;quot;list_venues.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I hope these scripts will help you in finding the best place for your wedding. And good luck for the organisation!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Time series clustering with Dynamic Time Warping (Part 2)</title>
+      <link>/post/time-series-clustering-with-dynamic-time-warping-part-2/</link>
+      <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/post/time-series-clustering-with-dynamic-time-warping-part-2/</guid>
+      <description>
+
+
+&lt;p&gt;Like every good movies, my previous blog post “Time series clustering with Dynamic Time Warping” deserves a sequel. In this Part 2, I will have a look at the athletes’ training plan for a marathon. Because marathons are such a demanding performance, most of athletes have a specific training plan to follow in order to be prepared. Many different training plan can be found on the web such as &lt;a href=&#34;https://www.runireland.com/wp-content/uploads/2018/01/Training_for_marathon.pdf&#34;&gt;this one&lt;/a&gt; from the website www.runireland.com.&lt;/p&gt;
+&lt;p&gt;In this blog post I will try to cluster different simulated athlete training plans with Dynamic Time Warping and some seasonality, states and power band extractions.&lt;/p&gt;
+&lt;div id=&#34;list-of-packages-needed&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;List of packages needed&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# data wrangling
+library(dplyr) # data wrangling
+library(tidyr) # datawrangling
+# analysis
+library(dtwclust) # dynamic time warpping
+library(depmixS4) # Hidden Markov Model
+library(WaveletComp) # Wavelet Analysis
+# graphics
+library(ggplot2) # grammar of graphics
+library(ggdendro) # grammar of dendrograms
+library(gtable) # plot organisation
+library(grid) # plot organisation
+library(gridExtra) # plot organisation&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-simulation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data simulation&lt;/h2&gt;
+&lt;p&gt;For this purpose, I will create a data frame of 20 athlete training plans with 10 of them with a random plan and 10 with a repeated pattern non synchronized on their date and intensity. The main variable is the distance they have ran of every day since 25 weeks (175 days) before the marathon.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;date_marathon &amp;lt;- as.Date(&amp;quot;2015-10-26&amp;quot;)
+#
+df &amp;lt;- NULL
+# random training plan with runs from 5 to 40km with a high proability of non run days (between 25% and 75% depending on athletes)
+for (i in 1:10){
+  random_proba &amp;lt;- runif(8)
+  random_proba &amp;lt;- random_proba/sum(random_proba)
+  value &amp;lt;- base::sample(
+    x = seq(from = 0, to = 40, by = 5), 
+    size = 175, 
+    replace = TRUE, 
+    prob = c(runif(1, 0.25, 0.75),random_proba)
+  )
+  athlete &amp;lt;- paste0(&amp;quot;athlete_rand_&amp;quot;,i)
+  new_df &amp;lt;- data.frame(athlete = athlete, value = value, rundate = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;))
+  df &amp;lt;- rbind(df,new_df)
+}
+# training plan with a reapeated pattern with can change according the weeks and with a different intensity according athletes
+for (i in 11:20){
+  value &amp;lt;- rep_len(
+    x = c(rep(x = 0, sample(1:3, 1)),10,0,15,20,30)*runif(1, 0.5, 1.5),
+    length.out = 175
+  )
+  athlete &amp;lt;- paste0(&amp;quot;athlete_plan_&amp;quot;,i)
+  new_df &amp;lt;- data.frame(athlete = athlete, value = value, rundate = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;))
+  df &amp;lt;- rbind(df,new_df)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once we have the data generated, a key trick will be to convert this data frame into a list of time series. The reason behind this choice is the possibility to implement a multivariate DTW analysis in the future (maybe in a Part 3).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plan_list &amp;lt;- df %&amp;gt;% 
+  tidyr::spread(athlete,value) %&amp;gt;%
+  dplyr::select(-rundate) %&amp;gt;%
+  purrr::map(~(.))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dtw-cluster-on-raw-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;DTW cluster on raw data&lt;/h1&gt;
+&lt;p&gt;After creating the list of data, let’s implement a simple DTW clustering on the raw data to see if we can identify our two groups.&lt;/p&gt;
+&lt;div id=&#34;dtw-model&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;DTW model&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Nclust &amp;lt;- 2
+dtw_model &amp;lt;- dtwclust::tsclust(series = plan_list, 
+                               type = &amp;quot;h&amp;quot;, 
+                               k = Nclust,  
+                               distance = &amp;quot;dtw_basic&amp;quot;, 
+                               control = hierarchical_control(method = &amp;quot;complete&amp;quot;),
+                               preproc = NULL, 
+                               #args = tsclust_args(dist = list(window.size = 5L)),
+                               trace = TRUE)
+#
+dtw_data &amp;lt;- ggdendro::dendro_data(dtw_model, type=&amp;quot;rectangle&amp;quot;)
+#
+labels_order &amp;lt;- dtw_data$labels$label
+#
+dtw_result &amp;lt;- data.frame(label = names(plan_list), 
+                         cluster = factor(stats::cutree(dtw_model, k = Nclust)))
+#
+dtw_data[[&amp;quot;labels&amp;quot;]] &amp;lt;- merge(dtw_data[[&amp;quot;labels&amp;quot;]], dtw_result, by=&amp;quot;label&amp;quot;)
+dtw_result &amp;lt;- dplyr::full_join(dtw_result,dtw_data$labels, by=c(&amp;quot;label&amp;quot;, &amp;quot;cluster&amp;quot;))%&amp;gt;%
+  dplyr::arrange(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dtw-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;DTW plot&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_box &amp;lt;- aggregate(x~cluster, ggdendro::label(dtw_data), range)
+cluster_box &amp;lt;- data.frame(cluster_box$cluster,cluster_box$x)
+cluster_threshold &amp;lt;- mean(dtw_model$height[length(dtw_model$height)-((Nclust-2):(Nclust-1))])
+#
+numColors &amp;lt;- length(levels(dtw_result$cluster)) # How many colors you need
+getColors &amp;lt;- scales::hue_pal() # Create a function that takes a number and returns a qualitative palette of that length (from the scales package)
+myPalette &amp;lt;- getColors(numColors)
+names(myPalette) &amp;lt;- levels(dtw_result$cluster) # Give every color an appropriate name
+
+p1 &amp;lt;- ggplot() + 
+  geom_rect(data=cluster_box, aes(xmin=X1-.3, xmax=X2+.3, ymin=0, ymax=cluster_threshold, color=cluster_box.cluster), fill=NA)+
+  geom_segment(data=ggdendro::segment(dtw_data), aes(x=x, y=y, xend=xend, yend=yend)) + 
+  coord_flip() + 
+  scale_y_continuous(&amp;quot;Distance&amp;quot;) + 
+  scale_x_continuous(&amp;quot;&amp;quot;,breaks = 1:20, labels = labels_order) + 
+  guides(color=FALSE, fill = FALSE)+
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(), # remove grids
+    panel.background = element_blank(), 
+    axis.text.y = element_text(colour = myPalette[dtw_result$cluster],hjust=0.5),
+    axis.ticks.y=element_blank()
+  )
+#
+p2 &amp;lt;- as.data.frame(matrix(unlist(plan_list), 
+                           nrow=length(unlist(plan_list[1])), 
+                           dimnames = list(c(),names(plan_list)))) %&amp;gt;%
+  dplyr::mutate(rundatelocal = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;)) %&amp;gt;%
+  tidyr::gather(key = label,value = value, -rundatelocal) %&amp;gt;%
+  dplyr::mutate(label = as.factor(label)) %&amp;gt;%
+  dplyr::full_join(., dtw_result, by = &amp;quot;label&amp;quot;) %&amp;gt;% 
+  mutate(label = factor(label, levels = rev(as.character(labels_order)))) %&amp;gt;%
+  ggplot(aes(x = rundatelocal, y = value, colour = as.factor(cluster))) +
+  geom_line() +
+  geom_area(aes(fill = as.factor(cluster))) +
+  coord_cartesian(ylim = c(0,50)) +
+  scale_y_continuous(name = &amp;quot;Total distance per day [km]&amp;quot;, breaks = seq(0, 50, by = 50)) +
+  scale_x_date(name = &amp;quot;Run Date&amp;quot;, date_breaks = &amp;quot;4 week&amp;quot;, date_labels = &amp;quot;%b %d&amp;quot;) +
+  facet_wrap(~label, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE, fill = FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+#
+plt_list &amp;lt;- list(p2, p1)
+plt_layout &amp;lt;- rbind(c(NA, 2),
+                    c(1, 2),
+                    c(NA, 2))
+#
+grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I think I get a nice plot thanks to the solutions provided on Stack Overflow graphically speaking (except some overlap with the labels but I’m working on it). The results are not too bad but some of the random plan can be included in the repeated pattern plan. Well randomness can be expected and can create some nice patterns sometimes. Another interesting result is the necessity to increase the cluster number in order to have a clean clustering.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;centroids&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Centroids&lt;/h3&gt;
+&lt;p&gt;We can also have a look at the centroids to see with plans are the most representative of the clusters. Obviously with only two clusters, it is not very useful but it can be a key element to distinguish between many different training plans.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dtw_model_centroids &amp;lt;- data.frame(dtw_model@centroids, rundatelocal = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;)) %&amp;gt;%
+  tidyr::gather(label, totaldistancekm, starts_with(&amp;quot;athlete&amp;quot;)) %&amp;gt;%
+  dplyr::left_join(., dtw_result, by = &amp;quot;label&amp;quot;) %&amp;gt;% 
+  dplyr::mutate(label = factor(label, levels = rev(labels_order)))
+#
+dtw_model_centroids %&amp;gt;%
+  ggplot(aes(rundatelocal,totaldistancekm, color = cluster, fill = cluster)) +
+  geom_line() +
+  geom_area() +
+  facet_wrap(~ label + cluster, ncol = 1, strip.position=&amp;quot;right&amp;quot;, labeller=labeller(.rows = label_both)) +
+  scale_y_continuous(name = &amp;quot;Total distance per day [km]&amp;quot;) +
+  scale_x_date(name = &amp;quot;Run Date&amp;quot;, date_breaks = &amp;quot;4 week&amp;quot;, date_labels = &amp;quot;%b %d&amp;quot;) +
+  guides(color=FALSE, fill = FALSE) +
+  theme_bw()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The main problem with raw data is the noise. In order to extract recurrent patterns, the randomness of the noise can sometimes simulate non meaningful pattern and then change the cluster structure. Because we are interested in classification of recurrent pattern, a nice thing would be to remove the noise. Noise removal analyses are probably the most important contribution of signal treatment research and many can be applied here such as seasonality decomposition, Hidden Markov Models and power spectrum analysis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dtw-cluster-with-seasonality-decomposition&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;DTW cluster with seasonality decomposition&lt;/h2&gt;
+&lt;p&gt;R for time series analysis have some unavoidable packages and functions. If you are interested in time series analysis, you probably cannot work without &lt;code&gt;zoo::zoo()&lt;/code&gt;, &lt;code&gt;xts::xts()&lt;/code&gt; or &lt;code&gt;tibbletime::as_tbl_time()&lt;/code&gt;. However for time series analysis, the &lt;code&gt;stats&lt;/code&gt; package have one of the most used and nice function: &lt;code&gt;stl()&lt;/code&gt;. Stl allows a Seasonal Decomposition of Time Series by Loess which is powerful in order to extract time series noise, trend and seasonality (i.e periods). In our case we will try to use &lt;code&gt;stl()&lt;/code&gt; in order to extract training plan seasonality over one week and then to cluster the results with the DTW method.&lt;/p&gt;
+&lt;p&gt;So first let’s apply the &lt;code&gt;stl()&lt;/code&gt; decomposition to every time series in our master list.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;extract_seasonality &amp;lt;- function(x, robust){
+  x_ts = ts(as.numeric(unlist(x)), frequency = 7)
+  stl_test = stl(x_ts, s.window = 7, robust)
+  return(stl_test$time.series[,1])
+}
+#
+plan_seasonality &amp;lt;- plan_list %&amp;gt;%
+  purrr::map(~extract_seasonality(., robust = TRUE))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and then let’s process our model and to plot the results.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Nclust &amp;lt;- 2
+dtw_model &amp;lt;- dtwclust::tsclust(series = plan_seasonality, 
+                               type = &amp;quot;h&amp;quot;, 
+                               k = Nclust,  
+                               distance = &amp;quot;dtw_basic&amp;quot;, 
+                               control = hierarchical_control(method = &amp;quot;complete&amp;quot;),
+                               preproc = NULL, 
+                               #args = tsclust_args(dist = list(window.size = 5L)),
+                               trace = TRUE)
+#
+dtw_data &amp;lt;- ggdendro::dendro_data(dtw_model, type=&amp;quot;rectangle&amp;quot;)
+#
+labels_order &amp;lt;- dtw_data$labels$label
+#
+dtw_result &amp;lt;- data.frame(label = names(plan_seasonality), 
+                         cluster = factor(stats::cutree(dtw_model, k = Nclust)))
+#
+dtw_data[[&amp;quot;labels&amp;quot;]] &amp;lt;- merge(dtw_data[[&amp;quot;labels&amp;quot;]], dtw_result, by=&amp;quot;label&amp;quot;)
+dtw_result &amp;lt;- dplyr::full_join(dtw_result,dtw_data$labels, by=c(&amp;quot;label&amp;quot;, &amp;quot;cluster&amp;quot;))%&amp;gt;%
+  dplyr::arrange(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_box &amp;lt;- aggregate(x~cluster, ggdendro::label(dtw_data), range)
+cluster_box &amp;lt;- data.frame(cluster_box$cluster,cluster_box$x)
+cluster_threshold &amp;lt;- mean(dtw_model$height[length(dtw_model$height)-((Nclust-2):(Nclust-1))])
+#
+numColors &amp;lt;- length(levels(dtw_result$cluster)) # How many colors you need
+getColors &amp;lt;- scales::hue_pal() # Create a function that takes a number and returns a qualitative palette of that length (from the scales package)
+myPalette &amp;lt;- getColors(numColors)
+names(myPalette) &amp;lt;- levels(dtw_result$cluster) # Give every color an appropriate name
+
+p1 &amp;lt;- ggplot() + 
+  geom_rect(data=cluster_box, aes(xmin=X1-.3, xmax=X2+.3, ymin=0, ymax=cluster_threshold, color=cluster_box.cluster), fill=NA)+
+  geom_segment(data=ggdendro::segment(dtw_data), aes(x=x, y=y, xend=xend, yend=yend)) + 
+  coord_flip() + 
+  scale_y_continuous(&amp;quot;Distance&amp;quot;) + 
+  scale_x_continuous(&amp;quot;&amp;quot;,breaks = 1:20, labels = labels_order) + 
+  guides(color=FALSE, fill = FALSE)+
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(), # remove grids
+    panel.background = element_blank(), 
+    axis.text.y = element_text(colour = myPalette[dtw_result$cluster],hjust=0.5),
+    axis.ticks.y=element_blank()
+  )
+#
+p2 &amp;lt;- as.data.frame(matrix(unlist(plan_seasonality), 
+                           nrow=length(unlist(plan_seasonality[1])), 
+                           dimnames = list(c(),names(plan_seasonality)))) %&amp;gt;%
+  dplyr::mutate(rundatelocal = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;)) %&amp;gt;%
+  tidyr::gather(key = label,value = value, -rundatelocal) %&amp;gt;%
+  dplyr::mutate(label = as.factor(label)) %&amp;gt;%
+  dplyr::full_join(., dtw_result, by = &amp;quot;label&amp;quot;) %&amp;gt;% 
+  mutate(label = factor(label, levels = rev(as.character(labels_order)))) %&amp;gt;%
+  ggplot(aes(x = rundatelocal, y = value, colour = as.factor(cluster))) +
+  geom_line() +
+  geom_area(aes(fill = as.factor(cluster))) +
+  coord_cartesian(ylim = c(-25,25)) +
+  scale_y_continuous(name = &amp;quot;Seasonal distance per day [km]&amp;quot;, breaks = seq(-25, 25, by = 50)) +
+  scale_x_date(name = &amp;quot;Run Date&amp;quot;, date_breaks = &amp;quot;4 week&amp;quot;, date_labels = &amp;quot;%b %d&amp;quot;) +
+  facet_wrap(~label, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE, fill = FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+#
+plt_list &amp;lt;- list(p2, p1)
+plt_layout &amp;lt;- rbind(c(NA, 2),
+                    c(1, 2),
+                    c(NA, 2))
+#
+grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Well that’s an epic fail I think but let’s have a look why. Different reasons can explain why we have a first cluster with only 3 time series and as second with all the 17 remaining ones:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;I am using only 2 clusters. In the real life (and in real randomness) a large amount of pattern is possible thus increasing the number of clusters can make the clustering more efficient (if an evaluation of the best fit with cluster number is performed).&lt;/li&gt;
+&lt;li&gt;By removing the noise in the random plan, I made them not random at all and we can see now the repetition of the patterns. This is exactly what I want in my research with real data but here it made a mess.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So let’s try another method!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dtw-cluster-with-hidden-markov-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;DTW cluster with Hidden Markov Model&lt;/h2&gt;
+&lt;p&gt;I’m not a perfect expert in Hidden Markov Model (HMM) and after having a look at the book &lt;a href=&#34;https://www.crcpress.com/p/book/9781482253832&#34;&gt;Hidden Markov Models for Time Series An Introduction Using R&lt;/a&gt; by Walter Zucchini, Iain L. MacDonald and Roland Langrock, I can surely say that it is a complicated question. However in a nutshell HMM are clustering the values according their probability to be part of a “state”. In our case, let’s say that we have three states possible per day “no run”, “medium run” and “long run”. By using HMM it is possible to create new time series based on states instead on distance. It’s a qualitative transformation without any prior assumption about the states boundaries (almost).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plan_HMM &amp;lt;- as.data.frame(matrix(unlist(plan_list), 
+                           nrow=length(unlist(plan_list[1])), 
+                           dimnames = list(c(),names(plan_list)))) %&amp;gt;%
+  dplyr::mutate(rundatelocal = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;)) %&amp;gt;%
+  tidyr::gather(key = label,value = value, -rundatelocal) %&amp;gt;%
+  dplyr::mutate(label = as.factor(label)) %&amp;gt;%
+  dplyr::mutate(value = as.integer(value))
+#
+mod &amp;lt;- depmixS4::depmix(value~label, family = poisson(link = &amp;quot;log&amp;quot;), nstates = 3, data = plan_HMM)
+#
+fm  &amp;lt;- depmixS4::fit(mod, verbose = FALSE)
+#
+probs &amp;lt;- depmixS4::posterior(fm)
+#
+plan_HMM &amp;lt;- cbind(plan_HMM,probs) %&amp;gt;%
+  dplyr::select(rundatelocal,label,state) %&amp;gt;%
+  tidyr::spread(label,state) %&amp;gt;%
+  dplyr::select(-rundatelocal) %&amp;gt;%
+  purrr::map(~(.))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Nclust &amp;lt;- 2
+dtw_model &amp;lt;- dtwclust::tsclust(series = plan_HMM, 
+                               type = &amp;quot;h&amp;quot;, 
+                               k = Nclust,  
+                               distance = &amp;quot;dtw_basic&amp;quot;, 
+                               control = hierarchical_control(method = &amp;quot;complete&amp;quot;),
+                               preproc = NULL, 
+                               #args = tsclust_args(dist = list(window.size = 5L)),
+                               trace = TRUE)
+#
+dtw_data &amp;lt;- ggdendro::dendro_data(dtw_model, type=&amp;quot;rectangle&amp;quot;)
+#
+labels_order &amp;lt;- dtw_data$labels$label
+#
+dtw_result &amp;lt;- data.frame(label = names(plan_HMM), 
+                         cluster = factor(stats::cutree(dtw_model, k = Nclust)))
+#
+dtw_data[[&amp;quot;labels&amp;quot;]] &amp;lt;- merge(dtw_data[[&amp;quot;labels&amp;quot;]], dtw_result, by=&amp;quot;label&amp;quot;)
+dtw_result &amp;lt;- dplyr::full_join(dtw_result,dtw_data$labels, by=c(&amp;quot;label&amp;quot;, &amp;quot;cluster&amp;quot;))%&amp;gt;%
+  dplyr::arrange(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_box &amp;lt;- aggregate(x~cluster, ggdendro::label(dtw_data), range)
+cluster_box &amp;lt;- data.frame(cluster_box$cluster,cluster_box$x)
+cluster_threshold &amp;lt;- mean(dtw_model$height[length(dtw_model$height)-((Nclust-2):(Nclust-1))])
+#
+numColors &amp;lt;- length(levels(dtw_result$cluster)) # How many colors you need
+getColors &amp;lt;- scales::hue_pal() # Create a function that takes a number and returns a qualitative palette of that length (from the scales package)
+myPalette &amp;lt;- getColors(numColors)
+names(myPalette) &amp;lt;- levels(dtw_result$cluster) # Give every color an appropriate name
+
+p1 &amp;lt;- ggplot() + 
+  geom_rect(data=cluster_box, aes(xmin=X1-.3, xmax=X2+.3, ymin=0, ymax=cluster_threshold, color=cluster_box.cluster), fill=NA)+
+  geom_segment(data=ggdendro::segment(dtw_data), aes(x=x, y=y, xend=xend, yend=yend)) + 
+  coord_flip() + 
+  scale_y_continuous(&amp;quot;Distance&amp;quot;) + 
+  scale_x_continuous(&amp;quot;&amp;quot;,breaks = 1:20, labels = labels_order) + 
+  guides(color=FALSE, fill = FALSE)+
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(), # remove grids
+    panel.background = element_blank(), 
+    axis.text.y = element_text(colour = myPalette[dtw_result$cluster],hjust=0.5),
+    axis.ticks.y=element_blank()
+  )
+#
+p2 &amp;lt;- as.data.frame(matrix(unlist(plan_HMM), 
+                           nrow=length(unlist(plan_HMM[1])), 
+                           dimnames = list(c(),names(plan_HMM)))) %&amp;gt;%
+  dplyr::mutate(rundatelocal = seq.Date(date_marathon-175, date_marathon-1, by=&amp;quot;day&amp;quot;)) %&amp;gt;%
+  tidyr::gather(key = label,value = value, -rundatelocal) %&amp;gt;%
+  dplyr::mutate(label = as.factor(label)) %&amp;gt;%
+  dplyr::full_join(., dtw_result, by = &amp;quot;label&amp;quot;) %&amp;gt;% 
+  mutate(label = factor(label, levels = rev(as.character(labels_order)))) %&amp;gt;%
+  ggplot(aes(x = rundatelocal, y = value, colour = as.factor(cluster))) +
+  geom_line() +
+  geom_area(aes(fill = as.factor(cluster))) +
+  coord_cartesian(ylim = c(0,4)) +
+  scale_y_continuous(name = &amp;quot;States per day [km]&amp;quot;, breaks = seq(0, 4, by = 4)) +
+  scale_x_date(name = &amp;quot;Run Date&amp;quot;, date_breaks = &amp;quot;4 week&amp;quot;, date_labels = &amp;quot;%b %d&amp;quot;) +
+  facet_wrap(~label, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE, fill = FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+#
+plt_list &amp;lt;- list(p2, p1)
+plt_layout &amp;lt;- rbind(c(NA, 2),
+                    c(1, 2),
+                    c(NA, 2))
+#
+grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Good news this time, the clusters are almost equally distributed, bad news random plans and pattern plans are mixed together. However we can see that the HMM is creating surprisingly nice pattern which can be easily clustered with a higher number of cluster. The drawback is the low distance between each time series which can make the clustering method more complicated.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dtw-cluster-by-power-spectral-density&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;DTW cluster by power spectral density&lt;/h2&gt;
+&lt;p&gt;Last but not least, the probable best approach to evaluate seasonality/frequency in training plan pattern can be the power spectrum analysis. By identifying the underlying frequencies of each time series it is possible to cluster them according their pattern. A nice new package &lt;code&gt;WaveletComp&lt;/code&gt; can be used for this purpose. &lt;code&gt;WaveletComp&lt;/code&gt; is analyzing the frequency structure of uni- and bivariate time series using the Morlet wavelet.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;extract_poweravg &amp;lt;- function(x){
+  x &amp;lt;- as.data.frame(x)
+  power_spectrum &amp;lt;- WaveletComp::analyze.wavelet(
+    my.data = x,
+    my.series = 1,
+    loess.span = 0,
+    dt = 1,
+    verbose = FALSE
+  )
+  max_period &amp;lt;- max(power_spectrum$Period)
+  dat &amp;lt;- spline(power_spectrum$Power.avg, n = max_period)$y # WARNING:power band starts at 2 not 1
+  return(dat)
+}
+plan_poweravge &amp;lt;- plan_list %&amp;gt;%
+  purrr::map(~extract_poweravg(.))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Nclust &amp;lt;- 2
+dtw_model &amp;lt;- dtwclust::tsclust(series = plan_poweravge, 
+                               type = &amp;quot;h&amp;quot;, 
+                               k = Nclust,  
+                               distance = &amp;quot;dtw_basic&amp;quot;, 
+                               control = hierarchical_control(method = &amp;quot;complete&amp;quot;),
+                               preproc = NULL, 
+                               #args = tsclust_args(dist = list(window.size = 5L)),
+                               trace = TRUE)
+#
+
+dtw_data &amp;lt;- ggdendro::dendro_data(dtw_model, type=&amp;quot;rectangle&amp;quot;)
+#
+labels_order &amp;lt;- dtw_data$labels$label
+#
+dtw_result &amp;lt;- data.frame(label = names(plan_poweravge), 
+                         cluster = factor(stats::cutree(dtw_model, k = Nclust)))
+#
+dtw_data[[&amp;quot;labels&amp;quot;]] &amp;lt;- merge(dtw_data[[&amp;quot;labels&amp;quot;]], dtw_result, by=&amp;quot;label&amp;quot;)
+dtw_result &amp;lt;- dplyr::full_join(dtw_result,dtw_data$labels, by=c(&amp;quot;label&amp;quot;, &amp;quot;cluster&amp;quot;))%&amp;gt;%
+  dplyr::arrange(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_box &amp;lt;- aggregate(x~cluster, ggdendro::label(dtw_data), range)
+cluster_box &amp;lt;- data.frame(cluster_box$cluster,cluster_box$x)
+cluster_threshold &amp;lt;- mean(dtw_model$height[length(dtw_model$height)-((Nclust-2):(Nclust-1))])
+#
+numColors &amp;lt;- length(levels(dtw_result$cluster)) # How many colors you need
+getColors &amp;lt;- scales::hue_pal() # Create a function that takes a number and returns a qualitative palette of that length (from the scales package)
+myPalette &amp;lt;- getColors(numColors)
+names(myPalette) &amp;lt;- levels(dtw_result$cluster) # Give every color an appropriate name
+
+p1 &amp;lt;- ggplot() + 
+  geom_rect(data=cluster_box, aes(xmin=X1-.3, xmax=X2+.3, ymin=0, ymax=cluster_threshold, color=cluster_box.cluster), fill=NA)+
+  geom_segment(data=ggdendro::segment(dtw_data), aes(x=x, y=y, xend=xend, yend=yend)) + 
+  coord_flip() + 
+  scale_y_continuous(&amp;quot;Distance&amp;quot;) + 
+  scale_x_continuous(&amp;quot;&amp;quot;,breaks = 1:20, labels = labels_order) + 
+  guides(color=FALSE, fill = FALSE)+
+  theme(
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank(), # remove grids
+    panel.background = element_blank(), 
+    axis.text.y = element_text(colour = myPalette[dtw_result$cluster],hjust=0.5),
+    axis.ticks.y=element_blank()
+  )
+#
+p2 &amp;lt;- as.data.frame(matrix(unlist(plan_poweravge), 
+                           nrow=length(unlist(plan_poweravge[1])), 
+                           dimnames = list(c(),names(plan_poweravge)))) %&amp;gt;%
+  dplyr::mutate(rundatelocal = 1:n()) %&amp;gt;%
+  tidyr::gather(key = label,value = value, -rundatelocal) %&amp;gt;%
+  dplyr::mutate(label = as.factor(label)) %&amp;gt;%
+  dplyr::full_join(., dtw_result, by = &amp;quot;label&amp;quot;) %&amp;gt;% 
+  mutate(label = factor(label, levels = rev(as.character(labels_order)))) %&amp;gt;%
+  ggplot(aes(x = rundatelocal, y = value, colour = as.factor(cluster))) +
+  geom_line() +
+  geom_area(aes(fill = as.factor(cluster))) +
+  coord_cartesian(ylim = c(0,1)) +
+  scale_y_continuous(name = &amp;quot;Average power density&amp;quot;, breaks = seq(0, 1, by = 1)) +
+  scale_x_continuous(name = &amp;quot;Period (days)&amp;quot;) +
+  facet_wrap(~label, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE, fill = FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+#
+plt_list &amp;lt;- list(p2, p1)
+plt_layout &amp;lt;- rbind(c(NA, 2),
+                    c(1, 2),
+                    c(NA, 2))
+#
+grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This frequency decomposition looks amazing but be careful because the power frequency are average and as stated in &lt;a href=&#34;http://www.hs-stat.com/projects/WaveletComp/WaveletComp_guided_tour.pdf&#34;&gt;“WaveletComp 1.1:A guided tour through the R package”&lt;/a&gt;, “The average power plot cannot distinguish between consecutive periods and overlapping periods”. This is annoying but average power is definitely a first step toward a nice classification of training plan patterns.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A simple introduction to statistical test and statistical significance</title>
+      <link>/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</link>
+      <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</guid>
+      <description>
+
+
+&lt;p&gt;Recently I was asked to make a short presentation about how to introduce the idea of statistical test and statistical significance to students in marketing. The timing was very good because I just had red a blog post written by Stephen B. Heard called &lt;a href=&#34;https://scientistseessquirrel.wordpress.com/2015/10/06/why-do-we-make-statistics-so-hard-for-our-students/&#34;&gt;Why do we make statistics so hard for our students?&lt;/a&gt; which is exactly the way to follow. So I taken the main idea of this post and made a short presentation with R that you can find here:&lt;/p&gt;
+&lt;iframe src=&#34;https://damien-datasci-blog.netlify.com/slides/DCU_presentation&#34; width=&#34;672&#34; height=&#34;400px&#34;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;I’ve also taken a simple meme which looks very trendy on the net. A great sentence by W. Edwards Deming “Without data you’re just another person with an opinion”. It’s simple but it is the reason why Statistics are very important not only in academia but also in companies.&lt;/p&gt;
+&lt;p&gt;PS: Special thanks to Tim Mastny for his blog post about &lt;a href=&#34;https://timmastny.rbind.io/blog/embed-slides-knitr-blogdown/&#34;&gt;how to host R presentation in a blogdown&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Time series clustering with Dynamic Time Warping</title>
+      <link>/post/time-series-clustering-with-dynamic-time-warp/</link>
+      <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/post/time-series-clustering-with-dynamic-time-warp/</guid>
+      <description>
+
+
+&lt;p&gt;Many solutions for clustering time series are available with R and as usual the web is full of nice tutorials like &lt;a href=&#34;http://girke.bioinformatics.ucr.edu/GEN242/pages/mydoc/Rclustering.html&#34;&gt;Thomas Girke’s blog post&lt;/a&gt;, &lt;a href=&#34;http://genomicsclass.github.io/book/pages/clustering_and_heatmaps.html&#34;&gt;Rafael Irizarry and Michael Love’s book&lt;/a&gt;, &lt;a href=&#34;https://datawookie.netlify.com/blog/2017/04/clustering-time-series-data/&#34;&gt;Andrew B. Collier’s blog post&lt;/a&gt;, &lt;a href=&#34;https://petolau.github.io/TSrepr-clustering-time-series-representations/&#34;&gt;Peter Laurinec’s blog post&lt;/a&gt;, &lt;a href=&#34;http://www.stat.unc.edu/faculty/pipiras/timeseries/Multivariate_6_-_Classification_Clustering_-_Menu.html&#34;&gt;Dylan Glotzer’s lecture&lt;/a&gt; or &lt;a href=&#34;http://rstudio-pubs-static.s3.amazonaws.com/398402_abe1a0343a4e4e03977de8f3791e96bb.html&#34;&gt;Ana Rita Marques’s module&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Dynamic Time Warping (DTW) is one of these solutions. The main advantage of DTW is the possibility to group time series according their patterns or shapes even if these patterns are not synchronized (lag).&lt;/p&gt;
+&lt;p&gt;As far as I know the two main packages which allow time series clustering with DTW are &lt;code&gt;TSclust&lt;/code&gt; by &lt;a href=&#34;https://cran.r-project.org/web/packages/TSclust/index.html&#34;&gt;Pablo Montero Manso and José Antonio Vilar&lt;/a&gt; and &lt;code&gt;dtwclust&lt;/code&gt; by &lt;a href=&#34;https://cran.r-project.org/web/packages/dtwclust/index.html&#34;&gt;Alexis Sarda-Espinosa&lt;/a&gt;. These packages are very simple but powerful tools to analyse time series. However when it comes to analyse real data, I found difficult to understand how the clustering is working. To make this process clearer I’m going to simulate two groups of time series and to check if whether or not the DTW clustering can differentiate them.&lt;/p&gt;
+&lt;div id=&#34;list-of-packages-needed&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;List of packages needed&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr) # data wrangling
+library(ggplot2) # grammar of graphics
+library(gridExtra) # merge plots
+library(ggdendro) # dendrograms
+library(gplots) # heatmap
+library(tseries) # bootstrap
+library(TSclust) # cluster time series
+library(dtwclust) # cluster time series with dynamic time warping&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-simulation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data simulation&lt;/h2&gt;
+&lt;p&gt;Let’s imagine two people running a marathon, one had a classic run with a pace increasing with the time and the other had a very bad experience (e.g. “hitting the wall”) with a jump in the pace which indicates a significant slow down in the second part of the run. The best is to have real data to analyse but it can be very useful to simulate these pattern in order to assess the clustering efficiency.&lt;/p&gt;
+&lt;p&gt;A simple way to simulate these time series is to use the &lt;code&gt;sine&lt;/code&gt; function and to add a random noise in order to make it more credible.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# classic run
+noise &amp;lt;- runif(420) # random noise
+x &amp;lt;- seq(1,420) # 42km with a measure every 100m
+pace_min &amp;lt;- 5 # min/km (corresponds to fast run)
+
+ts_sim_classic_run &amp;lt;- (sin(x/10)+x/100+noise+pace_min) %&amp;gt;%
+  as.ts(.)
+
+ts.plot(ts_sim_classic_run, xlab = &amp;quot;Distance [x100m]&amp;quot;, ylab = &amp;quot;Differential pace [min/km]&amp;quot;, main = &amp;quot;Example of classic run&amp;quot;, ylim=c(0,25))
+
+# wall run
+noise &amp;lt;- runif(210) # random noise
+x &amp;lt;- seq(1,210) # 21km with a measure every 100m 
+pace_min &amp;lt;- 5 # min/km (corresponds to fast run)
+pace_wall &amp;lt;- 20 # min/km (corresponds to very slow run) 
+ts_sim_part1 &amp;lt;- sin(x/5)+x/50+noise+pace_min
+ts_sim_part2 &amp;lt;- sin(x/5)+noise+pace_wall
+
+ts_sim_wall_run &amp;lt;- c(ts_sim_part1,ts_sim_part2) %&amp;gt;%
+  as.ts(.)
+
+ts.plot(ts_sim_wall_run, xlab = &amp;quot;Distance [x100m]&amp;quot;, ylab = &amp;quot;Differential pace [min/km]&amp;quot;, main = &amp;quot;Example of wall run&amp;quot;, ylim=c(0,25))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;384&#34; /&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A much nicer way would be to use ARIMA with an auto regressive model (AR).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pace_min &amp;lt;- 5 # min/km (corresponds to fast run)
+pace_wall &amp;lt;- 20 # min/km (corresponds to very slow run) 
+
+# classic run
+ts_sim_classic_run &amp;lt;- abs(arima.sim(n = 420, mean = 0.001, model = list(order = c(1,0,0), ar = 0.9))) + pace_min
+
+ts.plot(ts_sim_classic_run, xlab = &amp;quot;Distance [x100m]&amp;quot;, ylab = &amp;quot;Differential pace [min/km]&amp;quot;, main = &amp;quot;Example of classic run&amp;quot;, ylim=c(0,25))
+
+# wall run
+ts_sim_part1 &amp;lt;- abs(arima.sim(n = 210, model = list(order = c(1,0,0), ar = 0.9))) + pace_min
+ts_sim_part2 &amp;lt;- ts(arima.sim(n = 210, model = list(order = c(1,0,0), ar = 0.9)) + pace_wall, start = 211,end =420)
+
+ts_sim_wall_run &amp;lt;- ts.union(ts_sim_part1,ts_sim_part2)
+ts_sim_wall_run&amp;lt;- pmin(ts_sim_wall_run[,1], ts_sim_wall_run[,2], na.rm = TRUE)
+
+ts.plot(ts_sim_wall_run, xlab = &amp;quot;Distance [x100m]&amp;quot;, ylab = &amp;quot;Differential pace [min/km]&amp;quot;, main = &amp;quot;Example of wall run&amp;quot;, ylim=c(0,25))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;384&#34; /&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bootstrap&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Bootstrap&lt;/h2&gt;
+&lt;p&gt;Now we have two different runs, let’s bootstrap them (i.e. replicate with small differences) in order to have two groups of 5 individuals for each run type.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ts_sim_boot_classic &amp;lt;- ts_sim_classic_run %&amp;gt;%
+  tseries::tsbootstrap(., nb=5, b=200, type = &amp;quot;block&amp;quot;) %&amp;gt;%
+  as.data.frame(.) %&amp;gt;%
+  dplyr::rename_all(funs(c(paste0(&amp;quot;classic_&amp;quot;,.))))
+
+ts_sim_boot_wall &amp;lt;- ts_sim_wall_run %&amp;gt;%
+  tseries::tsbootstrap(., nb=5, b=350, type = &amp;quot;block&amp;quot;) %&amp;gt;%
+  as.data.frame(.) %&amp;gt;%
+  dplyr::rename_all(funs(c(paste0(&amp;quot;wall_&amp;quot;,.))))
+
+ts_sim_df &amp;lt;- cbind(ts_sim_boot_classic,ts_sim_boot_wall)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;heatmap-cluster&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Heatmap cluster&lt;/h1&gt;
+&lt;p&gt;Even if I’m a big fan of ggplot2 possibilities, some packages offer efficient ways to compute and plot data. For heatmaps I’m using the &lt;code&gt;gplots&lt;/code&gt; package which displays time series with dendrograms is a single function. An overlook of all the heatmap possibilities can be found &lt;a href=&#34;http://www.sthda.com/english/articles/28-hierarchical-clustering-essentials/93-heatmap-static-and-interactive-absolute-guide/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dtw_dist &amp;lt;- function(x){dist(x, method=&amp;quot;DTW&amp;quot;)}
+
+ts_sim_df %&amp;gt;%
+  as.matrix() %&amp;gt;%
+  gplots::heatmap.2 (
+    # dendrogram control
+    distfun = dtw_dist,
+    hclustfun = hclust,
+    dendrogram = &amp;quot;column&amp;quot;,
+    Rowv = FALSE,
+    labRow = FALSE
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can already see an accurate clustering between classic and wall runs but we are interested in DTW analysis so let’s implement &lt;code&gt;TSclust&lt;/code&gt; and &lt;code&gt;dtwclust&lt;/code&gt; packages.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dtw-cluster&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;DTW cluster&lt;/h1&gt;
+&lt;p&gt;Both &lt;code&gt;TSclust&lt;/code&gt; and &lt;code&gt;dtwclust&lt;/code&gt; are following the same steps:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Calculating the difference between each time series using the DTW method (but many other distances can be calculated, see for example Montero &amp;amp; Vilar, 2014).&lt;/li&gt;
+&lt;li&gt;Calculating hierarchical cluster analysis over these dissimilarities.&lt;/li&gt;
+&lt;li&gt;Plotting a dendrogram to visually assess the cluster accuracy. The solution to plot the time series with the dendrogram was taken from &lt;a href=&#34;http://www.hanselsolutions.com/blog/clustering-time-series.html&#34;&gt;Ian Hansel’s blog&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;using-tsclust&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using &lt;code&gt;TSclust&lt;/code&gt;&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# cluster analysis
+dist_ts &amp;lt;- TSclust::diss(SERIES = t(ts_sim_df), METHOD = &amp;quot;DTWARP&amp;quot;) # note the dataframe must be transposed
+hc &amp;lt;- stats::hclust(dist_ts, method=&amp;quot;complete&amp;quot;) # meathod can be also &amp;quot;average&amp;quot; or diana (for DIvisive ANAlysis Clustering)
+# k for cluster which is 2 in our case (classic vs. wall)
+hclus &amp;lt;- stats::cutree(hc, k = 2) %&amp;gt;% # hclus &amp;lt;- cluster::pam(dist_ts, k = 2)$clustering has a similar result
+  as.data.frame(.) %&amp;gt;%
+  dplyr::rename(.,cluster_group = .) %&amp;gt;%
+  tibble::rownames_to_column(&amp;quot;type_col&amp;quot;)
+
+hcdata &amp;lt;- ggdendro::dendro_data(hc)
+names_order &amp;lt;- hcdata$labels$label
+# Use the folloing to remove labels from dendogram so not doubling up - but good for checking hcdata$labels$label &amp;lt;- &amp;quot;&amp;quot;
+
+p1 &amp;lt;- hcdata %&amp;gt;%
+  ggdendro::ggdendrogram(., rotate=TRUE, leaf_labels=FALSE)
+
+p2 &amp;lt;- ts_sim_df %&amp;gt;%
+  dplyr::mutate(index = 1:420) %&amp;gt;%
+  tidyr::gather(key = type_col,value = value, -index) %&amp;gt;%
+  dplyr::full_join(., hclus, by = &amp;quot;type_col&amp;quot;) %&amp;gt;% 
+  mutate(type_col = factor(type_col, levels = rev(as.character(names_order)))) %&amp;gt;% 
+  ggplot(aes(x = index, y = value, colour = cluster_group)) +
+  geom_line() +
+  facet_wrap(~type_col, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+
+gp1&amp;lt;-ggplotGrob(p1)
+gp2&amp;lt;-ggplotGrob(p2) 
+
+grid.arrange(gp2, gp1, ncol=2, widths=c(4,2))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;As expected, The results of &lt;code&gt;TSclust&lt;/code&gt;show two different groups, one with the classic runs and one with wall runs. However we can see that wall runs are not sorted perfectly according their shape. Let’s have a look at &lt;code&gt;dtwclust&lt;/code&gt; to see if the results are similar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-dtwclust&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using &lt;code&gt;dtwclust&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The main asset of &lt;code&gt;dtwclust&lt;/code&gt; is the possibility to customize the DTW clustering. For more details about all the possibilities, I suggest to have a look at the &lt;code&gt;dtwclust&lt;/code&gt; package &lt;a href=&#34;https://cran.r-project.org/web/packages/dtwclust/vignettes/dtwclust.pdf&#34;&gt;vignette&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_dtw_h2 &amp;lt;- dtwclust::tsclust(t(ts_sim_df), 
+                                    type = &amp;quot;h&amp;quot;, 
+                                    k = 2,  
+                                    distance = &amp;quot;dtw&amp;quot;, 
+                                    control = hierarchical_control(method = &amp;quot;complete&amp;quot;),
+                                    preproc = NULL, 
+                                    args = tsclust_args(dist = list(window.size = 5L)))
+
+hclus &amp;lt;- stats::cutree(cluster_dtw_h2, k = 2) %&amp;gt;% # hclus &amp;lt;- cluster::pam(dist_ts, k = 2)$clustering has a similar result
+  as.data.frame(.) %&amp;gt;%
+  dplyr::rename(.,cluster_group = .) %&amp;gt;%
+  tibble::rownames_to_column(&amp;quot;type_col&amp;quot;)
+
+hcdata &amp;lt;- ggdendro::dendro_data(cluster_dtw_h2)
+names_order &amp;lt;- hcdata$labels$label
+# Use the folloing to remove labels from dendogram so not doubling up - but good for checking hcdata$labels$label &amp;lt;- &amp;quot;&amp;quot;
+
+p1 &amp;lt;- hcdata %&amp;gt;%
+  ggdendro::ggdendrogram(., rotate=TRUE, leaf_labels=FALSE)
+
+p2 &amp;lt;- ts_sim_df %&amp;gt;%
+  dplyr::mutate(index = 1:420) %&amp;gt;%
+  tidyr::gather(key = type_col,value = value, -index) %&amp;gt;%
+  dplyr::full_join(., hclus, by = &amp;quot;type_col&amp;quot;) %&amp;gt;% 
+  mutate(type_col = factor(type_col, levels = rev(as.character(names_order)))) %&amp;gt;% 
+  ggplot(aes(x = index, y = value, colour = cluster_group)) +
+  geom_line() +
+  facet_wrap(~type_col, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+
+gp1&amp;lt;-ggplotGrob(p1)
+gp2&amp;lt;-ggplotGrob(p2) 
+
+grid.arrange(gp2, gp1, ncol=2, widths=c(4,2))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now with the cluster are well distributed between classic and wall runs but also inside the clusters where similar shapes appears to be grouped together.&lt;/p&gt;
+&lt;p&gt;It is possible to modify some argument in order to perform this hierarchical DTW clustering based on z-scores with centroid based on the built-in “shape_extraction” function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_dtw_h2 &amp;lt;- dtwclust::tsclust(t(ts_sim_df), type = &amp;quot;h&amp;quot;, k = 2L,
+                                    preproc = zscore,
+                                    distance = &amp;quot;dtw&amp;quot;, centroid = shape_extraction,
+                                    control = hierarchical_control(method = &amp;quot;complete&amp;quot;))
+
+hclus &amp;lt;- stats::cutree(cluster_dtw_h2, k = 2) %&amp;gt;% # hclus &amp;lt;- cluster::pam(dist_ts, k = 2)$clustering has a similar result
+  as.data.frame(.) %&amp;gt;%
+  dplyr::rename(.,cluster_group = .) %&amp;gt;%
+  tibble::rownames_to_column(&amp;quot;type_col&amp;quot;)
+
+hcdata &amp;lt;- ggdendro::dendro_data(cluster_dtw_h2)
+names_order &amp;lt;- hcdata$labels$label
+# Use the folloing to remove labels from dendogram so not doubling up - but good for checking hcdata$labels$label &amp;lt;- &amp;quot;&amp;quot;
+
+p1 &amp;lt;- hcdata %&amp;gt;%
+  ggdendro::ggdendrogram(., rotate=TRUE, leaf_labels=FALSE)
+
+p2 &amp;lt;- ts_sim_df %&amp;gt;%
+  dplyr::mutate(index = 1:420) %&amp;gt;%
+  tidyr::gather(key = type_col,value = value, -index) %&amp;gt;%
+  dplyr::full_join(., hclus, by = &amp;quot;type_col&amp;quot;) %&amp;gt;% 
+  mutate(type_col = factor(type_col, levels = rev(as.character(names_order)))) %&amp;gt;% 
+  ggplot(aes(x = index, y = value, colour = cluster_group)) +
+  geom_line() +
+  facet_wrap(~type_col, ncol = 1, strip.position=&amp;quot;left&amp;quot;) + 
+  guides(color=FALSE) +
+  theme_bw() + 
+  theme(strip.background = element_blank(), strip.text = element_blank())
+
+gp1&amp;lt;-ggplotGrob(p1)
+gp2&amp;lt;-ggplotGrob(p2) 
+
+grid.arrange(gp2, gp1, ncol=2, widths=c(4,2))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Based on &lt;code&gt;dtwclust&lt;/code&gt; package vignette, it is possible to register a new DTW function adapted to normalized and asymmetric DTW.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Normalized DTW
+ndtw &amp;lt;- function(x, y, ...) {
+  dtw(x, y, ...,
+      step.pattern = asymmetric,
+      distance.only = TRUE)$normalizedDistance
+}
+# Register the distance with proxy
+proxy::pr_DB$set_entry(FUN = ndtw, names = c(&amp;quot;nDTW&amp;quot;),
+                       loop = TRUE, type = &amp;quot;metric&amp;quot;, distance = TRUE,
+                       description = &amp;quot;Normalized, asymmetric DTW&amp;quot;)
+# Partitional clustering
+cluster_dtw_h2 &amp;lt;- dtwclust::tsclust(t(ts_sim_df), k = 2L,distance = &amp;quot;nDTW&amp;quot;)
+
+plot(cluster_dtw_h2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Even if it looks great with &lt;code&gt;sine&lt;/code&gt; simulated data, it is not very accurate with ARIMA models. Moreover I haven’t been able to extract the dendrogram from this last “cluster_dtw_h2” object because of the partitional clustering process but one can be interested in the distance matrix provided in “cluster_dtw_h2” object.&lt;/p&gt;
+&lt;p&gt;After this short analysis with Dynamic Time Warping, the next steps will be to increase the difference between the time series to check the clustering accuracy and obviously to test it with real data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Publishing blogdown, some insights from my own experience</title>
+      <link>/post/publishing-blogdown-some-insights-from-my-own-experience/</link>
+      <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/post/publishing-blogdown-some-insights-from-my-own-experience/</guid>
+      <description>
+
+
+&lt;p&gt;Finally! My first post to my website is about to be live on the web! I’m always amazed by the possibilities offered by R and Rstudio and my first lines will thank this huge community which make the awesomeness real. However it’s not always easy to use and to apply these magnificent tools. Publishing a blogdown is a good example of a process that looks easy on the first sight but which can be tricky. Here are some insights from my experience in publishing a research blog from blogdown.&lt;/p&gt;
+&lt;div id=&#34;first-steps-with-blogdown&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;First steps with blogdown&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;blogdown&lt;/code&gt; package is very well documented and if you are intended to publish your own websites the best approach is to have a look at the bookdown made by Yihui Xie, Amber Thomas and Alison Presmanes Hill &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown: Creating Websites with R Markdown&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Several tutorials are available to help new users in this case:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A blog post writen by Alison Presmanes Hill, &lt;a href=&#34;https://alison.rbind.io/post/up-and-running-with-blogdown/&#34;&gt;Up and running with blogdown&lt;/a&gt;, is a very good first step to blogdown. The post is well documented and will help to solve most of the major problems to setup a website.&lt;/li&gt;
+&lt;li&gt;The talk given by Yihui Xie at the rstudio::conf 2018, &lt;a href=&#34;https://www.rstudio.com/resources/videos/create-and-maintain-websites-with-r-markdown-and-blogdown/&#34;&gt;Create and maintain websites with R Markdown and blogdown&lt;/a&gt;, is short and very well presented.&lt;/li&gt;
+&lt;li&gt;The youtube tutorial by John Muschelli, &lt;a href=&#34;https://www.youtube.com/watch?v=syWAKaj-4ck&#34;&gt;Making a Website with Blogdown&lt;/a&gt;, presents all the steps from building a website to publishing it on netlify.com.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;problem-solving&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Problem solving&lt;/h2&gt;
+&lt;p&gt;Even if the authors of &lt;code&gt;blogdown&lt;/code&gt; made it very easy to publish a blog from Rstudio, some problem can be encountered while following the basic steps. Here is my experience in troubleshooting some of the problems that can happen.&lt;/p&gt;
+&lt;div id=&#34;prerequisite&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Prerequisite&lt;/h3&gt;
+&lt;p&gt;In order to avoid the majority of the problems that may happen, it is essential to have the latest versions of R, Rstudio, &lt;code&gt;blogdown&lt;/code&gt; package (don’t hesitate to use its GitHub version &lt;code&gt;devtools::install_github(&amp;quot;rstudio/blogdown&amp;quot;)&lt;/code&gt;) and Hugo (&lt;code&gt;blogdown::update_hugo()&lt;/code&gt;). Like mine, &lt;strong&gt;if the process of publishing a blogdown takes several weeks, upgrading to the latest version for every try can slove a lot of problems&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;creating-a-github-connection&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Creating a GitHub connection&lt;/h3&gt;
+&lt;p&gt;If one wants to make blogdown live on the web, a GitHub integration is the way to go according to me. Two routes are possible:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Creating a blogdown project from Rstudio and then uploading the project on GitHub. Rstudio GUI is one of its main asset and creating a blogdown project from Rstudio is very easy but the connection with GitHub has to be done afterward which can lead to several problems when committing the changes.&lt;/li&gt;
+&lt;li&gt;Creating an empty repo on GitHub, then creating a new project with version control on Rstudio and use the function &lt;code&gt;blogdown::build_site()&lt;/code&gt; in this new project. &lt;strong&gt;This solution doesn’t look as straight forward but once it is done, the connection with GitHub is very stable&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;installing-a-new-theme&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Installing a new theme&lt;/h3&gt;
+&lt;p&gt;When it comes to build the site, it is possible to specify the theme you want to use with &lt;code&gt;blogdown::new_site(theme = &amp;quot;gcushen/hugo-academic&amp;quot;)&lt;/code&gt;. Even if the default theme is nice, researchers and students can find the theme “academic” more suitable. But be sure to have installed a version of Hugo that corresponds with the theme version of Hugo.&lt;/p&gt;
+&lt;p&gt;After this initial command, the template website should be displayed in Rstudio viewer. If you have to close the project it is possible to relaunch this view using the Serve Site shortcut in Rstudio Addins or by using &lt;code&gt;blogdown::serve_site()&lt;/code&gt;. Next step is the uploading of this template website in GitHub.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;making-github-commit-and-push&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Making GitHub commit and push&lt;/h3&gt;
+&lt;p&gt;A big advantage of GitHub integration is that when your website is live on the web, any new post or new content is automatically uploaded with simple commit and push from Rstudio project. Rstudio provides a nice interface to do these commit and push to GitHub without using any command lines which is great for new coders and/or windows users. However with the initial commit and push of a blogdown I didn’t manage to use Rstudio GUI resulting of endless lags and multiple reboots. &lt;strong&gt;The solution is to use github commit and push from command lines&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;if you are new to command lines don’t be afraid, it is very easy:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;If your project is linked with GitHub, that means Git is also installed and Git comes with a CMD prompt that can be used for manual commit and push to GitHub.&lt;/li&gt;
+&lt;li&gt;Change the directory
+&lt;ul&gt;
+&lt;li&gt;from &lt;code&gt;C:\Users\MyName&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;to &lt;code&gt;C:\Users\MyName\MyFolderName\MyBlogdownProjectName&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;using &lt;code&gt;cd .\MyFolderName\MyBlogdownProjectName&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Add all changes with the command &lt;code&gt;git add -A&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Commit these changes with the command &lt;code&gt;git commit -m &amp;quot;initial commit text&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Push these changes to GitHub with the command &lt;code&gt;git push&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note: these commands are the most basic ones, it can me more complicated to add only specific files or to push from another branch but in these cases you can easily find the commands on the web.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;publishing-the-template-to-netlify&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Publishing the template to Netlify&lt;/h3&gt;
+&lt;p&gt;Once this initial commit is done, it is possible to make the template live on Netlify. I think it is a good idea to not modify the template yet in order to first check how Netlify is handling the template website.&lt;/p&gt;
+&lt;p&gt;On Netlify, with GitHub login and password, it is easy to find you repo and to deploy the website. However Netlify will analyse the project and this can result in more errors and problems. The biggest problem that I had was solved very easily with the genius Mara Averick and her blog post &lt;a href=&#34;https://maraaverick.rbind.io/2017/10/updating-blogdown-hugo-version-netlify/&#34;&gt;Updating your version of Hugo for blogdown on Netlify&lt;/a&gt;. I should create a blog dedicated to how amazing Mara is and as usual she solved a massive problem. Indeed, Hugo’s theme have specific minimum Hugo version to use but even Rstudio is using the latest version to build the website, Netlify needs to know which version to use. &lt;strong&gt;The correct version must be set as a New variable with the key to &lt;code&gt;HUGO_VERSION&lt;/code&gt;&lt;/strong&gt;. Then the magic happens and the website is deployed to the world. the first URL address of the website is quite complicated but Netlify allows to change it for free.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;changing-the-content-of-the-template&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Changing the content of the template&lt;/h3&gt;
+&lt;p&gt;Last but not least, the website you have just published needs to be filled with your own content. The first step will be to replace all the lines in the sub-folder &lt;code&gt;home&lt;/code&gt; with your own data and to delete all the posts, publications, citations, images, etc. inside the template. However it is still possible to broke the website by deleting a useful link. In this case I have two advice:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Keep a version of the template in case you need to get back one of the files and then understanding why deleting these information is braking the website.&lt;/li&gt;
+&lt;li&gt;Do not delete the files called &lt;code&gt;_index.md&lt;/code&gt;, they are very useful to create the public site of the website.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;whats-next&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;What’s next?&lt;/h2&gt;
+&lt;p&gt;The websites created with the &lt;code&gt;blogdown&lt;/code&gt; package from the R and stats community are united in a project called &lt;a href=&#34;https://github.com/rbind?tab=repositories&#34;&gt;rbind&lt;/a&gt;. I hope to be one day expert enough to be part of this community and hopefully with my tricks and tips, you will as well ;)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Privacy Policy</title>
@@ -28,6 +1315,269 @@
       <guid>/terms/</guid>
       <description>&lt;p&gt;Add your terms here and set &lt;code&gt;draft: false&lt;/code&gt; to publish it. Otherwise, delete this file if you don&amp;rsquo;t need it.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>The effect of personality and social context on willingness to share emotion information on social media</title>
+      <link>/publication/2018-socialmedia-psyarxiv/</link>
+      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>/publication/2018-socialmedia-psyarxiv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Role of emotions in product acceptance: Evaluation of the cognitive, motivational and subjective component</title>
+      <link>/publication/2017-acceptance-pto/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      <guid>/publication/2017-acceptance-pto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Comparison of Three Commercial Systems for Automatic Recognition of Spontaneous Facial Expressions</title>
+      <link>/talk/2018-cere/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2018-cere/</guid>
+      <description>&lt;p&gt;SYMPOSIUM 2: Affect Recognition in Humans versus Machines: Current Issues and Future Challenges
+&lt;em&gt;Convener: Eva Krumhuber, University College London, UK&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ABSTRACT: Automatic facial expression recognition systems can provide important information about our emotions and how they change over time. While the use of automatic systems has seen a steady increase over the last years, their classification results have not yet been systematically compared. The aim of this research was to test commercial software packages from Affectiva, Kairos and Microsoft companies in terms of their recognition accuracy. For this, we focused on spontaneous and dynamic facial expressions as provided by the DynEmo database –Disgust, Fear, Joy, and Surprise. In order to compare the classification results, we calculated the systems’ ratio of True positives (only the target label is recognised), False positives (the target label as well as a non-target label is recognised), True negatives (no label is recognised) and False negatives (target label is not recognised whereas a non-target label is).
+The results of the comparison between the systems showed comparable detection rates in term of True positives and False positives. However, their detection rates of False negatives and True negatives significantly differed between the different recognition systems. Specifically, systems were not equal in their tendency to detect non-target labels erroneously as well as in their tendency to not detect any emotion label. When examining emotion recognition accuracy for each video/emotion, videos with higher recognition accuracy were those that depicted as joyful facial expression. Other facial expressions resulted in a proportion of target emotion detection statistically equal or lower than the detection of non-target emotion.
+These results suggest that systems are not equivalent in their ability to detect specific spontaneous emotions. Therefore, users of such systems have to be aware of the strengths as well as of the potential limits of the data provided by automatic emotion recognition systems.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Accuracy of Automatic Emotion Recognition from Voice</title>
+      <link>/talk/2019-isre/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2019-isre/</guid>
+      <description>&lt;p&gt;ABSTRACT: Voice is one of the main communicative sources of evidence in interpreting the expression of emotion. Affective computing aims to create systems and algorithms that automatically analyse people&amp;rsquo;s emotional state. Consequently, several companies such as Affectiva, Beyond Verbal and Audeering have developed automatic systems to analyse the vocal expression of emotions. However, little is known about the accuracy of such systems. To evaluate the accuracy of automatic emotion recognition from voice, we processed vocal expressions from the GEMEP database with &amp;ldquo;SensAI Emotion&amp;rdquo; developed by Audeering. The GEMEP database contains audio-video recordings from 10 actors performing 17 different emotional scenarios (Bänziger &amp;amp; Scherer, 2010). SensAI Emotion analyses emotions from speech and renders a value for 23 affective states and for valence and arousal dimensions (Eyben, Scherer, &amp;amp; Schuller, 2018). In terms of category recognition, the accuracy of SensAI labeling GEMEP vocal expressions of emotion is 6.67%. However, this low result is partly due to the high number of different affective state labels recognized. To bypass this label matching bias, we compared the recognition accuracy for valence and arousal dimensions. The results show an accuracy of 0.56 (CI95%[0.46,0.65]) for valence and 0.73 (CI95%[0.64,0.81]) for arousal recognition. Vocal automatic emotion recognition is a growing research area in affective computing. The categorical recognition of emotion remains a challenge due to the diversity of affective states. However, the accuracy of a system like SensAI Emotion provides promising results in the recognition of valence and arousal.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Accuracy of three commercial automatic emotion recognition systems across different individuals and their facial expressions</title>
+      <link>/talk/2018-percom/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2018-percom/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Are approach-avoidance relevant cues of the Emotional User eXperience? Case studies with innovative products</title>
+      <link>/talk/2014-cere/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2014-cere/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Analysis of Automatic Emotion Recognition Using Generalized Additive Mixed Models</title>
+      <link>/talk/2017-aisb/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2017-aisb/</guid>
+      <description>&lt;p&gt;ABSTRACT: With the development of wearable sensors, it is now possible to assess the dynamic progression of physiological rhythms such as heart rate, breathing rate or galvanic skin response in ways and places and during certain activities that were previously not possible due to cost and reliability. This paper investigates the physiological changes when participating in a zipline activity. Despite the advances in sensor technology, the statistical analysis of such physiological signals remains a challenge for data analysts. This paper presents a workflow encompassing the whole process with the goal of obtaining a range of best fitting models to analyse the patterns given by these measurements “in the wild”.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Analysis of Automatic Facial Expressions Recognition ‘in the Wild’ Using Generalized Additive Mixed Models and Significant Zero Crossing of the Derivatives</title>
+      <link>/talk/2018-bhci/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2018-bhci/</guid>
+      <description>&lt;p&gt;ABSTRACT: The analysis of facial expressions is currently a favoured method of inferring experienced emotion, and consequently significant efforts are currently being made to develop improved facial expression recognition techniques. Among these new techniques, those which allow the automatic recognition of facial expression appear to be most promising. This paper presents a new method of facial expression analysis with a focus on the continuous evolution of emotions using Generalized Additive Mixed Models (GAMM) and Significant Zero Crossing of the Derivatives (SiZer). The time-series analysis of the emotions experienced by participants watching a series of three different online videos suggests that analysis of facial expressions at the overall level may lead to misinterpretation of the emotional experience whereas non-linear analysis allows the significant expressive sequences to be identified.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dynamic Model of Athletes’ Emotions Based on Wearable Devices</title>
+      <link>/talk/2017-ahfe/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2017-ahfe/</guid>
+      <description>&lt;p&gt;ABSTRACT: With the development of wearable sensors, it is now possible to assess the dynamic progression of physiological rhythms such as heart rate, breathing rate or galvanic skin response in ways and places that were previously impractical. This paper presents a new application that synchronizes the emotional patterns from these time-series in order to model athletes’ emotion during physical activity. This data analysis computes a best-fitting model for analyzing the patterns given by these measurements “in the wild”. The recording setup used to measure and synchronize multiple biometric physiological sensors can be called a BAN (Body Area Network) of personal measurements. By monitoring physical activity, it is now possible to calculate optimal patterns for managing athletes’ emotion. The data provided here are not restricted by a lab environment but close to the “ground truth” of ecologically valid physiological changes. The data allow the provision of accurate feedback to athletes about their emotion (e.g. in cases such as an unexpected increase or an expected decrease of physiological activity).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Emotions triggered by innovative products, A multi-componential approach of emotions for User eXperience tools</title>
+      <link>/talk/2015-acii/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2015-acii/</guid>
+      <description>&lt;p&gt;ABSTRACT: User eXperience studies with products, systems or services have significantly increased in companies in order to anticipate their commercial success. Among the user experience dimensions, emotions are predominant. However User eXperience studies used several concepts to refer to emotions and current measures still have some flaws. Consequently, this doctoral project aims firstly to provide a multi-componential approach of emotions based on a psychological view, and secondly to provide Affective Computing solutions in order to evaluate emotions in User eXperience studies. Through a study using hand-gesture interface devices, three components of users&amp;rsquo; emotions were simultaneously measured with self-reports: the subjective, cognitive and motivational components. The results point out the possibility of measuring different components in order to gain a better understanding of emotions triggered by products. They also point out that self-reports measures could be improved with Affective Computing solutions. In this perspective, two emotion assessment tools were developed: Oudjat and EmoLyse.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Etude de l’expérience utilisateur émotionnelle: Quels sont les impacts des émotions suscitées des produits innovants sur les perceptions des utilisateurs</title>
+      <link>/talk/2016-aiptlf/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2016-aiptlf/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interface faciale émotionnelle : Les effets des différentes modalités de presentation</title>
+      <link>/talk/2010-eiac/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2010-eiac/</guid>
+      <description>&lt;p&gt;ABSTRACT: In supporting the visual-mediated emotional recognition, little research has centred on analysing the effect of presenting different combinatorial facial designs. Moreover, in the theoretical field of emotions, research on the recognition of emotional facial expressions (EFE) is mainly based on static and posed databases tested in unnatural contexts (explicit recognition task of an emotion). Our research has constructed and validated a database, DynEmo, with dynamic and spontaneous emotional facial expressions. So different facial interface designs (whole face, zoomed face, eyes + mouth, whole face + mouth, whole face + eyes, etc., n = 11) are experimentally compared to find their impact in terms of emotional recognition. The results show the facial interface design relevance in terms of emotional recognition. The application of this work is transferable to facial interfaces useful for video-mediated interaction.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Measuring emotional states and behavioral responses to innovative products</title>
+      <link>/talk/2012-de/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2012-de/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multivariate Body Area Network of Physiological Measures “In the Wild”: A case study with zipline activity</title>
+      <link>/talk/2018-mb/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2018-mb/</guid>
+      <description>&lt;p&gt;ABSTRACT: With the development of wearable sensors, it is now possible to assess the dynamic progression of physiological rhythms such as heart rate, breathing rate or galvanic skin response in ways and places and during certain activities that were previously not possible due to cost and reliability. This paper investigates the physiological changes when participating in a zipline activity. Despite the advances in sensor technology, the statistical analysis of such physiological signals remains a challenge for data analysts. This paper presents a workflow encompassing the whole process with the goal of obtaining a range of best fitting models to analyse the patterns given by these measurements “in the wild”.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>On-line recognition of dynamic and spontaneous facial expression</title>
+      <link>/talk/2010-cere/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2010-cere/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Physiological correlates of Emotions “In The Wild”: A case study with mountain bikers</title>
+      <link>/talk/2017-isre/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2017-isre/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Spontaneous and dynamic emotional facial expressions reflect action readiness</title>
+      <link>/talk/2014-wcfee/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2014-wcfee/</guid>
+      <description>&lt;p&gt;ABSTRACT:&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Willingness to Share Emotion Information on Social Media: Influence of Personality and Social Context</title>
+      <link>/talk/2018-dsaa/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/talk/2018-dsaa/</guid>
+      <description>&lt;p&gt;ABSTRACT: Sharing personal information is an important way of communicating on social media. Among the information possibly shared, new sensors and tools allow people to share emotion information via facial emotion recognition. This paper questions whether people are prepared to share personal information such as their own emotion on social media. In the current study we examined how factors such as felt emotion,
+motivation for sharing on social media as well as personality affected participants’ willingness to share self-reported emotion or facial expression online. By carrying out a Generalized Linear Mixed Model analysis, this study found that participants’ willingness to share self-reported emotion and facial expressions was influenced by their personality traits and the motivation for sharing their emotion information that they were given. From our results we can conclude that the estimated level of privacy for certain emotional information, such as facial expression, is influenced by the motivation for sharing the information online.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Oudjat, a configurable and usable annotation tool for the study of emotional stimuli</title>
+      <link>/publication/2015-oudjat-ijhcs/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/2015-oudjat-ijhcs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cadres et méthodes d’analyse des émotions suscitées par des produits innovants : Une revue bibliographique</title>
+      <link>/publication/2015-acceptabilite-innovatio/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/2015-acceptabilite-innovatio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/post/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      <guid>/post/2015-07-23-r-rmarkdown/</guid>
+      <description>
+
+
+&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;R Markdown&lt;/h1&gt;
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &amp;lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Including Plots&lt;/h1&gt;
+&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
+  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
+  init.angle = -50, border = NA
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A fancy pie chart.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DynEmo: A video database of natural facial expressions of emotions</title>
+      <link>/publication/2013-dynemo-ijma/</link>
+      <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/2013-dynemo-ijma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The influence of facial designs interfaces on dynamic emotional recognition</title>
+      <link>/publication/2013-interface-jmui/</link>
+      <pubDate>Fri, 01 Mar 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/2013-interface-jmui/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quelques critères d’utilisation d’un outil d’évaluation automatique de synthèses de cours à distance</title>
+      <link>/publication/2012-critere-re/</link>
+      <pubDate>Thu, 01 Nov 2012 00:00:00 +0000</pubDate>
+      <guid>/publication/2012-critere-re/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Un environnement personnel d&#39;apprentissage évaluant des distances épistémiques et dialogiques</title>
+      <link>/publication/2011-environement-ds/</link>
+      <pubDate>Tue, 01 Nov 2011 00:00:00 +0000</pubDate>
+      <guid>/publication/2011-environement-ds/</guid>
+      <description></description>
     </item>
     
   </channel>
