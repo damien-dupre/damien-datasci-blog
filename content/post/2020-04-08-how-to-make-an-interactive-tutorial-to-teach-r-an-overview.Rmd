@@ -38,15 +38,46 @@ One of these online learning platform is different, it allows the learner to wat
 
 The community around R has developed some amazing tools to create tutorials which allow learners to run their own code. There are maybe more of them but I am thinking of the {learnr} and {RTutor} packages ([the {swirl} package]( https://swirlstats.com) also creates tutorials but these have to be used inside an IDE).
 
-[The {learnr} package is amazing](https://rstudio.github.io/learnr). It helps to create very neat interactive tutorials from a .Rmd file. Because I love Rmarkdown, I have created some of them already for my students:
+[The {learnr} package](https://rstudio.github.io/learnr) by [Schloerke, Allaire, and Borges (2020)](https://cran.r-project.org/web/packages/learnr/index.html) is amazing. To be more familiar with the possibilities of {learnr}, you can have a look at the following {learnr} tutorial examples provided by RStudio ( [here is the link to their code](https://github.com/rstudio/learnr/tree/master/inst/tutorials)):
+
+- [Hello, Tutorial!](https://learnr-examples.shinyapps.io/hello/)
+- [Tutorial Quiz Questions in learnr](https://learnr-examples.shinyapps.io/quiz_question/)
+- [Slidly demo](https://learnr-examples.shinyapps.io/slidy)
+- [Set Up](https://learnr-examples.shinyapps.io/ex-setup-r/)
+- [Data basics](https://learnr-examples.shinyapps.io/ex-data-basics/)
+- [Filter observations](https://learnr-examples.shinyapps.io/ex-data-filter/)
+- [Create new variables](https://learnr-examples.shinyapps.io/ex-data-mutate/)
+- [Summarise Tables](https://learnr-examples.shinyapps.io/ex-data-summarise/)
+
+Another tutorial for [sortable questions](https://andrie-de-vries.shinyapps.io/sortable_tutorial_question_rank/) has been created by [Andrie de Vries](https://twitter.com/revoandrie).
+
+I think the R Set Up {learnr} is incredibly useful in a remote teaching context.
+
+The RStudio education team have recently developed a [suite of impressive interactive R tutorials called Primers](https://rstudio.cloud/learn/primers) based on their RStudio Cloud framework. I strongly recomand any R beginner to have a look at all these tutorials.
+
+```{r echo=FALSE, out.width = '50%'}
+knitr::include_graphics("https://rstudio.cloud/images/guide/primers.png")
+```
+
+RStudio has currently developed 6 of these primers and plan to build even more of them.
+
+{learnr} helps to create very neat interactive tutorials from a .Rmd file. Because I love Rmarkdown, I have created some of them already for my students:
 
 -	[WaRm Up!]( https://damien-dupre.shinyapps.io/learnr_dcu_warm_up)
 -	[Data Transformation](https://damien-dupre.shinyapps.io/learnr_dcu_data_transformation)
 -	[Data Visualisation](https://damien-dupre.shinyapps.io/learnr_dcu_data_visualisation)
 -	[Linear Regression](https://damien-dupre.shinyapps.io/learnr_dcu_linear_regression)
 
-It is also possible to [integrate the {learnr} package into a blogdown website]( https://desiree.rbind.io/post/2020/learnr-iframes) and to create beautiful visualisation such as the [giraffe project to learn statistics]( https://tinystats.github.io/teacups-giraffes-and-statistics). 
+The R community is also creating plenty more {learnr} tutorials, here is a list of the ones that I know of:
+
+- [Data basics](https://jjallaire.shinyapps.io/learnr-tutorial-01-data-basics/) by [J.J. Allaire](https://github.com/jjallaire)
+- [Less Volume, More Creativity Plots and More](https://rpruim.shinyapps.io/Less-Volume-JMM2019/) by [Randy Pruim](https://www.calvin.edu/~rpruim/)
+- [Getting to Know infer](https://simonpcouch.shinyapps.io/infer) by [Simon P. Couch](https://twitter.com/simonpcouch)
+
+It is also possible to [integrate the {learnr} package into a blogdown website]( https://desiree.rbind.io/post/2020/learnr-iframes) and to create beautiful visualisation such as the [giraffe project to learn statistics]( https://tinystats.github.io/teacups-giraffes-and-statistics).
+
 I have never used the {RTutor} package but I’m assuming it has a lot of similarities with the {learnr} package as indicated in [this blog post]( https://skranz.github.io//r/2019/04/29/RTutor_vs_Learnr.html).
+
 The {learnr} package is very nice but it has a major problem, the learners need to have their own and unique shiny session. To run a .Rmd file using the {learnr} package, this Rmarkdown has to be deployed on a shiny server and I currently know only two solutions to host a shiny app:
 
 ### 1. With RStudio’s shinyapps.io

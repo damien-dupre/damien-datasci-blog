@@ -35,16 +35,38 @@ However, few of these solutions are satisfying the first criteria. The ability t
 <div id="interactive-tutorials-r-packages" class="section level2">
 <h2>Interactive tutorials R packages</h2>
 <p>The community around R has developed some amazing tools to create tutorials which allow learners to run their own code. There are maybe more of them but I am thinking of the {learnr} and {RTutor} packages (<a href="https://swirlstats.com">the {swirl} package</a> also creates tutorials but these have to be used inside an IDE).</p>
-<p><a href="https://rstudio.github.io/learnr">The {learnr} package is amazing</a>. It helps to create very neat interactive tutorials from a .Rmd file. Because I love Rmarkdown, I have created some of them already for my students:</p>
+<p><a href="https://rstudio.github.io/learnr">The {learnr} package</a> by <a href="https://cran.r-project.org/web/packages/learnr/index.html">Schloerke, Allaire, and Borges (2020)</a> is amazing. To be more familiar with the possibilities of {learnr}, you can have a look at the following {learnr} tutorial examples provided by RStudio ( <a href="https://github.com/rstudio/learnr/tree/master/inst/tutorials">here is the link to their code</a>):</p>
+<ul>
+<li><a href="https://learnr-examples.shinyapps.io/hello/">Hello, Tutorial!</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/quiz_question/">Tutorial Quiz Questions in learnr</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/slidy">Slidly demo</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/ex-setup-r/">Set Up</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/ex-data-basics/">Data basics</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/ex-data-filter/">Filter observations</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/ex-data-mutate/">Create new variables</a></li>
+<li><a href="https://learnr-examples.shinyapps.io/ex-data-summarise/">Summarise Tables</a></li>
+</ul>
+<p>Another tutorial for <a href="https://andrie-de-vries.shinyapps.io/sortable_tutorial_question_rank/">sortable questions</a> has been created by <a href="https://twitter.com/revoandrie">Andrie de Vries</a>.</p>
+<p>I think the R Set Up {learnr} is incredibly useful in a remote teaching context.</p>
+<p>The RStudio education team have recently developed a <a href="https://rstudio.cloud/learn/primers">suite of impressive interactive R tutorials called Primers</a> based on their RStudio Cloud framework. I strongly recomand any R beginner to have a look at all these tutorials.</p>
+<p><img src="https://rstudio.cloud/images/guide/primers.png" width="50%" /></p>
+<p>RStudio has currently developed 6 of these primers and plan to build even more of them.</p>
+<p>{learnr} helps to create very neat interactive tutorials from a .Rmd file. Because I love Rmarkdown, I have created some of them already for my students:</p>
 <ul>
 <li><a href="https://damien-dupre.shinyapps.io/learnr_dcu_warm_up">WaRm Up!</a></li>
 <li><a href="https://damien-dupre.shinyapps.io/learnr_dcu_data_transformation">Data Transformation</a></li>
 <li><a href="https://damien-dupre.shinyapps.io/learnr_dcu_data_visualisation">Data Visualisation</a></li>
 <li><a href="https://damien-dupre.shinyapps.io/learnr_dcu_linear_regression">Linear Regression</a></li>
 </ul>
-<p>It is also possible to <a href="https://desiree.rbind.io/post/2020/learnr-iframes">integrate the {learnr} package into a blogdown website</a> and to create beautiful visualisation such as the <a href="https://tinystats.github.io/teacups-giraffes-and-statistics">giraffe project to learn statistics</a>.
-I have never used the {RTutor} package but I’m assuming it has a lot of similarities with the {learnr} package as indicated in <a href="https://skranz.github.io//r/2019/04/29/RTutor_vs_Learnr.html">this blog post</a>.
-The {learnr} package is very nice but it has a major problem, the learners need to have their own and unique shiny session. To run a .Rmd file using the {learnr} package, this Rmarkdown has to be deployed on a shiny server and I currently know only two solutions to host a shiny app:</p>
+<p>The R community is also creating plenty more {learnr} tutorials, here is a list of the ones that I know of:</p>
+<ul>
+<li><a href="https://jjallaire.shinyapps.io/learnr-tutorial-01-data-basics/">Data basics</a> by <a href="https://github.com/jjallaire">J.J. Allaire</a></li>
+<li><a href="https://rpruim.shinyapps.io/Less-Volume-JMM2019/">Less Volume, More Creativity Plots and More</a> by <a href="https://www.calvin.edu/~rpruim/">Randy Pruim</a></li>
+<li><a href="https://simonpcouch.shinyapps.io/infer">Getting to Know infer</a> by <a href="https://twitter.com/simonpcouch">Simon P. Couch</a></li>
+</ul>
+<p>It is also possible to <a href="https://desiree.rbind.io/post/2020/learnr-iframes">integrate the {learnr} package into a blogdown website</a> and to create beautiful visualisation such as the <a href="https://tinystats.github.io/teacups-giraffes-and-statistics">giraffe project to learn statistics</a>.</p>
+<p>I have never used the {RTutor} package but I’m assuming it has a lot of similarities with the {learnr} package as indicated in <a href="https://skranz.github.io//r/2019/04/29/RTutor_vs_Learnr.html">this blog post</a>.</p>
+<p>The {learnr} package is very nice but it has a major problem, the learners need to have their own and unique shiny session. To run a .Rmd file using the {learnr} package, this Rmarkdown has to be deployed on a shiny server and I currently know only two solutions to host a shiny app:</p>
 <div id="with-rstudios-shinyapps.io" class="section level3">
 <h3>1. With RStudio’s shinyapps.io</h3>
 <p>This option is super easy and fast to deploy a shiny app and has a free option to deploy 5 shiny apps (that I currently use for my {learnr} tutorials). However, this free option also only includes 5 users in the same time. This is great for the test of specific shiny apps but for parallel learning, it is definitely not enough.</p>
