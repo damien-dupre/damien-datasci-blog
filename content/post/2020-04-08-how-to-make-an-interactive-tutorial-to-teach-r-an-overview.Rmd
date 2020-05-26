@@ -17,7 +17,7 @@ image:
 projects: []
 ---
 
-Learning is changing quickly, very quickly. With the advancement of technologies and with the help of unexpected game changer events, the future of learning is becoming online rather than onsite.  This is particularly true for learning how to code ([here is a nice book about Education in Data Science with R](https://datascienceineducation.com)) . Coding languages such as R or Python require a combination of contextual situations to be efficiently practiced:
+Learning is changing quickly, very quickly. With the advancement of technologies and with the help of unexpected game changer events, the future of learning is becoming online rather than onsite.  This is particularly true for learning how to code ([here is a nice book about Education in Data Science with R](https://datascienceineducation.com)). Coding languages such as R or Python require a combination of contextual situations to be efficiently practiced:
 
 1. Learners need to see the output of running code. Classic slides lectures are good for general ideas but nothing can replace the direct feedback of run a code and comparing its output with expected results.
 
@@ -32,11 +32,11 @@ Consequently, online learning is perfect for these 3 points. In the R community,
 There is a lot of amazing tutorials out there which can be accessed for free on coursera or udermy platforms for example or using blogs and online books. It is also very easy to create your own tutorial using {blogdown} or {bookdown} for example. A great talk entitled “How to Get Your Materials Online With R Markdown” recently introduced the different possibilities to share your own tutorial online (here are the [video]( https://resources.rstudio.com/webinars/sharing-on-short-notice-how-to-get-your-materials-online-with-r-markdown) and the [slides]( https://rstudio-education.github.io/sharing-short-notice/)).
 However, few of these solutions are satisfying the first criteria. The ability to let the learners running the code by themselves usually imply that the learner has to run the code on a machine with the code and IDE required already installed.
 
-One of these online learning platform is different, it allows the learner to watch a video or to read some slides and then to run the code via some exercises. I learnt a lot from this platform but the access of the tutorials is not free and therefore not suitable for students.
+One of these online learning platform is different, it allows the learner to watch a video or to read some slides and then to run the code via some exercises. I've learnt a lot from this platform but the access of the tutorials is not free and therefore not suitable for students.
 
 ## Interactive tutorials R packages
 
-The community around R has developed some amazing tools to create tutorials which allow learners to run their own code. There are maybe more of them but I am thinking of the {learnr} and {RTutor} packages ([the {swirl} package]( https://swirlstats.com) also creates tutorials but these have to be used inside an IDE).
+The community around R has developed some amazing tools to create interactive tutorials which allow learners to run their own code (see [here](https://education.rstudio.com/blog/2020/05/teach-interactive-course/) for example). There are maybe more of them but I am thinking of the {learnr} and {RTutor} packages ([the {swirl} package]( https://swirlstats.com) also creates tutorials but these have to be used inside an IDE).
 
 [The {RTutor} package](https://github.com/skranz/RTutor) by Sebastian Kranz is showing the basics of interactivity. Wildly used for multiple tutorials (see GitHub README for list), it has paved the way for most recent alternatives. Here is a recent use of RTutor:
 
