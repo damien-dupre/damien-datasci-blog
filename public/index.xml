@@ -36,6 +36,10 @@ However, few of these solutions are satisfying the first criteria. The ability t
 &lt;div id=&#34;interactive-tutorials-r-packages&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Interactive tutorials R packages&lt;/h2&gt;
 &lt;p&gt;The community around R has developed some amazing tools to create tutorials which allow learners to run their own code. There are maybe more of them but I am thinking of the {learnr} and {RTutor} packages (&lt;a href=&#34;https://swirlstats.com&#34;&gt;the {swirl} package&lt;/a&gt; also creates tutorials but these have to be used inside an IDE).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/skranz/RTutor&#34;&gt;The {RTutor} package&lt;/a&gt; by Sebastian Kranz is showing the basics of interactivity. Wildly used for multiple tutorials (see GitHub README for list), it has paved the way for most recent alternatives. Here is a recent use of RTutor:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://danieldreyer.shinyapps.io/RTutorCO2ReductionCosts/&#34;&gt;Problem Set: Estimating CO2 Reduction Costs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;&lt;a href=&#34;https://rstudio.github.io/learnr&#34;&gt;The {learnr} package&lt;/a&gt; by &lt;a href=&#34;https://cran.r-project.org/web/packages/learnr/index.html&#34;&gt;Schloerke, Allaire, and Borges (2020)&lt;/a&gt; is amazing. To be more familiar with the possibilities of {learnr}, you can have a look at the following {learnr} tutorial examples provided by RStudio ( &lt;a href=&#34;https://github.com/rstudio/learnr/tree/master/inst/tutorials&#34;&gt;here is the link to their code&lt;/a&gt;):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://learnr-examples.shinyapps.io/hello/&#34;&gt;Hello, Tutorial!&lt;/a&gt;&lt;/li&gt;
@@ -64,6 +68,7 @@ However, few of these solutions are satisfying the first criteria. The ability t
 &lt;li&gt;&lt;a href=&#34;https://jjallaire.shinyapps.io/learnr-tutorial-01-data-basics/&#34;&gt;Data basics&lt;/a&gt; by &lt;a href=&#34;https://github.com/jjallaire&#34;&gt;J.J. Allaire&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://rpruim.shinyapps.io/Less-Volume-JMM2019/&#34;&gt;Less Volume, More Creativity Plots and More&lt;/a&gt; by &lt;a href=&#34;https://www.calvin.edu/~rpruim/&#34;&gt;Randy Pruim&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://simonpcouch.shinyapps.io/infer&#34;&gt;Getting to Know infer&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/simonpcouch&#34;&gt;Simon P. Couch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://allisonhorst.shinyapps.io/missingexplorer/&#34;&gt;Exploring missing values in naniar&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;It is also possible to &lt;a href=&#34;https://desiree.rbind.io/post/2020/learnr-iframes&#34;&gt;integrate the {learnr} package into a blogdown website&lt;/a&gt; and to create beautiful visualisation such as the &lt;a href=&#34;https://tinystats.github.io/teacups-giraffes-and-statistics&#34;&gt;giraffe project to learn statistics&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I have never used the {RTutor} package but I’m assuming it has a lot of similarities with the {learnr} package as indicated in &lt;a href=&#34;https://skranz.github.io//r/2019/04/29/RTutor_vs_Learnr.html&#34;&gt;this blog post&lt;/a&gt;.&lt;/p&gt;
@@ -88,6 +93,7 @@ However, few of these solutions are satisfying the first criteria. The ability t
 &lt;li&gt;&lt;a href=&#34;https://noamross.github.io/gams-in-r-course/&#34;&gt;Generalized Additive Models in R&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/noamross&#34;&gt;Noam Ross&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://supervised-ml-course.netlify.com/&#34;&gt;Supervised Machine Learning Case Studies in R&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/juliasilge&#34;&gt;Julia Silge&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://r-bootcamp.netlify.com&#34;&gt;R-Bootcamp&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/tladeras&#34;&gt;Ted Laderas&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/datapointier&#34;&gt;Jessica Minnier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.quantargo.com/courses/course-r-introduction&#34;&gt;Introduction to R&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/quantargo&#34;&gt;Quantargo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;By following Florencia’s it is possible to create an interactive R tutorial for free very easily! The procedure described by Florencia and the three interactive tutorials examples as well as mine, are using the framework developed by &lt;a href=&#34;https://twitter.com/_inesmontani&#34;&gt;Ines Montani&lt;/a&gt; called Juniper which will make the interface between the Binder docker R environment back end and the tutorial front end. Speaking of front end, Ines is providing a very fancy template using node.js and being deployed with Gatsby. At this point I’m throwing computer science jargon but my understanding of them is very limited. The most important is that it is working very well!&lt;/p&gt;
 &lt;p&gt;It’s not a perfect solution, &lt;a href=&#34;https://education.rstudio.com/blog/2020/03/r-bootcamp/&#34;&gt;see this blog post describing pros and cons for this solution&lt;/a&gt;, however it is working and for free.&lt;/p&gt;
