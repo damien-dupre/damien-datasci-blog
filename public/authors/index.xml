@@ -5,7 +5,7 @@
     <link>/authors/</link>
       <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Thu, 01 Feb 2018 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/profile</url>
       <title>Authors</title>
@@ -13,18 +13,42 @@
     </image>
     
     <item>
-      <title>Anna Zajac</title>
-      <link>/authors/anna-zajac/</link>
-      <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      <guid>/authors/anna-zajac/</guid>
+      <title>Damien Dupré</title>
+      <link>/authors/damien-dupre/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/damien-dupre/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Damien Dupré</title>
-      <link>/authors/damien-dupre/</link>
+      <title>Dennis Küster</title>
+      <link>/authors/dennis-kuster/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/dennis-kuster/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eva G. Krumhuber</title>
+      <link>/authors/eva-g.-krumhuber/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/eva-g.-krumhuber/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gary J. McKeown</title>
+      <link>/authors/gary-j.-mckeown/</link>
+      <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>/authors/gary-j.-mckeown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anna Zajac</title>
+      <link>/authors/anna-zajac/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      <guid>/authors/damien-dupre/</guid>
+      <guid>/authors/anna-zajac/</guid>
       <description></description>
     </item>
     
