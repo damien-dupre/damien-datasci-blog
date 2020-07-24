@@ -1,5 +1,5 @@
 +++
-date = 2017-01-01T00:00:00  # Schedule page publish date.
+date = 2018-03-19T12:00:00  # Schedule page publish date.
 
 title = "Accuracy of three commercial automatic emotion recognition systems across different individuals and their facial expressions"
 time_start = 2018-03-19T12:00:00

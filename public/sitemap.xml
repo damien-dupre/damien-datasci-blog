@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2020-07-22T14:50:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2020-cex/</loc>
+    <lastmod>2020-07-22T14:50:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/</loc>
+    <lastmod>2020-07-22T14:50:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/publication_types/2/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
   </url>
@@ -14,11 +29,6 @@
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -113,6 +123,11 @@
   </url>
   
   <url>
+    <loc>/talk/2019-isre/</loc>
+    <lastmod>2019-07-11T10:30:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</loc>
     <lastmod>2019-01-26T00:00:00+00:00</lastmod>
   </url>
@@ -120,6 +135,11 @@
   <url>
     <loc>/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2018-dsaa/</loc>
+    <lastmod>2018-10-04T11:30:00+01:00</lastmod>
   </url>
   
   <url>
@@ -143,6 +163,11 @@
   </url>
   
   <url>
+    <loc>/talk/2018-bhci/</loc>
+    <lastmod>2018-07-04T12:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/privacy/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
   </url>
@@ -150,6 +175,21 @@
   <url>
     <loc>/terms/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2018-mb/</loc>
+    <lastmod>2018-06-06T12:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2018-cere/</loc>
+    <lastmod>2018-04-04T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2018-percom/</loc>
+    <lastmod>2018-03-19T12:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -188,88 +228,23 @@
   </url>
   
   <url>
-    <loc>/talk/2018-cere/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2019-isre/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-percom/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2014-cere/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-aisb/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-bhci/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    <loc>/talk/2017-isre/</loc>
+    <lastmod>2017-07-26T11:00:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>/talk/2017-ahfe/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-17T12:00:00+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/2015-acii/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    <loc>/talk/2017-aisb/</loc>
+    <lastmod>2017-04-18T12:00:00+01:00</lastmod>
   </url>
   
   <url>
     <loc>/talk/2016-aiptlf/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2010-eiac/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2012-de/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-mb/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2010-cere/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-isre/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2014-wcfee/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-dsaa/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2016-06-06T12:00:00+01:00</lastmod>
   </url>
   
   <url>
@@ -303,6 +278,11 @@
   </url>
   
   <url>
+    <loc>/talk/2015-acii/</loc>
+    <lastmod>2015-09-21T12:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/publication/2015-acceptabilite-innovatio/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
@@ -310,6 +290,16 @@
   <url>
     <loc>/authors/pascal-pizelle/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2014-wcfee/</loc>
+    <lastmod>2014-10-11T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2014-cere/</loc>
+    <lastmod>2014-03-26T11:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -353,6 +343,11 @@
   </url>
   
   <url>
+    <loc>/talk/2012-de/</loc>
+    <lastmod>2012-09-11T12:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/authors/f.-wild/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
   </url>
@@ -375,6 +370,16 @@
   <url>
     <loc>/authors/v.-zampa/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2010-eiac/</loc>
+    <lastmod>2010-10-13T12:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2010-cere/</loc>
+    <lastmod>2010-04-22T00:00:00+01:00</lastmod>
   </url>
   
   <url>

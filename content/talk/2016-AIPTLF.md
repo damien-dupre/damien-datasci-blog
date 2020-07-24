@@ -1,5 +1,5 @@
 +++
-date = 2017-01-01T00:00:00  # Schedule page publish date.
+date = 2016-06-06T12:00:00  # Schedule page publish date.
 
 title = "Etude de l’expérience utilisateur émotionnelle: Quels sont les impacts des émotions suscitées des produits innovants sur les perceptions des utilisateurs"
 time_start = 2016-06-06T12:00:00

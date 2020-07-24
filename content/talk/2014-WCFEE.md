@@ -1,5 +1,5 @@
 +++
-date = 2017-01-01T00:00:00  # Schedule page publish date.
+date = 2014-10-11T11:00:00  # Schedule page publish date.
 
 title = "Spontaneous and dynamic emotional facial expressions reflect action readiness"
 time_start = 2014-10-11T11:00:00
