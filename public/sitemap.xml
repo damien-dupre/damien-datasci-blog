@@ -4,16 +4,31 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-07-22T14:50:00+01:00</lastmod>
+    <lastmod>2020-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/talk/2020-cex/</loc>
-    <lastmod>2020-07-22T14:50:00+01:00</lastmod>
+    <loc>/talk/2020-aics/</loc>
+    <lastmod>2020-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/talk/</loc>
+    <lastmod>2020-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2020-psi/</loc>
+    <lastmod>2020-11-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2020-dsaa/</loc>
+    <lastmod>2020-10-08T15:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/2020-cex/</loc>
     <lastmod>2020-07-22T14:50:00+01:00</lastmod>
   </url>
   
