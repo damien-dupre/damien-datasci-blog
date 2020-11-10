@@ -5,7 +5,7 @@
     <link>/</link>
       <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Damien DataSci Blog</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 07 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Mon, 07 Dec 2020 12:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/profile</url>
       <title>Damien DataSci Blog</title>
@@ -15,7 +15,7 @@
     <item>
       <title>Disenchantment with Emotion Recognition Technologies: A Comparison Between Humans Observers and Automatic Classifiers</title>
       <link>/talk/2020-aics/</link>
-      <pubDate>Mon, 07 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Dec 2020 12:00:00 +0000</pubDate>
       <guid>/talk/2020-aics/</guid>
       <description>&lt;p&gt;ABSTRACT: In the wake of rapid advances in automatic affect analysis, commercial automatic classifiers for facial affect recognition have attracted considerable attention in recent years. While several options now exist to analyse dynamic video data, less is known about the relative performance of these classifiers, in particular when facial expressions are spontaneous rather than posed.&lt;/p&gt;
 &lt;p&gt;In the study &lt;em&gt;&amp;ldquo;A performance comparison of eight commercially available automatic classifiers for facial affect recognition&amp;rdquo;&lt;/em&gt; published in Plos One (Dupré et al., 2020), we tested eight commercially available automatic classifiers either stand alone software, SDK or API for emotion recognition. In addition to comparing the recognition performance between classifiers, their results are also compared  with the recognition of human observers used as ground truth. A total of 937 videos were sampled from two large databases that conveyed the basic six emotions (happiness, sadness, anger, fear, surprise, and disgust) either in posed (BU-4DFE) or spontaneous (UT-Dallas) form.&lt;/p&gt;
@@ -27,7 +27,7 @@
     <item>
       <title>Disenchantment with Emotion Recognition Technologies: Implications and Future Directions</title>
       <link>/talk/2020-psi/</link>
-      <pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Nov 2020 12:00:00 +0000</pubDate>
       <guid>/talk/2020-psi/</guid>
       <description>&lt;p&gt;ABSTRACT: With the development of IoT and Machine Learning, it is now possible to automatically evaluate emotions from various data streams among which facial expressions are one of the most prominent. An exponential number of tech companies are providing commercial systems to infer emotions from facial expressions (Software, API or SDK, see Dupré et al., 2018). As shown in the largest benchmark to date (Dupré et al., 2019), results from these technologies are significantly less accurate than human observers. Criticising not only the algorithms’ performance but also the theory underlying these systems, well known scientists in psychology and computer science have called for a halt to the use of these technologies for significant decisions (e.g., in human resources management). While automatic classifiers of identity from faces have been proven to be gender and ethnically biased, emotion recognition appears to be biased as well. However, some encouraging improvements are suggesting solutions to the frailties in emotion recognition technologies.&lt;/p&gt;
 </description>
