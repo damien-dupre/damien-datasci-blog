@@ -1,0 +1,216 @@
+---
+title: Identifying student collaboration with network clusters
+author: Damien Dupré
+date: '2020-12-18'
+slug: []
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-12-18T21:37:49Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+base::set.seed(42)
+base::options(
+  scipen = 999,
+  knitr.kable.NA = " - "
+  )
+knitr::opts_chunk$set(
+  cache.extra = knitr::rand_seed, 
+  message = FALSE, 
+  warning = FALSE, 
+  error = FALSE, 
+  echo = TRUE,
+  fig.retina = 3
+  )
+```
+
+I recently gave to my students a data science assignment with a dataset to do some data wrangling, descriptive statistics and hypotheses testing. In order to give some context to the dataset, I also asked them to write a short introduction and to formulate hypotheses supported by academic references. While the focus of the assignment is not on these references, I found suspicious that some students used the exact same references while changing the text to bypass plagiarism software.
+
+I was very curious to see if it is possible to identify groups of students using the same references. I came across a very interesting blog post by [María Medina Pérez called "Graph Theory 101 with corruption cases in Spain"](https://codingclubuc3m.rbind.io/post/2020-01-21/). I won't say that my students are involved in corruption cases but there are some similarities in the process: **each student correspond to a case and each author reference correspond to an accused**. By following this principle, it is possible to map the network of relationship of shared author references between students.
+
+# Data Wrangling
+
+First, let's load the packages:
+
+```{r libraries}
+library(tidyverse) # data wrangling function + pipe
+library(pdftools) # pdf scrapping
+library(here) # relative project paths
+library(combinat) # combination of vectors
+library(igraph) # network analysis and vitalization
+library(fs) # batch path processing
+```
+
+Then, let's read some data taken from student's references section. To make it easy in this post, the data are already saved in a .csv file but you will find my procedure to obtain this table here below commented:
+
+```{r data}
+# # function -------------------------------------------------------------------
+# pdf_process <- function(file_path){
+#   file_text <- pdf_text(file_path)
+#   file_text[length(file_text)] %>% 
+#     str_split("\r\n", n = Inf, simplify = TRUE) %>% 
+#     t() %>% 
+#     as_tibble() %>% 
+#     rename(ref = V1) %>% 
+#     mutate(ref_date = str_extract(ref, "(?<=\\().+?(?=\\))") %>% as.numeric) %>% 
+#     filter(between(ref_date, 1455, format(Sys.Date(), "%Y"))) %>% 
+#     mutate(
+#       first_author = 
+#         str_extract(ref, "^[^\\(]+") %>% # split by opening brackets
+#         str_replace_all("[^[:alnum:] ]", "") %>% # remove all non-letter
+#         str_squish() %>% # trim beginning white spaces
+#         word(sep = fixed(" ")), # keep only first word
+#       id = stri_rand_strings(1, 5) # generate random string
+#     )
+# }
+# # data -----------------------------------------------------------------------
+# data_raw <- "./assignment/individual_report/submission" %>% 
+#   dir_ls(regexp = "\\.pdf$", recurse = TRUE) %>% 
+#   path_filter(regexp = "\\_dd.pdf$", invert = TRUE) %>% 
+#   map_dfr(pdf_process) %>%
+#   write_csv(here("data/data_raw.csv"))
+
+data_raw <- here("static/files/data_network.csv") %>% 
+  read_csv()
+
+list_unique_author <- unique(data_raw$first_author) # author used in the reference section
+list_unique_id <- unique(data_raw$id) # student custom ID for anonymity
+```
+
+Now we have a list of authors and a list of student IDs, we are going to build two main dataframes:
+* A dataframe that combines all the possible pairs of authors and measure how many times they appears together in the same document (called `authors_same_id_df`)
+* A dataframe that combines all the possible pairs of students IDs and measure how many authors they have in common (called `ids_same_author_df`)
+
+## Basic Network of Shared IDs
+
+To proceed, create a vector of all IDs having more than one author and count how many times a pair of author appears in a student ID:
+
+```{r authors_same_id_df}
+shared_id <- data_raw %>% 
+  select(first_author, id) %>% 
+  count(id) %>% 
+  filter(n > 1) %>% 
+  pull(id)
+
+authors_same_id_df <- data_raw %>%
+  select(first_author, id) %>% 
+  filter(id %in% shared_id) %>% 
+  group_by(id) %>%
+  summarise(combn(first_author, 2) %>% t %>% as.data.frame) %>% 
+  ungroup() %>%
+  count(V1, V2) %>% 
+  rename(author_1 = V1, author_2 = V2)
+```
+
+Then, use the package {igraph} to create a basic network from the dataframe by using the function ... `graph_from_data_frame()`. The second step consist in using the function `E()` to weight the edges of the network according the number of times that a pair of author appears in student IDs:
+
+```{r g_common_id}
+g_common_id <- authors_same_id_df[, c("author_1", "author_2")] %>% 
+  graph_from_data_frame(
+    directed = FALSE,
+    vertices = unique(data_raw$first_author)
+  )
+E(g_common_id)$weight <- authors_same_id_df$n
+```
+
+## Basic Network of Shared Authors
+
+Similarly, create a vector of all authors that appear in more than one student ID document and count how many authors are shared by pairs of student IDs:
+
+```{r ids_same_author_df}
+shared_author <- data_raw %>% 
+  select(first_author, id) %>% 
+  count(first_author) %>% 
+  filter(n > 1) %>% 
+  pull(first_author)
+
+ids_same_author_df <- data_raw %>%
+  select(first_author, id) %>% 
+  filter(first_author %in% shared_author) %>% 
+  group_by(first_author) %>%
+  summarise(combinat::combn(id, 2) %>% t %>% as.data.frame) %>% 
+  ungroup() %>%
+  count(V1, V2) %>% 
+  rename(id_1 = V1, id_2 = V2)
+```
+
+Same principle, creating a graph network of shared authors between pairs of IDs and weighing by occurrences:
+
+```{r g_common_author}
+g_common_author <- ids_same_author_df[c("id_1", "id_2")] %>% 
+  graph_from_data_frame(
+    directed = FALSE,
+    vertices = unique(data_raw$id)
+  )
+E(g_common_author)$weight <- ids_same_author_df$n
+```
+
+# Clusters in Network of Shared Authors
+
+Because we are more interest in grouping similarity between students' document, the following code aims to identify clusters in student IDs' network.
+
+## Connected Components
+
+By using the functions `components()` and `sizes()`, the objective is to bring together nodes that are strongly connected (high density of shared authors).
+
+```{r connected-components}
+components_author <- components(g_common_author)
+components_author_sizes <- sizes(components_author)
+```
+
+## Induced Subgraphs
+
+In order to organize the final plot, it is essential to remove all relationships with only 1 element. Then, two subgraphs are prepared one containing all the connections `g_author_plots` (minus weak relationships) and one containing only the strongest connections `g_author_plot1`. Finally, the layout of the final graph is prepared with student IDs connections in `layout_id_plot1` using the `layout_nicely()` function.
+
+```{r}
+components_plots <- which(components_author_sizes > 1)
+g_author_plots <- g_common_author %>% 
+  induced_subgraph(
+    vids = which(membership(components_author) %in% components_plots)
+  )
+
+biggest_plot <- which.max(components_author_sizes)
+g_author_plot1 <- g_common_author %>% 
+  induced_subgraph(
+    vids = which(membership(components_author) == biggest_plot)
+  )
+
+id_plot1 <- subset(data_raw, id %in% V(g_author_plot1)$name)
+g_id_plot1 <- g_common_id %>% 
+  induced_subgraph(
+    vids = id_plot1$first_author
+  )
+layout_id_plot1 <- layout_nicely(g_id_plot1)
+```
+
+## Centrality Measures
+
+{igraph} also provides an easy network clustering function called `cluster_walktrap()`. This function will define the clusters in the network to draw the circles.
+
+```{r centrality-measures}
+comm_id_plot1 <- cluster_walktrap(g_id_plot1, steps = 50)
+```
+
+## Final Plot
+
+In the end a plot from base R is more than enough to display the clusters of students whose reference sections share a lot of similarities:
+
+```{r final-plot}
+plot(
+  comm_id_plot1,
+  g_id_plot1,
+  layout = layout_id_plot1,
+  vertex.label = NA,
+  vertex.size = 3
+)
+```
+

@@ -1,0 +1,169 @@
+---
+title: Identifying student collaboration with network clusters
+author: Damien Dupré
+date: '2020-12-18'
+slug: []
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-12-18T21:37:49Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p>I recently gave to my students a data science assignment with a dataset to do some data wrangling, descriptive statistics and hypotheses testing. In order to give some context to the dataset, I also asked them to write a short introduction and to formulate hypotheses supported by academic references. While the focus of the assignment is not on these references, I found suspicious that some students used the exact same references while changing the text to bypass plagiarism software.</p>
+<p>I was very curious to see if it is possible to identify groups of students using the same references. I came across a very interesting blog post by <a href="https://codingclubuc3m.rbind.io/post/2020-01-21/">María Medina Pérez called “Graph Theory 101 with corruption cases in Spain”</a>. I won’t say that my students are involved in corruption cases but there are some similarities in the process: <strong>each student correspond to a case and each author reference correspond to an accused</strong>. By following this principle, it is possible to map the network of relationship of shared author references between students.</p>
+<div id="data-wrangling" class="section level1">
+<h1>Data Wrangling</h1>
+<p>First, let’s load the packages:</p>
+<pre class="r"><code>library(tidyverse) # data wrangling function + pipe
+library(pdftools) # pdf scrapping
+library(here) # relative project paths
+library(combinat) # combination of vectors
+library(igraph) # network analysis and vitalization
+library(fs) # batch path processing</code></pre>
+<p>Then, let’s read some data taken from student’s references section. To make it easy in this post, the data are already saved in a .csv file but you will find my procedure to obtain this table here below commented:</p>
+<pre class="r"><code># # function -------------------------------------------------------------------
+# pdf_process &lt;- function(file_path){
+#   file_text &lt;- pdf_text(file_path)
+#   file_text[length(file_text)] %&gt;% 
+#     str_split(&quot;\r\n&quot;, n = Inf, simplify = TRUE) %&gt;% 
+#     t() %&gt;% 
+#     as_tibble() %&gt;% 
+#     rename(ref = V1) %&gt;% 
+#     mutate(ref_date = str_extract(ref, &quot;(?&lt;=\\().+?(?=\\))&quot;) %&gt;% as.numeric) %&gt;% 
+#     filter(between(ref_date, 1455, format(Sys.Date(), &quot;%Y&quot;))) %&gt;% 
+#     mutate(
+#       first_author = 
+#         str_extract(ref, &quot;^[^\\(]+&quot;) %&gt;% # split by opening brackets
+#         str_replace_all(&quot;[^[:alnum:] ]&quot;, &quot;&quot;) %&gt;% # remove all non-letter
+#         str_squish() %&gt;% # trim beginning white spaces
+#         word(sep = fixed(&quot; &quot;)), # keep only first word
+#       id = stri_rand_strings(1, 5) # generate random string
+#     )
+# }
+# # data -----------------------------------------------------------------------
+# data_raw &lt;- &quot;./assignment/individual_report/submission&quot; %&gt;% 
+#   dir_ls(regexp = &quot;\\.pdf$&quot;, recurse = TRUE) %&gt;% 
+#   path_filter(regexp = &quot;\\_dd.pdf$&quot;, invert = TRUE) %&gt;% 
+#   map_dfr(pdf_process) %&gt;%
+#   write_csv(here(&quot;data/data_raw.csv&quot;))
+
+data_raw &lt;- here(&quot;static/files/data_network.csv&quot;) %&gt;% 
+  read_csv()
+
+list_unique_author &lt;- unique(data_raw$first_author) # author used in the reference section
+list_unique_id &lt;- unique(data_raw$id) # student custom ID for anonymity</code></pre>
+<p>Now we have a list of authors and a list of student IDs, we are going to build two main dataframes:
+* A dataframe that combines all the possible pairs of authors and measure how many times they appears together in the same document (called <code>authors_same_id_df</code>)
+* A dataframe that combines all the possible pairs of students IDs and measure how many authors they have in common (called <code>ids_same_author_df</code>)</p>
+<div id="basic-network-of-shared-ids" class="section level2">
+<h2>Basic Network of Shared IDs</h2>
+<p>To proceed, create a vector of all IDs having more than one author and count how many times a pair of author appears in a student ID:</p>
+<pre class="r"><code>shared_id &lt;- data_raw %&gt;% 
+  select(first_author, id) %&gt;% 
+  count(id) %&gt;% 
+  filter(n &gt; 1) %&gt;% 
+  pull(id)
+
+authors_same_id_df &lt;- data_raw %&gt;%
+  select(first_author, id) %&gt;% 
+  filter(id %in% shared_id) %&gt;% 
+  group_by(id) %&gt;%
+  summarise(combn(first_author, 2) %&gt;% t %&gt;% as.data.frame) %&gt;% 
+  ungroup() %&gt;%
+  count(V1, V2) %&gt;% 
+  rename(author_1 = V1, author_2 = V2)</code></pre>
+<p>Then, use the package {igraph} to create a basic network from the dataframe by using the function … <code>graph_from_data_frame()</code>. The second step consist in using the function <code>E()</code> to weight the edges of the network according the number of times that a pair of author appears in student IDs:</p>
+<pre class="r"><code>g_common_id &lt;- authors_same_id_df[, c(&quot;author_1&quot;, &quot;author_2&quot;)] %&gt;% 
+  graph_from_data_frame(
+    directed = FALSE,
+    vertices = unique(data_raw$first_author)
+  )
+E(g_common_id)$weight &lt;- authors_same_id_df$n</code></pre>
+</div>
+<div id="basic-network-of-shared-authors" class="section level2">
+<h2>Basic Network of Shared Authors</h2>
+<p>Similarly, create a vector of all authors that appear in more than one student ID document and count how many authors are shared by pairs of student IDs:</p>
+<pre class="r"><code>shared_author &lt;- data_raw %&gt;% 
+  select(first_author, id) %&gt;% 
+  count(first_author) %&gt;% 
+  filter(n &gt; 1) %&gt;% 
+  pull(first_author)
+
+ids_same_author_df &lt;- data_raw %&gt;%
+  select(first_author, id) %&gt;% 
+  filter(first_author %in% shared_author) %&gt;% 
+  group_by(first_author) %&gt;%
+  summarise(combinat::combn(id, 2) %&gt;% t %&gt;% as.data.frame) %&gt;% 
+  ungroup() %&gt;%
+  count(V1, V2) %&gt;% 
+  rename(id_1 = V1, id_2 = V2)</code></pre>
+<p>Same principle, creating a graph network of shared authors between pairs of IDs and weighing by occurrences:</p>
+<pre class="r"><code>g_common_author &lt;- ids_same_author_df[c(&quot;id_1&quot;, &quot;id_2&quot;)] %&gt;% 
+  graph_from_data_frame(
+    directed = FALSE,
+    vertices = unique(data_raw$id)
+  )
+E(g_common_author)$weight &lt;- ids_same_author_df$n</code></pre>
+</div>
+</div>
+<div id="clusters-in-network-of-shared-authors" class="section level1">
+<h1>Clusters in Network of Shared Authors</h1>
+<p>Because we are more interest in grouping similarity between students’ document, the following code aims to identify clusters in student IDs’ network.</p>
+<div id="connected-components" class="section level2">
+<h2>Connected Components</h2>
+<p>By using the functions <code>components()</code> and <code>sizes()</code>, the objective is to bring together nodes that are strongly connected (high density of shared authors).</p>
+<pre class="r"><code>components_author &lt;- components(g_common_author)
+components_author_sizes &lt;- sizes(components_author)</code></pre>
+</div>
+<div id="induced-subgraphs" class="section level2">
+<h2>Induced Subgraphs</h2>
+<p>In order to organize the final plot, it is essential to remove all relationships with only 1 element. Then, two subgraphs are prepared one containing all the connections <code>g_author_plots</code> (minus weak relationships) and one containing only the strongest connections <code>g_author_plot1</code>. Finally, the layout of the final graph is prepared with student IDs connections in <code>layout_id_plot1</code> using the <code>layout_nicely()</code> function.</p>
+<pre class="r"><code>components_plots &lt;- which(components_author_sizes &gt; 1)
+g_author_plots &lt;- g_common_author %&gt;% 
+  induced_subgraph(
+    vids = which(membership(components_author) %in% components_plots)
+  )
+
+biggest_plot &lt;- which.max(components_author_sizes)
+g_author_plot1 &lt;- g_common_author %&gt;% 
+  induced_subgraph(
+    vids = which(membership(components_author) == biggest_plot)
+  )
+
+id_plot1 &lt;- subset(data_raw, id %in% V(g_author_plot1)$name)
+g_id_plot1 &lt;- g_common_id %&gt;% 
+  induced_subgraph(
+    vids = id_plot1$first_author
+  )
+layout_id_plot1 &lt;- layout_nicely(g_id_plot1)</code></pre>
+</div>
+<div id="centrality-measures" class="section level2">
+<h2>Centrality Measures</h2>
+<p>{igraph} also provides an easy network clustering function called <code>cluster_walktrap()</code>. This function will define the clusters in the network to draw the circles.</p>
+<pre class="r"><code>comm_id_plot1 &lt;- cluster_walktrap(g_id_plot1, steps = 50)</code></pre>
+</div>
+<div id="final-plot" class="section level2">
+<h2>Final Plot</h2>
+<p>In the end a plot from base R is more than enough to display the clusters of students whose reference sections share a lot of similarities:</p>
+<pre class="r"><code>plot(
+  comm_id_plot1,
+  g_id_plot1,
+  layout = layout_id_plot1,
+  vertex.label = NA,
+  vertex.size = 3
+)</code></pre>
+<p><img src="/post/2020-12-18-identifying-student-collaboration-with-network-clusters/index.en_files/figure-html/final-plot-1.png" width="672" /></p>
+</div>
+</div>
