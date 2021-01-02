@@ -19,20 +19,21 @@ projects: []
 
 
 
-<p>Every R user knows the verbose of the R startup message. It contains essential information such as the R version and the fact that R is an open-source platform. However, seeing this message every days, multiple times a day can be a bit … boring. What about seeing something different and nice every time you start RStudio?</p>
+<p>Every R user knows the verbose of the R startup message. It contains essential information such as the R version and that R is an open-source platform. However, seeing this message every day … multiple times a day … can be a bit boring. What about seeing something different and nice every time you start RStudio?</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="/img/r_startup_v403.png" alt="Classic startup message for R version 4.0.3. Nothing bad at all but it cold be more entertaining"  />
+<img src="/img/r_startup_v403.png" alt="Classic startup message for R version 4.0.3. Nothing bad at all but it could be more entertaining"  />
 <p class="caption">
-Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it cold be more entertaining
+Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it could be more entertaining
 </p>
 </div>
+<p>I took a look at how to modify the startup message after a couple of tweets from Kara Woo <a href="https://twitter.com/kara_woo/status/1216036265650294784">here</a> and <a href="https://twitter.com/kara_woo/status/1097912398269173760">here</a>. After reading the community’s answers I had to do someting.</p>
 <div id="rprofile-and-rstudio-startup" class="section level2">
 <h2>.Rprofile and RStudio Startup</h2>
-<p>.Rprofile is an empty file that can be used to automatically modify your blank new environement every time you start a R session. It can be used to load packagaes (i.e. {magrittr} in order to access the pipe), to set up options (i.e. scipen = 999 to desactivate the scientific format when printing numbers) or to create object containing specfitic data such as API keys. .Rprofile is generally located on the root of the R session and can be accessed by using <code>file.edit("~/.Rprofile")</code> but the package {usethis} has a specific function to open it so … let’s use it!</p>
+<p>.Rprofile is an empty file that can be used to automatically modify your blank new environement every time you start a R session. It can be used to load packagaes (i.e. {magrittr} in order to access the pipe), to set up options (i.e. scipen = 999 to deactivate the scientific format when printing numbers) or to create object containing specific data such as API keys. .Rprofile is generally located on the root of the R session and can be accessed by using <code>file.edit("~/.Rprofile")</code> but the package {usethis} has a specific function to open it so … let’s use it!</p>
 <pre class="r"><code>usethis::edit_r_profile()</code></pre>
-<p>As indicated a blank file should open if you haven’t modified it yet.</p>
-<p>So modifications of the .Rprofile file can display very useful informations such as the Git branch name that you are currently working on see <a href="https://rtask.thinkr.fr/modify-rstudio-prompt-to-show-current-git-branch/">this great post</a> from <a href="https://twitter.com/romain_francois">Romain François</a>. There is even <a href="https://github.com/csgillespie/rprofile">a package on GitHub called {rprofile}</a> created by <a href="https://twitter.com/csgillespie">Colin Gillespie</a> to modify it with useful functions.</p>
-<p>By scrapping the web, it is possible to find that the startup of RStudio sessions can be modified automatically (<a href="https://rstudio.github.io/rstudioapi/articles/r-session.html">see this post about RStudio API</a>). To do so the <code>rstudio.sessionInit</code> hook has to be invoked in a function as follow:</p>
+<p>As indicated, a blank file should open if you haven’t modified it yet.</p>
+<p>Modifications of the .Rprofile file can display very useful information such as the Git branch name that you are currently working on (<a href="https://rtask.thinkr.fr/modify-rstudio-prompt-to-show-current-git-branch/">see this great post</a> from <a href="https://twitter.com/romain_francois">Romain François</a>). There is even <a href="https://github.com/csgillespie/rprofile">a package on GitHub called {rprofile}</a> created by <a href="https://twitter.com/csgillespie">Colin Gillespie</a> to modify it with useful functions.</p>
+<p>By scrapping the web, it is possible to find that the startup of RStudio sessions can be modified automatically (<a href="https://rstudio.github.io/rstudioapi/articles/r-session.html">see this post about RStudio API</a>). To do so, the <code>rstudio.sessionInit</code> hook has to be invoked in a function as follow:</p>
 <pre class="r"><code>setHook(&quot;rstudio.sessionInit&quot;, function(newSession) {
   
   # any code included here will be run at the start of each RStudio session
@@ -41,8 +42,8 @@ Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it
 </div>
 <div id="customise-your-rstudio-startup-message" class="section level2">
 <h2>Customise your RStudio Startup Message</h2>
-<p>Inside this previous function, if the first code include <code>cat("\014")</code> or <code>cat('\f')</code>, the R message will automatically be erased. This code is associated to the RStudio keyboard shortcut CRTL + L to clear the console.</p>
-<p>Next step is to display something nice in the console. You could just print a message and it will be displayed everytime. However if you want to change your startup message you can also use one of the many R package that constains specific quotes and selecting a random one for every startup! Here is a non-exhaustive list of the quotes pacakages:</p>
+<p>Inside this <code>rstudio.sessionInit</code> function, <code>cat("\014")</code> or <code>cat('\f')</code> will automatically clear the console and therefor the R startup message. This code is associated to the RStudio keyboard shortcut CRTL + L to clear the console.</p>
+<p>Next step is to display something nice in the console. You could just print a message and it will be displayed everytime. However if you want to change your startup message you can also use one of the many R package that constains specific quotes and selecting a random one for every startup! Here is a non-exhaustive list of the quotes packages:</p>
 <ul>
 <li>{norris} queries Chuck Norris jokes from the <a href="http://www.icndb.com/api/">‘ICNDB’ API</a> (created by Chris Cardillo and <a href="https://github.com/chriscardillo/norris">available on GitHub</a>)</li>
 <li>{mitchhedberg} contains hilarious quote from the stand up comedian Mitch Hedberg (created by <a href="https://twitter.com/kearneymw">Michael W. Kearney</a> and <a href="https://github.com/mkearney/mitchhedberg">available on GitHub</a>)</li>
@@ -59,7 +60,7 @@ Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it
     httr::GET(&quot;https://quotes.rest/qod&quot;)$content
   )
 )$contents$quotes$quote</code></pre>
-<p>This They Said So Quotes API has several endpoint that can be queried to obtain different language or different categories of quotes.</p>
+<p>This <strong>They Said So Quotes API</strong> has several endpoint that can be queried to obtain different language or different categories of quotes.</p>
 <p>For me the icing on the cake is the package {cowsay} <a href="https://cran.r-project.org/web/packages/cowsay">available on CRAN</a> by <a href="https://twitter.com/sckottie">Scott Chamberlain</a> and all 17 contributors. {cowsay} displays ASCII animals in the console with a bubble for which you can choose the content of the text.</p>
 <pre class="r"><code>cowsay::say(&quot;So why not choosing one of this animals to say a random quote in your startup message?&quot;, &quot;cat&quot;)</code></pre>
 <pre><code>## 
@@ -102,7 +103,7 @@ Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it
 ##                 `-,_  __.&#39;` &#39;-._}
 ##               jgs   `|||
 ##                    .==&#39;=,</code></pre>
-<p>In <code>say()</code> it is also possible to choose the color of the text and the color of the animal, let’s make it random as well with the pacakge {randomcoloR} by Ron Ammar <a href="https://cran.r-project.org/web/packages/randomcoloR/">available on CRAN</a>!</p>
+<p>In <code>say()</code> it is also possible to choose the color of the text and the color of the animal, let’s make it random as well with the package {randomcoloR} by Ron Ammar <a href="https://cran.r-project.org/web/packages/randomcoloR/">available on CRAN</a>!</p>
 <pre class="r"><code>cowsay::say(
   what = &quot;Random EVERYWHERE! but colors are not printed in .Rmd console output :(&quot;, 
   by = &quot;random&quot;, 
@@ -130,7 +131,7 @@ Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it
 ##                .*&#39; /  .*&#39; ; .*`- +&#39;  `*&#39;
 ##      [bug]     `*-*   `*-*  `*-*&#39;
 ## </code></pre>
-<p>Finally you just have to add all the element together: <code>rstudio.sessionInit</code> hook function with, <code>cat("\014")</code> to erase the R message and {cowsay} using a random quote from a package or from an API:</p>
+<p>Finally you just have to add the elements all together: <code>rstudio.sessionInit</code> hook function with, <code>cat("\014")</code> to erase the R message and {cowsay} using a random quote from a package or from an API:</p>
 <pre class="r"><code>setHook(&quot;rstudio.sessionInit&quot;, function(newSession) {
   cat(&quot;\014&quot;)
   cowsay::say(
