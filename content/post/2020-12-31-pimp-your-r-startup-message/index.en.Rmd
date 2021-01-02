@@ -1,0 +1,157 @@
+---
+title: Pimp your R startup message
+author: Damien Dupré
+date: '2020-12-31'
+slug: []
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-12-31T08:55:05Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+base::set.seed(42)
+base::options(
+  scipen = 999,
+  knitr.kable.NA = " - "
+  )
+knitr::opts_chunk$set(
+  cache.extra = knitr::rand_seed, 
+  message = FALSE, 
+  warning = FALSE, 
+  error = FALSE, 
+  echo = TRUE,
+  fig.retina = 3
+  )
+library(here)
+```
+
+Every R user knows the verbose of the R startup message. It contains essential information such as the R version and the fact that R is an open-source platform. However, seeing this message every days, multiple times a day can be a bit ... boring. What about seeing something different and nice every time you start RStudio? 
+
+```{r echo=FALSE, fig.cap="Classic startup message for R version 4.0.3. Nothing bad at all but it cold be more entertaining", fig.align="center"}
+knitr::include_graphics("/img/r_startup_v403.png", error = FALSE)
+```
+
+## .Rprofile and RStudio Startup
+
+.Rprofile is an empty file that can be used to automatically modify your blank new environement every time you start a R session. It can be used to load packagaes (i.e. {magrittr} in order to access the pipe), to set up options (i.e. scipen = 999 to desactivate the scientific format when printing numbers) or to create object containing specfitic data such as API keys. .Rprofile is generally located on the root of the R session and can be accessed by using `file.edit("~/.Rprofile")` but the package {usethis} has a specific function to open it so ... let's use it!
+
+```{r eval=FALSE}
+usethis::edit_r_profile()
+```
+
+As indicated a blank file should open if you haven't modified it yet.
+
+So modifications of the .Rprofile file can display very useful informations such as the Git branch name that you are currently working on see [this great post](https://rtask.thinkr.fr/modify-rstudio-prompt-to-show-current-git-branch/) from [Romain François](https://twitter.com/romain_francois). There is even [a package on GitHub called {rprofile}](https://github.com/csgillespie/rprofile) created by [Colin Gillespie](https://twitter.com/csgillespie) to modify it with useful functions.
+
+By scrapping the web, it is possible to find that the startup of RStudio sessions can be modified automatically ([see this post about RStudio API](https://rstudio.github.io/rstudioapi/articles/r-session.html)). To do so the `rstudio.sessionInit` hook has to be invoked in a function as follow:
+
+```{r eval=FALSE}
+setHook("rstudio.sessionInit", function(newSession) {
+  
+  # any code included here will be run at the start of each RStudio session
+  
+}, action = "append")
+```
+
+## Customise your RStudio Startup Message
+
+Inside this previous function, if the first code include `cat("\014")` or `cat('\f')`, the R message will automatically be erased. This code is associated to the RStudio keyboard shortcut CRTL + L to clear the console.
+
+Next step is to display something nice in the console. You could just print a message and it will be displayed everytime. However if you want to change your startup message you can also use one of the many R package that constains specific quotes and selecting a random one for every startup! Here is a non-exhaustive list of the quotes pacakages:
+
+- {norris} queries Chuck Norris jokes from the ['ICNDB' API](http://www.icndb.com/api/) (created by Chris Cardillo and [available on GitHub](https://github.com/chriscardillo/norris))
+- {mitchhedberg} contains hilarious quote from the stand up comedian Mitch Hedberg (created by [Michael W. Kearney](https://twitter.com/kearneymw) and [available on GitHub](https://github.com/mkearney/mitchhedberg))
+- {goodshirt} queries quotes from the Good Place Quotes API related to the TV show of the same name (created by [Adam Gruer](https://twitter.com/AdamGruer) and [available on GitHub](https://github.com/adam-gruer/goodshirt))
+- {dundermifflin} contains quote from the TV show "The Office" (created by Tyler Bradley and [available on CRAN](https://cran.r-project.org/web/packages/dundermifflin/))
+- {statquotes} contains quotes about statistics (created by	Michael Friendly and [available on CRAN](https://cran.r-project.org/web/packages/statquotes/))
+- {dadjoke} by Shambhavi Priyam [on CRAN](https://cran.r-project.org/web/packages/dadjoke) contains jokes taken from the  ["I Can Haz Dad Joke" API](https://icanhazdadjoke.com), there is another {dadjoke} package [on GitHub](https://github.com/jhollist/dadjoke) by [Jeff Hollister](https://twitter.com/jhollist) that directly queries the API and therefore offers much more variety
+- {praise} provides motivational sentences, a great feelgood package (created by Gabor Csardi and [available on CRAN](https://cran.r-project.org/web/packages/praise/))
+- {fortunes} contains a collection of fortunes from the R community (code by Achim Zeileis and [available on CRAN](https://cran.r-project.org/web/packages/fortunes/))
+
+If you want to display your own random quotes, it is possible to query any API and to display its random quote. For example, let's query the quote of the day from [They Said So Quotes API](https://quotes.rest/) using {httr} and {jsonlite}:
+
+```{r eval=FALSE}
+jsonlite::fromJSON(
+  rawToChar(
+    httr::GET("https://quotes.rest/qod")$content
+  )
+)$contents$quotes$quote
+```
+
+This They Said So Quotes API has several endpoint that can be queried to obtain different language or different categories of quotes.
+
+For me the icing on the cake is the package {cowsay} [available on CRAN](https://cran.r-project.org/web/packages/cowsay) by [Scott Chamberlain](https://twitter.com/sckottie) and all 17 contributors. {cowsay} displays ASCII animals in the console with a bubble for which you can choose the content of the text. 
+
+```{r}
+cowsay::say("So why not choosing one of this animals to say a random quote in your startup message?", "cat")
+```
+
+The function `say()` from {cowsay} has two main arguments: the text to say and the type of animal (with respectively "Hello world!" and "cat" as default values). You could choose to have the same animal every time by picking one on the list displayed in `cowsay::animals` but it is also possible to pick a new one every time by using "random" as follow:
+
+```{r}
+cowsay::say("I am completely randomly choosen!", by = "random")
+```
+
+In `say()` it is also possible to choose the color of the text and the color of the animal, let's make it random as well with the pacakge {randomcoloR} by Ron Ammar [available on  CRAN](https://cran.r-project.org/web/packages/randomcoloR/)!
+
+```{r}
+cowsay::say(
+  what = "Random EVERYWHERE! but colors are not printed in .Rmd console output :(", 
+  by = "random", 
+  what_color = randomcoloR::randomColor(), 
+  by_color = randomcoloR::randomColor()
+)
+```
+
+Finally you just have to add all the element together: `rstudio.sessionInit` hook function with, `cat("\014")` to erase the R message and {cowsay} using a random quote from a package or from an API:
+
+```{r eval=FALSE}
+setHook("rstudio.sessionInit", function(newSession) {
+  cat("\014")
+  cowsay::say(
+    what = jsonlite::fromJSON(
+      rawToChar(
+        httr::GET("https://quotes.rest/qod")$content
+        )
+      )$contents$quotes$quote,
+    by = "random",
+    what_color = randomcoloR::randomColor(),
+    by_color = randomcoloR::randomColor()
+  )
+}, action = "append")
+```
+
+Instead of the call to the Quote of the day API you can also use one of the R package presented above:
+
+```{r eval=FALSE}
+norris::get_random_joke()
+sample(mitchhedberg::jokes, 1)
+as.character(goodshirt::soul_squad())
+as.character(dundermifflin::get_quote())
+as.character(statquotes::statquote())[4]
+paste(capture.output(dadjoke::dadjoke()), collapse = " ")
+praise::praise()
+paste(as.character(fortunes::fortune()), collapse = " ")
+```
+
+## Even More Possibilities
+
+My knowledge of art possibilities in R console is very limited but I'm sure there is even more to do. For example it would be possible to make it even more crazy by printing an image with the {ransid} by [mikefc](https://twitter.com/coolbutuseless) [available on GitHub](https://github.com/coolbutuseless/ransid)
+([see vignette here](https://coolbutuseless.github.io/2020/04/27/introducing-ransid-a-simple-image-to-ansi-converter/)), by using [a rayshader 3D plot](https://twitter.com/tylermorganwall/status/1123979230533115904) or [the matrix background](https://twitter.com/BrodieGaslam/status/1215269771454926850).
+
+Possibilities are limitless ...
+
+```{r echo=FALSE, fig.cap="A joke or a philosophical quote is more entertaining but here you go!", fig.align="center"}
+knitr::include_graphics("/img/r_startup_custom.png", error = FALSE)
+```
+
+Don't hesitate to tell me if I forgot an amazing R package for quotes or for console display!
