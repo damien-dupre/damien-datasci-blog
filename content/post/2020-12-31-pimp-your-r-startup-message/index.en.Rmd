@@ -176,7 +176,7 @@ I have found on StackExchange code golf [an amazing code displaying a digital ra
   f(
     w = 0.2,
     t = 10,
-    m = paste(as.character(statquotes::statquote())[4:5], collapse = "\n ~ By "), # Rain followed by Statquote
+    m = "Welcome to R",
     n = 100
   )
 ```
