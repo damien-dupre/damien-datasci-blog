@@ -53,6 +53,7 @@ Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it
 <li>{dadjoke} by Shambhavi Priyam <a href="https://cran.r-project.org/web/packages/dadjoke">on CRAN</a> contains jokes taken from the <a href="https://icanhazdadjoke.com">“I Can Haz Dad Joke” API</a>, there is another {dadjoke} package <a href="https://github.com/jhollist/dadjoke">on GitHub</a> by <a href="https://twitter.com/jhollist">Jeff Hollister</a> that directly queries the API and therefore offers much more variety</li>
 <li>{praise} provides motivational sentences, a great feelgood package (created by Gabor Csardi and <a href="https://cran.r-project.org/web/packages/praise/">available on CRAN</a>)</li>
 <li>{fortunes} contains a collection of fortunes from the R community (code by Achim Zeileis and <a href="https://cran.r-project.org/web/packages/fortunes/">available on CRAN</a>)</li>
+<li>{gaussfacts} contains random fact about Carl Friedrich Gauss based the on collection curated by Mike Cavers via the <a href="http://gaussfacts.com" class="uri">http://gaussfacts.com</a> site (by Dirk Eddelbuettel <a href="https://cran.r-project.org/web/packages/gaussfacts">available on CRAN</a>)</li>
 </ul>
 <p>If you want to display your own random quotes, it is possible to query any API and to display its random quote. For example, let’s query the quote of the day from <a href="https://quotes.rest/">They Said So Quotes API</a> using {httr} and {jsonlite}:</p>
 <pre class="r"><code>jsonlite::fromJSON(
@@ -150,14 +151,15 @@ Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it
 sample(mitchhedberg::jokes, 1)
 as.character(goodshirt::soul_squad())
 as.character(dundermifflin::get_quote())
-as.character(statquotes::statquote())[4]
+paste(as.character(statquotes::statquote())[4:5], collapse = &quot;\n ~ By &quot;)
 paste(capture.output(dadjoke::dadjoke()), collapse = &quot; &quot;)
 praise::praise()
-paste(as.character(fortunes::fortune()), collapse = &quot; &quot;)</code></pre>
+paste(as.character(fortunes::fortune()), collapse = &quot; &quot;)
+as.character(gaussfacts::gaussfact()) </code></pre>
 </div>
 <div id="even-more-possibilities" class="section level2">
 <h2>Even More Possibilities</h2>
-<p>My knowledge of art possibilities in R console is very limited but I’m sure there is even more to do. For example it would be possible to make it even more crazy by printing an image with the {ransid} by <a href="https://twitter.com/coolbutuseless">mikefc</a> <a href="https://github.com/coolbutuseless/ransid">available on GitHub</a>
+<p>My knowledge of art possibilities in R console is very limited but I’m sure there is even more to do. For example it would be possible to make it even more crazy, by using some video game sounds with {beepr} by Rasmus Bååth, by printing an image with the {ransid} by <a href="https://twitter.com/coolbutuseless">mikefc</a> <a href="https://github.com/coolbutuseless/ransid">available on GitHub</a>
 (<a href="https://coolbutuseless.github.io/2020/04/27/introducing-ransid-a-simple-image-to-ansi-converter/">see vignette here</a>), by using <a href="https://twitter.com/tylermorganwall/status/1123979230533115904">a rayshader 3D plot</a> or <a href="https://twitter.com/BrodieGaslam/status/1215269771454926850">the matrix background</a>.</p>
 <p>Possibilities are limitless …</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
@@ -167,4 +169,22 @@ Figure 2: A joke or a philosophical quote is more entertaining but here you go!
 </p>
 </div>
 <p>Don’t hesitate to tell me if I forgot an amazing R package for quotes or for console display!</p>
+</div>
+<div id="edit-print-a-digital-rain-in-the-console-before-the-quote" class="section level2">
+<h2>Edit: Print a Digital Rain in the console before the quote</h2>
+<p>I have found on StackExchange code golf <a href="https://codegolf.stackexchange.com/questions/107545/its-raining-in-my-terminal">an amazing code displaying a digital rain</a>. Many thanks to the creators of the code Billywob and plannapus!</p>
+<pre class="r"><code>  f = function(w, t, n, m) {
+    for (i in 1:t) {
+      cat(&quot;\f&quot;, sample(rep(c(&quot;/&quot;, &quot; &quot;), c(n, 1920 - n))), sep = &quot;&quot;)
+      Sys.sleep(w)
+    }
+    cat(&quot;\f&quot;, g &lt;- rep(&quot;\n&quot;, 12), rep(&quot; &quot;, (80 - nchar(m)) / 2), m, g, sep =
+          &quot;&quot;)
+  }
+  f(
+    w = 0.2,
+    t = 10,
+    m = paste(as.character(statquotes::statquote())[4:5], collapse = &quot;\n ~ By &quot;), # Rain followed by Statquote
+    n = 100
+  )</code></pre>
 </div>
