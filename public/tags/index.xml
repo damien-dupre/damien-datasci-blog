@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags | Damien DataSci Blog</title>
-    <link>/tags/</link>
-      <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://damien-datasci-blog.netlify.com/tags/</link>
+      <atom:link href="https://damien-datasci-blog.netlify.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright>
     <image>
-      <url>/img/profile</url>
+      <url>https://damien-datasci-blog.netlify.com/img/profile</url>
       <title>Tags</title>
-      <link>/tags/</link>
+      <link>https://damien-datasci-blog.netlify.com/tags/</link>
     </image>
     
   </channel>

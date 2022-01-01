@@ -1,0 +1,70 @@
+---
+title: Generate PDF documents with a docx letter template
+author: Package Build
+date: '2022-01-01'
+slug: []
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-01-01T20:28:20Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Like you, I am learning new possibilities with Rmarkdown every day, literally. Here is one that I would like to share with you: <strong>Generating PDF documents with a docx letter template</strong>.</p>
+<p>Among my administrative responsibilities, I have to provide letters using the same sentences but with different information. This is the perfect use case for a Rmarkdown with parameters. If you are not familiar with this Rmarkdown goodness, have a look at <a href="https://bookdown.org/yihui/rmarkdown/params-knit.html">Xie, Allaire, and Grolemund’s <em>R Markdown: The Definitive Guide</em></a>. However, the design of output documents can be tricky to manipulate, specially if you want to obtain a PDF document.</p>
+<p>By default, <code>output: pdf_document</code> is a blank page. While it is possible to obtain some templates from multiple packages to improve it (see a non exhaustive list from the <a href="https://rmarkdown.rstudio.com/gallery.html">Rstudio Gallery</a>), <strong>there is little possibilities to use our own custom background</strong>.</p>
+<div class="figure">
+<img src="images/docx2pdf_template.png" alt="" />
+<p class="caption">Screenshot of a word template with header and footer only</p>
+</div>
+<p>Here is my hack, <strong>create a word document using <code>output:word_document</code>, add a template letter with the option <code>reference_docx: "your_template.docx"</code>, and convert it to PDF</strong>. Warning: Only text and image in the header and the footer will be kept in the output document (see word screeshot). Then, the conversion to PDF can be done manually by opening the docx file and saving it as PDF but it’s much nicer to include this conversion when the document is knitted and this is the main purpose of this post! Here is what the yaml would look like:</p>
+<pre><code>---
+output:
+  word_document:
+    reference_docx: &quot;your_template.docx&quot;
+knit: (
+  function(inputFile, encoding) {
+    rmarkdown::render(
+      input = inputFile,
+      encoding = encoding,
+      output_file = &quot;rmd_output.docx&quot;
+      ); doconv::docx2pdf(&quot;rmd_output.docx&quot;)
+    }
+  )
+---</code></pre>
+<p>Let’s try to understand what happened. As indicated, <code>output: word_document: reference_docx: "your_template.docx"</code> produces a docx document with your docx template containing your logo or the letter design of your organisation.</p>
+<div class="figure">
+<img src="images/docx2pdf_rmd.png" alt="" />
+<p class="caption">Full Rmarkdown file to test the template.</p>
+</div>
+<p>The <code>knit</code> option defines how the document is rendered, the argument <code>output_file</code> tells where to save the output and how to call it. Now, to chain another operation, use the symbol <code>;</code>. It is usually not very useful except to print an object after creating it but, here, it’s the only way I found to add more R code in the YAML. To convert the docx as PDF, I use the recent {doconv} package by <a href="https://github.com/ardata-fr/doconv">David Gohel</a>. It uses either ‘LibreOffice’ or a python library called <strong>docx2pdf</strong>. Unfortunately, the ‘LibreOffice’ conversion does not keep the structure of the docx when converting to PDF, so we need to use docx2pdf and this requires having python3 installed on your computer and then running the function <code>doconv::docx2pdf_install()</code>.</p>
+<p>And that’s it, a PDF document will be created with the same name as you docx document!</p>
+<div class="figure">
+<img src="images/docx2pdf_pdf.png" alt="" />
+<p class="caption">Screenshot of the PDF output.</p>
+</div>
+<p>Warning: I tried it on Windows and MacOS Intel, it works perfectly but for MacOS M1 docx2pdf is not find by the function <code>docx2pdf()</code>. To solve this, identify what is the path of docx2pdf on your computer with a <code>which docx2pdf</code> in the terminal and use the full path as follow:</p>
+<pre><code>---
+output:
+  word_document:
+    reference_docx: &quot;your_template.docx&quot;
+knit: (
+  function(inputFile, encoding) {
+    rmarkdown::render(
+      input = inputFile,
+      encoding = encoding,
+      output_file = &quot;rmd_output.docx&quot;
+      ); system(&quot;/path/to/docx2pdf rmd_output.docx&quot;)
+    }
+  )
+---</code></pre>

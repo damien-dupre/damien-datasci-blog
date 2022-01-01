@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories | Damien DataSci Blog</title>
-    <link>/categories/</link>
-      <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://damien-datasci-blog.netlify.com/categories/</link>
+      <atom:link href="https://damien-datasci-blog.netlify.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <description>Categories</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright>
     <image>
-      <url>/img/profile</url>
+      <url>https://damien-datasci-blog.netlify.com/img/profile</url>
       <title>Categories</title>
-      <link>/categories/</link>
+      <link>https://damien-datasci-blog.netlify.com/categories/</link>
     </image>
     
   </channel>

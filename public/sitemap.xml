@@ -1,412 +1,257 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/</loc>
+    <loc>https://damien-datasci-blog.netlify.com/</loc>
+    <lastmod>2020-12-31T08:55:05+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/2020-12-31-pimp-your-r-startup-message/</loc>
+    <lastmod>2020-12-31T08:55:05+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/</loc>
+    <lastmod>2020-12-31T08:55:05+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/2020-12-18-identifying-student-collaboration-with-network-clusters/</loc>
+    <lastmod>2020-12-18T21:37:49+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2020-aics/</loc>
     <lastmod>2020-12-07T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2020-aics/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/</loc>
     <lastmod>2020-12-07T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/</loc>
-    <lastmod>2020-12-07T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2020-psi/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication_types/2/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/anna-tcherkassof/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/damien-dupre/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication_types/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2020-link-pr/</loc>
+    <lastmod>2020-11-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2020-psi/</loc>
     <lastmod>2020-11-19T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2020-dsaa/</loc>
-    <lastmod>2020-10-08T15:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2020-cex/</loc>
-    <lastmod>2020-07-22T14:50:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/2/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2020-dsaa/</loc>
+    <lastmod>2020-10-08T15:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2020-zipline-sportsengineering/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/daniel-s.-moore/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/gary-j.-mckeown/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/gawain-morrison/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/nicole-andelic/</loc>
+    <lastmod>2020-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2020-cex/</loc>
+    <lastmod>2020-07-22T14:50:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2019-performance-plosone/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2019-performance-plosone/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/dennis-kuster/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/eva-g.-krumhuber/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/damien-dupre/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/dennis-kuster/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/eva-g.-krumhuber/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/gary-j.-mckeown/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</loc>
     <lastmod>2020-04-08T17:52:44+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-04-08T17:52:44+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/cavan-fyans/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/cavan-fyans/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/daniel-stephen-moore/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/daniel-stephen-moore/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/gary-john-mc-keown/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/gary-john-mc-keown/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/gary-john-mckeown/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/gary-john-mckeown/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/gawain-morrison/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/patents/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/patents/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/shane-mccourt/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/shane-mccourt/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/patents/2019-combining-analysing-human-states/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/patents/2019-combining-analysing-human-states/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/patents/2019-estimating-human-states/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/patents/2019-estimating-human-states/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</loc>
     <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2019-isre/</loc>
-    <lastmod>2019-07-11T10:30:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2019-isre/</loc>
+    <lastmod>2019-07-11T10:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</loc>
     <lastmod>2019-01-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</loc>
     <lastmod>2018-11-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-dsaa/</loc>
-    <lastmod>2018-10-04T11:30:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/time-series-clustering-with-dynamic-time-warping-part-2/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2018-dsaa/</loc>
+    <lastmod>2018-10-04T11:30:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/time-series-clustering-with-dynamic-time-warping-part-2/</loc>
     <lastmod>2018-09-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</loc>
     <lastmod>2018-09-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/time-series-clustering-with-dynamic-time-warp/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/time-series-clustering-with-dynamic-time-warp/</loc>
     <lastmod>2018-09-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/publishing-blogdown-some-insights-from-my-own-experience/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/post/publishing-blogdown-some-insights-from-my-own-experience/</loc>
     <lastmod>2018-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-bhci/</loc>
-    <lastmod>2018-07-04T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/terms/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-mb/</loc>
-    <lastmod>2018-06-06T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-cere/</loc>
-    <lastmod>2018-04-04T11:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2018-percom/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2018-bhci/</loc>
+    <lastmod>2018-07-04T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2018-mb/</loc>
+    <lastmod>2018-06-06T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2018-cere/</loc>
+    <lastmod>2018-04-04T11:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2018-percom/</loc>
     <lastmod>2018-03-19T12:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/anna-zajac/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/anna-zajac/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/gary-mckeown/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/gary-mckeown/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/nicole-andelic/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2018-socialmedia-psyarxiv/</loc>
     <lastmod>2018-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2018-socialmedia-psyarxiv/</loc>
-    <lastmod>2018-02-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/anna-tcherkassof/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/michel-dubois/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/michel-dubois/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2017-acceptance-pto/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2017-acceptance-pto/</loc>
-    <lastmod>2017-08-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-isre/</loc>
-    <lastmod>2017-07-26T11:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-ahfe/</loc>
-    <lastmod>2017-07-17T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2017-aisb/</loc>
-    <lastmod>2017-04-18T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2016-aiptlf/</loc>
-    <lastmod>2016-06-06T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/brigite-meillon/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2017-isre/</loc>
+    <lastmod>2017-07-26T11:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2017-ahfe/</loc>
+    <lastmod>2017-07-17T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2017-aisb/</loc>
+    <lastmod>2017-04-18T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2016-aiptlf/</loc>
+    <lastmod>2016-06-06T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/brigite-meillon/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/daniel-akpan/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/daniel-akpan/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/elena-elias/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/elena-elias/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/jean-michel-adam/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/jean-michel-adam/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/nicolas-bonnefond/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/nicolas-bonnefond/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2015-oudjat-ijhcs/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2015-oudjat-ijhcs/</loc>
     <lastmod>2015-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2015-acii/</loc>
-    <lastmod>2015-09-21T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2015-acceptabilite-innovatio/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2015-acii/</loc>
+    <lastmod>2015-09-21T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2015-acceptabilite-innovatio/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/pascal-pizelle/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/pascal-pizelle/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2014-wcfee/</loc>
-    <lastmod>2014-10-11T11:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2014-cere/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2014-wcfee/</loc>
+    <lastmod>2014-10-11T11:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2014-cere/</loc>
     <lastmod>2014-03-26T11:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2013-dynemo-ijma/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2013-dynemo-ijma/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/nadine-mandran/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/nadine-mandran/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2013-interface-jmui/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2013-interface-jmui/</loc>
     <lastmod>2013-03-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/hamad-salem/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/hamad-salem/</loc>
     <lastmod>2012-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/mathieu-loiseau/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/mathieu-loiseau/</loc>
     <lastmod>2012-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/philipe-dessus/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/philipe-dessus/</loc>
     <lastmod>2012-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2012-critere-re/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2012-critere-re/</loc>
     <lastmod>2012-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/stephan-simonian/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/stephan-simonian/</loc>
     <lastmod>2012-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2012-de/</loc>
-    <lastmod>2012-09-11T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/f.-wild/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2012-de/</loc>
+    <lastmod>2012-09-11T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/f.-wild/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/s.-trausan-matu/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/s.-trausan-matu/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/t.-rebedea/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/t.-rebedea/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/publication/2011-environement-ds/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/publication/2011-environement-ds/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/v.-zampa/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/v.-zampa/</loc>
     <lastmod>2011-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2010-eiac/</loc>
+    <lastmod>2010-10-13T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/talk/2010-cere/</loc>
+    <lastmod>2010-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/authors/admin/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/categories/</loc>
+  </url><url>
+    <loc>https://damien-datasci-blog.netlify.com/tags/</loc>
   </url>
-  
-  <url>
-    <loc>/talk/2010-eiac/</loc>
-    <lastmod>2010-10-13T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/talk/2010-cere/</loc>
-    <lastmod>2010-04-22T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-  </url>
-  
 </urlset>

@@ -2,21 +2,360 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts | Damien DataSci Blog</title>
-    <link>/post/</link>
-      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://damien-datasci-blog.netlify.com/post/</link>
+      <atom:link href="https://damien-datasci-blog.netlify.com/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020</copyright><lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2022</copyright><lastBuildDate>Thu, 31 Dec 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/img/profile</url>
+      <url>https://damien-datasci-blog.netlify.com/img/profile</url>
       <title>Posts</title>
-      <link>/post/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/</link>
     </image>
     
     <item>
+      <title>Pimp your R startup message</title>
+      <link>https://damien-datasci-blog.netlify.com/post/2020-12-31-pimp-your-r-startup-message/</link>
+      <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://damien-datasci-blog.netlify.com/post/2020-12-31-pimp-your-r-startup-message/</guid>
+      <description>
+
+
+&lt;p&gt;Every R user knows the verbose of the R startup message. It contains essential information such as the R version and that R is an open-source platform. However, seeing this message every day … multiple times a day … can be a bit boring. What about seeing something different and nice every time you start RStudio?&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://damien-datasci-blog.netlify.com/img/r_startup_v403.png&#34; alt=&#34;Classic startup message for R version 4.0.3. Nothing bad at all but it could be more entertaining&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Classic startup message for R version 4.0.3. Nothing bad at all but it could be more entertaining
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I took a look at how to modify the startup message after a couple of tweets from Kara Woo &lt;a href=&#34;https://twitter.com/kara_woo/status/1216036265650294784&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/kara_woo/status/1097912398269173760&#34;&gt;here&lt;/a&gt;. After reading the community’s answers I had to do someting.&lt;/p&gt;
+&lt;div id=&#34;rprofile-and-rstudio-startup&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;.Rprofile and RStudio Startup&lt;/h2&gt;
+&lt;p&gt;.Rprofile is an empty file that can be used to automatically modify your blank new environement every time you start a R session. It can be used to load packagaes (i.e. {magrittr} in order to access the pipe), to set up options (i.e. scipen = 999 to deactivate the scientific format when printing numbers) or to create object containing specific data such as API keys. .Rprofile is generally located on the root of the R session and can be accessed by using &lt;code&gt;file.edit(&#34;~/.Rprofile&#34;)&lt;/code&gt; but the package {usethis} has a specific function to open it so … let’s use it!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;usethis::edit_r_profile()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As indicated, a blank file should open if you haven’t modified it yet.&lt;/p&gt;
+&lt;p&gt;Modifications of the .Rprofile file can display very useful information such as the Git branch name that you are currently working on (&lt;a href=&#34;https://rtask.thinkr.fr/modify-rstudio-prompt-to-show-current-git-branch/&#34;&gt;see this great post&lt;/a&gt; from &lt;a href=&#34;https://twitter.com/romain_francois&#34;&gt;Romain François&lt;/a&gt;). There is even &lt;a href=&#34;https://github.com/csgillespie/rprofile&#34;&gt;a package on GitHub called {rprofile}&lt;/a&gt; created by &lt;a href=&#34;https://twitter.com/csgillespie&#34;&gt;Colin Gillespie&lt;/a&gt; to modify it with useful functions.&lt;/p&gt;
+&lt;p&gt;By scrapping the web, it is possible to find that the startup of RStudio sessions can be modified automatically (&lt;a href=&#34;https://rstudio.github.io/rstudioapi/articles/r-session.html&#34;&gt;see this post about RStudio API&lt;/a&gt;). To do so, the &lt;code&gt;rstudio.sessionInit&lt;/code&gt; hook has to be invoked in a function as follow:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;setHook(&amp;quot;rstudio.sessionInit&amp;quot;, function(newSession) {
+  
+  # any code included here will be run at the start of each RStudio session
+  
+}, action = &amp;quot;append&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;customise-your-rstudio-startup-message&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Customise your RStudio Startup Message&lt;/h2&gt;
+&lt;p&gt;Inside this &lt;code&gt;rstudio.sessionInit&lt;/code&gt; function, &lt;code&gt;cat(&#34;\014&#34;)&lt;/code&gt; or &lt;code&gt;cat(&#39;\f&#39;)&lt;/code&gt; will automatically clear the console and therefor the R startup message. This code is associated to the RStudio keyboard shortcut CRTL + L to clear the console.&lt;/p&gt;
+&lt;p&gt;Next step is to display something nice in the console. You could just print a message and it will be displayed everytime. However if you want to change your startup message you can also use one of the many R package that constains specific quotes and selecting a random one for every startup! Here is a non-exhaustive list of the quotes packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{norris} queries Chuck Norris jokes from the &lt;a href=&#34;http://www.icndb.com/api/&#34;&gt;‘ICNDB’ API&lt;/a&gt; (created by Chris Cardillo and &lt;a href=&#34;https://github.com/chriscardillo/norris&#34;&gt;available on GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{mitchhedberg} contains hilarious quote from the stand up comedian Mitch Hedberg (created by &lt;a href=&#34;https://twitter.com/kearneymw&#34;&gt;Michael W. Kearney&lt;/a&gt; and &lt;a href=&#34;https://github.com/mkearney/mitchhedberg&#34;&gt;available on GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{goodshirt} queries quotes from the Good Place Quotes API related to the TV show of the same name (created by &lt;a href=&#34;https://twitter.com/AdamGruer&#34;&gt;Adam Gruer&lt;/a&gt; and &lt;a href=&#34;https://github.com/adam-gruer/goodshirt&#34;&gt;available on GitHub&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{dundermifflin} contains quote from the TV show “The Office” (created by Tyler Bradley and &lt;a href=&#34;https://cran.r-project.org/web/packages/dundermifflin/&#34;&gt;available on CRAN&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{statquotes} contains quotes about statistics (created by Michael Friendly and &lt;a href=&#34;https://cran.r-project.org/web/packages/statquotes/&#34;&gt;available on CRAN&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{dadjoke} by Shambhavi Priyam &lt;a href=&#34;https://cran.r-project.org/web/packages/dadjoke&#34;&gt;on CRAN&lt;/a&gt; contains jokes taken from the &lt;a href=&#34;https://icanhazdadjoke.com&#34;&gt;“I Can Haz Dad Joke” API&lt;/a&gt;, there is another {dadjoke} package &lt;a href=&#34;https://github.com/jhollist/dadjoke&#34;&gt;on GitHub&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/jhollist&#34;&gt;Jeff Hollister&lt;/a&gt; that directly queries the API and therefore offers much more variety&lt;/li&gt;
+&lt;li&gt;{praise} provides motivational sentences, a great feelgood package (created by Gabor Csardi and &lt;a href=&#34;https://cran.r-project.org/web/packages/praise/&#34;&gt;available on CRAN&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{fortunes} contains a collection of fortunes from the R community (code by Achim Zeileis and &lt;a href=&#34;https://cran.r-project.org/web/packages/fortunes/&#34;&gt;available on CRAN&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;{gaussfacts} contains random fact about Carl Friedrich Gauss based the on collection curated by Mike Cavers via the &lt;a href=&#34;http://gaussfacts.com&#34; class=&#34;uri&#34;&gt;http://gaussfacts.com&lt;/a&gt; site (by Dirk Eddelbuettel &lt;a href=&#34;https://cran.r-project.org/web/packages/gaussfacts&#34;&gt;available on CRAN&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to display your own random quotes, it is possible to query any API and to display its random quote. For example, let’s query the quote of the day from &lt;a href=&#34;https://quotes.rest/&#34;&gt;They Said So Quotes API&lt;/a&gt; using {httr} and {jsonlite}:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jsonlite::fromJSON(
+  rawToChar(
+    httr::GET(&amp;quot;https://quotes.rest/qod&amp;quot;)$content
+  )
+)$contents$quotes$quote&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This &lt;strong&gt;They Said So Quotes API&lt;/strong&gt; has several endpoint that can be queried to obtain different language or different categories of quotes.&lt;/p&gt;
+&lt;p&gt;For me the icing on the cake is the package {cowsay} &lt;a href=&#34;https://cran.r-project.org/web/packages/cowsay&#34;&gt;available on CRAN&lt;/a&gt; by &lt;a href=&#34;https://twitter.com/sckottie&#34;&gt;Scott Chamberlain&lt;/a&gt; and all 17 contributors. {cowsay} displays ASCII animals in the console with a bubble for which you can choose the content of the text.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cowsay::say(&amp;quot;So why not choosing one of this animals to say a random quote in your startup message?&amp;quot;, &amp;quot;cat&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  -------------- 
+## So why not choosing one of this animals to say a random quote in your startup message? 
+##  --------------
+##     \
+##       \
+##         \
+##             |\___/|
+##           ==) ^Y^ (==
+##             \  ^  /
+##              )=*=(
+##             /     \
+##             |     |
+##            /| | | |\
+##            \| | |_|/\
+##       jgs  //_// ___/
+##                \_)
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The function &lt;code&gt;say()&lt;/code&gt; from {cowsay} has two main arguments: the text to say and the type of animal (with respectively “Hello world!” and “cat” as default values). You could choose to have the same animal every time by picking one on the list displayed in &lt;code&gt;cowsay::animals&lt;/code&gt; but it is also possible to pick a new one every time by using “random” as follow:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cowsay::say(&amp;quot;I am completely randomly choosen!&amp;quot;, by = &amp;quot;random&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  ------------- 
+## I am completely randomly choosen! 
+##  -------------- 
+##               \   
+##                \  
+##                 \
+##                .--.
+##               /} p \             /}
+##              `~)-) /           /` }
+##               ( / /          /`}.&amp;#39; }
+##                / / .-&amp;#39;&amp;quot;&amp;quot;-.  / &amp;#39; }-&amp;#39;}
+##               / (.&amp;#39;       \/ &amp;#39;.&amp;#39;}_.}
+##              |            `}   .}._}
+##              |     .-=-&amp;#39;;   } &amp;#39; }_.}
+##              \    `.-=-;&amp;#39;  } &amp;#39;.}.-}
+##               &amp;#39;.   -=-&amp;#39;    ;,}._.}
+##                 `-,_  __.&amp;#39;` &amp;#39;-._}
+##               jgs   `|||
+##                    .==&amp;#39;=,&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In &lt;code&gt;say()&lt;/code&gt; it is also possible to choose the color of the text and the color of the animal, let’s make it random as well with the package {randomcoloR} by Ron Ammar &lt;a href=&#34;https://cran.r-project.org/web/packages/randomcoloR/&#34;&gt;available on CRAN&lt;/a&gt;!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cowsay::say(
+  what = &amp;quot;Random EVERYWHERE! but colors are not printed in .Rmd console output :(&amp;quot;, 
+  by = &amp;quot;random&amp;quot;, 
+  what_color = randomcoloR::randomColor(), 
+  by_color = randomcoloR::randomColor()
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  ----- 
+## Random EVERYWHERE! but colors are not printed in .Rmd console output :( 
+##  ------ 
+##     \   
+##      \
+##                 \`*-.
+##                  )  _`-.
+##                 .  : `. .
+##                 : _   &amp;#39;  \
+##                 ; *` _.   `*-._
+##                 `-.-&amp;#39;          `-.
+##                   ;       `       `.
+##                   :.       .       \
+##                   .\  .   :   .-&amp;#39;   .
+##                   &amp;#39;  `+.;  ;  &amp;#39;      :
+##                   :  &amp;#39;  |    ;       ;-.
+##                   ; &amp;#39;   : :`-:     _.`* ;
+##                .*&amp;#39; /  .*&amp;#39; ; .*`- +&amp;#39;  `*&amp;#39;
+##      [bug]     `*-*   `*-*  `*-*&amp;#39;
+## &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally you just have to add the elements all together: &lt;code&gt;rstudio.sessionInit&lt;/code&gt; hook function with, &lt;code&gt;cat(&#34;\014&#34;)&lt;/code&gt; to erase the R message and {cowsay} using a random quote from a package or from an API:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;setHook(&amp;quot;rstudio.sessionInit&amp;quot;, function(newSession) {
+  cat(&amp;quot;\014&amp;quot;)
+  cowsay::say(
+    what = jsonlite::fromJSON(
+      rawToChar(
+        httr::GET(&amp;quot;https://quotes.rest/qod&amp;quot;)$content
+        )
+      )$contents$quotes$quote,
+    by = &amp;quot;random&amp;quot;,
+    what_color = randomcoloR::randomColor(),
+    by_color = randomcoloR::randomColor()
+  )
+}, action = &amp;quot;append&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Instead of the call to the Quote of the day API you can also use one of the R package presented above:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;norris::get_random_joke()
+sample(mitchhedberg::jokes, 1)
+as.character(goodshirt::soul_squad())
+as.character(dundermifflin::get_quote())
+paste(as.character(statquotes::statquote())[4:5], collapse = &amp;quot;\n ~ By &amp;quot;)
+paste(capture.output(dadjoke::dadjoke()), collapse = &amp;quot; &amp;quot;)
+praise::praise()
+paste(as.character(fortunes::fortune()), collapse = &amp;quot; &amp;quot;)
+as.character(gaussfacts::gaussfact()) &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;even-more-possibilities&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Even More Possibilities&lt;/h2&gt;
+&lt;p&gt;My knowledge of art possibilities in R console is very limited but I’m sure there is even more to do. For example it would be possible to make it even more crazy, by using some video game sounds with {beepr} by Rasmus Bååth, by printing an image with the {ransid} by &lt;a href=&#34;https://twitter.com/coolbutuseless&#34;&gt;mikefc&lt;/a&gt; &lt;a href=&#34;https://github.com/coolbutuseless/ransid&#34;&gt;available on GitHub&lt;/a&gt;
+(&lt;a href=&#34;https://coolbutuseless.github.io/2020/04/27/introducing-ransid-a-simple-image-to-ansi-converter/&#34;&gt;see vignette here&lt;/a&gt;), by using &lt;a href=&#34;https://twitter.com/tylermorganwall/status/1123979230533115904&#34;&gt;a rayshader 3D plot&lt;/a&gt; or &lt;a href=&#34;https://twitter.com/BrodieGaslam/status/1215269771454926850&#34;&gt;the matrix background&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Possibilities are limitless …&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: center&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-10&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://damien-datasci-blog.netlify.com/img/r_startup_custom.png&#34; alt=&#34;A joke or a philosophical quote is more entertaining but here you go!&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: A joke or a philosophical quote is more entertaining but here you go!
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Don’t hesitate to tell me if I forgot an amazing R package for quotes or for console display!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;edit-print-a-digital-rain-in-the-console-before-the-quote&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Edit: Print a Digital Rain in the console before the quote&lt;/h2&gt;
+&lt;p&gt;I have found on StackExchange code golf &lt;a href=&#34;https://codegolf.stackexchange.com/questions/107545/its-raining-in-my-terminal&#34;&gt;an amazing code displaying a digital rain&lt;/a&gt;. Many thanks to the creators of the code Billywob and plannapus!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;  f = function(w, t, n, m) {
+    for (i in 1:t) {
+      cat(&amp;quot;\f&amp;quot;, sample(rep(c(&amp;quot;/&amp;quot;, &amp;quot; &amp;quot;), c(n, 1920 - n))), sep = &amp;quot;&amp;quot;)
+      Sys.sleep(w)
+    }
+    cat(&amp;quot;\f&amp;quot;, g &amp;lt;- rep(&amp;quot;\n&amp;quot;, 12), rep(&amp;quot; &amp;quot;, (80 - nchar(m)) / 2), m, g, sep =
+          &amp;quot;&amp;quot;)
+  }
+  f(
+    w = 0.2,
+    t = 10,
+    m = &amp;quot;Welcome to R&amp;quot;,
+    n = 100
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Identifying student collaboration with network clusters</title>
+      <link>https://damien-datasci-blog.netlify.com/post/2020-12-18-identifying-student-collaboration-with-network-clusters/</link>
+      <pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>https://damien-datasci-blog.netlify.com/post/2020-12-18-identifying-student-collaboration-with-network-clusters/</guid>
+      <description>
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;I recently gave to my students a data science assignment with a dataset to do some data wrangling, descriptive statistics and hypotheses testing. In order to give some context to the dataset, I also asked them to write a short introduction and to formulate hypotheses supported by academic references. While the focus of the assignment is not on these references, I found suspicious that some students used the exact same references while changing the text to bypass plagiarism software.&lt;/p&gt;
+&lt;p&gt;I was very curious to see if it is possible to identify groups of students using the same references. I came across a very interesting blog post by &lt;a href=&#34;https://codingclubuc3m.rbind.io/post/2020-01-21/&#34;&gt;María Medina Pérez called “Graph Theory 101 with corruption cases in Spain”&lt;/a&gt;. I won’t say that my students are involved in corruption cases but there are some similarities in the process: &lt;strong&gt;each student correspond to a case and each author reference correspond to an accused&lt;/strong&gt;. By following this principle, it is possible to map the network of relationship of shared author references between students.&lt;/p&gt;
+&lt;div id=&#34;data-wrangling&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Data Wrangling&lt;/h1&gt;
+&lt;p&gt;First, let’s load the packages:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse) # data wrangling function + pipe
+library(pdftools) # pdf scrapping
+library(here) # relative project paths
+library(combinat) # combination of vectors
+library(igraph) # network analysis and vitalization
+library(fs) # batch path processing&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, let’s read some data taken from student’s references section. To make it easy in this post, the data are already saved in a .csv file but you will find my procedure to obtain this table here below commented:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# # function -------------------------------------------------------------------
+# pdf_process &amp;lt;- function(file_path){
+#   file_text &amp;lt;- pdf_text(file_path)
+#   file_text[length(file_text)] %&amp;gt;% 
+#     str_split(&amp;quot;\r\n&amp;quot;, n = Inf, simplify = TRUE) %&amp;gt;% 
+#     t() %&amp;gt;% 
+#     as_tibble() %&amp;gt;% 
+#     rename(ref = V1) %&amp;gt;% 
+#     mutate(ref_date = str_extract(ref, &amp;quot;(?&amp;lt;=\\().+?(?=\\))&amp;quot;) %&amp;gt;% as.numeric) %&amp;gt;% 
+#     filter(between(ref_date, 1455, format(Sys.Date(), &amp;quot;%Y&amp;quot;))) %&amp;gt;% 
+#     mutate(
+#       first_author = 
+#         str_extract(ref, &amp;quot;^[^\\(]+&amp;quot;) %&amp;gt;% # split by opening brackets
+#         str_replace_all(&amp;quot;[^[:alnum:] ]&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;% # remove all non-letter
+#         str_squish() %&amp;gt;% # trim beginning white spaces
+#         word(sep = fixed(&amp;quot; &amp;quot;)), # keep only first word
+#       id = stri_rand_strings(1, 5) # generate random string
+#     )
+# }
+# # data -----------------------------------------------------------------------
+# data_raw &amp;lt;- &amp;quot;./assignment/individual_report/submission&amp;quot; %&amp;gt;% 
+#   dir_ls(regexp = &amp;quot;\\.pdf$&amp;quot;, recurse = TRUE) %&amp;gt;% 
+#   path_filter(regexp = &amp;quot;\\_dd.pdf$&amp;quot;, invert = TRUE) %&amp;gt;% 
+#   map_dfr(pdf_process) %&amp;gt;%
+#   write_csv(here(&amp;quot;data/data_raw.csv&amp;quot;))
+
+data_raw &amp;lt;- here(&amp;quot;static/files/data_network.csv&amp;quot;) %&amp;gt;% 
+  read_csv()
+
+list_unique_author &amp;lt;- unique(data_raw$first_author) # author used in the reference section
+list_unique_id &amp;lt;- unique(data_raw$id) # student custom ID for anonymity&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we have a list of authors and a list of student IDs, we are going to build two main dataframes:
+* A dataframe that combines all the possible pairs of authors and measure how many times they appears together in the same document (called &lt;code&gt;authors_same_id_df&lt;/code&gt;)
+* A dataframe that combines all the possible pairs of students IDs and measure how many authors they have in common (called &lt;code&gt;ids_same_author_df&lt;/code&gt;)&lt;/p&gt;
+&lt;div id=&#34;basic-network-of-shared-ids&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Basic Network of Shared IDs&lt;/h2&gt;
+&lt;p&gt;To proceed, create a vector of all IDs having more than one author and count how many times a pair of author appears in a student ID:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shared_id &amp;lt;- data_raw %&amp;gt;% 
+  select(first_author, id) %&amp;gt;% 
+  count(id) %&amp;gt;% 
+  filter(n &amp;gt; 1) %&amp;gt;% 
+  pull(id)
+
+authors_same_id_df &amp;lt;- data_raw %&amp;gt;%
+  select(first_author, id) %&amp;gt;% 
+  filter(id %in% shared_id) %&amp;gt;% 
+  group_by(id) %&amp;gt;%
+  summarise(combn(first_author, 2) %&amp;gt;% t %&amp;gt;% as.data.frame) %&amp;gt;% 
+  ungroup() %&amp;gt;%
+  count(V1, V2) %&amp;gt;% 
+  rename(author_1 = V1, author_2 = V2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, use the package {igraph} to create a basic network from the dataframe by using the function … &lt;code&gt;graph_from_data_frame()&lt;/code&gt;. The second step consist in using the function &lt;code&gt;E()&lt;/code&gt; to weight the edges of the network according the number of times that a pair of author appears in student IDs:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g_common_id &amp;lt;- authors_same_id_df[, c(&amp;quot;author_1&amp;quot;, &amp;quot;author_2&amp;quot;)] %&amp;gt;% 
+  graph_from_data_frame(
+    directed = FALSE,
+    vertices = unique(data_raw$first_author)
+  )
+E(g_common_id)$weight &amp;lt;- authors_same_id_df$n&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;basic-network-of-shared-authors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Basic Network of Shared Authors&lt;/h2&gt;
+&lt;p&gt;Similarly, create a vector of all authors that appear in more than one student ID document and count how many authors are shared by pairs of student IDs:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shared_author &amp;lt;- data_raw %&amp;gt;% 
+  select(first_author, id) %&amp;gt;% 
+  count(first_author) %&amp;gt;% 
+  filter(n &amp;gt; 1) %&amp;gt;% 
+  pull(first_author)
+
+ids_same_author_df &amp;lt;- data_raw %&amp;gt;%
+  select(first_author, id) %&amp;gt;% 
+  filter(first_author %in% shared_author) %&amp;gt;% 
+  group_by(first_author) %&amp;gt;%
+  summarise(combinat::combn(id, 2) %&amp;gt;% t %&amp;gt;% as.data.frame) %&amp;gt;% 
+  ungroup() %&amp;gt;%
+  count(V1, V2) %&amp;gt;% 
+  rename(id_1 = V1, id_2 = V2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Same principle, creating a graph network of shared authors between pairs of IDs and weighing by occurrences:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g_common_author &amp;lt;- ids_same_author_df[c(&amp;quot;id_1&amp;quot;, &amp;quot;id_2&amp;quot;)] %&amp;gt;% 
+  graph_from_data_frame(
+    directed = FALSE,
+    vertices = unique(data_raw$id)
+  )
+E(g_common_author)$weight &amp;lt;- ids_same_author_df$n&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;clusters-in-network-of-shared-authors&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Clusters in Network of Shared Authors&lt;/h1&gt;
+&lt;p&gt;Because we are more interest in grouping similarity between students’ document, the following code aims to identify clusters in student IDs’ network.&lt;/p&gt;
+&lt;div id=&#34;connected-components&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Connected Components&lt;/h2&gt;
+&lt;p&gt;By using the functions &lt;code&gt;components()&lt;/code&gt; and &lt;code&gt;sizes()&lt;/code&gt;, the objective is to bring together nodes that are strongly connected (high density of shared authors).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;components_author &amp;lt;- components(g_common_author)
+components_author_sizes &amp;lt;- sizes(components_author)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;induced-subgraphs&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Induced Subgraphs&lt;/h2&gt;
+&lt;p&gt;In order to organize the final plot, it is essential to remove all relationships with only 1 element. Then, two subgraphs are prepared one containing all the connections &lt;code&gt;g_author_plots&lt;/code&gt; (minus weak relationships) and one containing only the strongest connections &lt;code&gt;g_author_plot1&lt;/code&gt;. Finally, the layout of the final graph is prepared with student IDs connections in &lt;code&gt;layout_id_plot1&lt;/code&gt; using the &lt;code&gt;layout_nicely()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;components_plots &amp;lt;- which(components_author_sizes &amp;gt; 1)
+g_author_plots &amp;lt;- g_common_author %&amp;gt;% 
+  induced_subgraph(
+    vids = which(membership(components_author) %in% components_plots)
+  )
+
+biggest_plot &amp;lt;- which.max(components_author_sizes)
+g_author_plot1 &amp;lt;- g_common_author %&amp;gt;% 
+  induced_subgraph(
+    vids = which(membership(components_author) == biggest_plot)
+  )
+
+id_plot1 &amp;lt;- subset(data_raw, id %in% V(g_author_plot1)$name)
+g_id_plot1 &amp;lt;- g_common_id %&amp;gt;% 
+  induced_subgraph(
+    vids = id_plot1$first_author
+  )
+layout_id_plot1 &amp;lt;- layout_nicely(g_id_plot1)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;centrality-measures&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Centrality Measures&lt;/h2&gt;
+&lt;p&gt;{igraph} also provides an easy network clustering function called &lt;code&gt;cluster_walktrap()&lt;/code&gt;. This function will define the clusters in the network to draw the circles.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;comm_id_plot1 &amp;lt;- cluster_walktrap(g_id_plot1, steps = 50)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;final-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Final Plot&lt;/h2&gt;
+&lt;p&gt;In the end a plot from base R is more than enough to display the clusters of students whose reference sections share a lot of similarities:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(
+  comm_id_plot1,
+  g_id_plot1,
+  layout = layout_id_plot1,
+  vertex.label = NA,
+  vertex.size = 3
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2020-12-18-identifying-student-collaboration-with-network-clusters/index.en_files/figure-html/final-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>How to make an interactive tutorial to teach R?</title>
-      <link>/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</link>
       <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
-      <guid>/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/how-to-make-an-interactive-tutorial-to-teach-r-an-overview/</guid>
       <description>
 
 
@@ -220,9 +559,9 @@ document.querySelector(&#34;#activateButton&#34;).addEventListener(&#39;click&#3
     
     <item>
       <title>My Data Analytics for Behavioural Research presentation: Theory, Introduction to R and Data Processing</title>
-      <link>/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</link>
       <pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/my-data-analytics-for-behavioural-research-presentation-theory-introduction-to-r-and-data-processing/</guid>
       <description>
 
 
@@ -238,9 +577,9 @@ document.querySelector(&#34;#activateButton&#34;).addEventListener(&#39;click&#3
     
     <item>
       <title>`dplyrshortcut` package: How to create keyboard shortcuts for dplyr functions on RStudio IDE </title>
-      <link>/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</link>
       <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide/</guid>
       <description>
 
 
@@ -255,7 +594,7 @@ devtools::install_github(&amp;quot;damien-dupre/dplyrshortcut&amp;quot;)&lt;/cod
 &lt;h1&gt;Use&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;dplyrshortcut&lt;/code&gt; add functions in RStudio IDE’s Addins section.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/img_01.png&#34; /&gt;
+&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/img_01.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;p&gt;Then, in order to add the shortcut to your keyboard, use the Rstudio IDE: &lt;code&gt;Tools&amp;gt;Modify Keyboard Shortcuts...&lt;/code&gt; and associate the keyboard shortcut you prefer, such as:&lt;/p&gt;
@@ -267,12 +606,12 @@ devtools::install_github(&amp;quot;damien-dupre/dplyrshortcut&amp;quot;)&lt;/cod
 &lt;/ul&gt;
 &lt;p&gt;and modify Insert Pipe Operator with Ctrl+Shift+P.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/img_02.png&#34; /&gt;
+&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/img_02.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;p&gt;And here you go! Data wrangling as fast as light speed!&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/gif_us.gif&#34; /&gt;
+&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/dplyrshortcut-package-how-to-create-keyboard-shortcuts-for-dplyr-functions-on-rstudio-ide_files/gif_us.gif&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -281,26 +620,26 @@ devtools::install_github(&amp;quot;damien-dupre/dplyrshortcut&amp;quot;)&lt;/cod
     
     <item>
       <title>How to organize a wedding with R: google place API, google drive, web scraping and automatic emails</title>
-      <link>/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</link>
       <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/how-to-organise-a-wedding-with-r-google-search-api-google-drive-web-scraping-and-automatic-emails/</guid>
       <description>
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;link href=&#34;/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/datatables-css/datatables-crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/datatables-binding/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://damien-datasci-blog.netlify.com/rmarkdown-libs/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Organizing a wedding is … challenging but as Rusers we do have a major asset! One of the most challenging part is to find a venue. Indeed there are a lot of them but some are already booked for your date. So, in order to check if a venue is already booked &lt;strong&gt;I’ll show you how I made a list of possible venues with google search API, stored the list on google drive, web scrap for their emails and send them with R.&lt;/strong&gt;&lt;/p&gt;
@@ -549,9 +888,9 @@ drive_update(file = &amp;quot;list_venues&amp;quot;, media = &amp;quot;list_venu
     
     <item>
       <title>Time series clustering with Dynamic Time Warping (Part 2)</title>
-      <link>/post/time-series-clustering-with-dynamic-time-warping-part-2/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/time-series-clustering-with-dynamic-time-warping-part-2/</link>
       <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>/post/time-series-clustering-with-dynamic-time-warping-part-2/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/time-series-clustering-with-dynamic-time-warping-part-2/</guid>
       <description>
 
 
@@ -686,7 +1025,7 @@ plt_layout &amp;lt;- rbind(c(NA, 2),
                     c(NA, 2))
 #
 grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I think I get a nice plot thanks to the solutions provided on Stack Overflow graphically speaking (except some overlap with the labels but I’m working on it). The results are not too bad but some of the random plan can be included in the repeated pattern plan. Well randomness can be expected and can create some nice patterns sometimes. Another interesting result is the necessity to increase the cluster number in order to have a clean clustering.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;centroids&#34; class=&#34;section level3&#34;&gt;
@@ -706,7 +1045,7 @@ dtw_model_centroids %&amp;gt;%
   scale_x_date(name = &amp;quot;Run Date&amp;quot;, date_breaks = &amp;quot;4 week&amp;quot;, date_labels = &amp;quot;%b %d&amp;quot;) +
   guides(color=FALSE, fill = FALSE) +
   theme_bw()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The main problem with raw data is the noise. In order to extract recurrent patterns, the randomness of the noise can sometimes simulate non meaningful pattern and then change the cluster structure. Because we are interested in classification of recurrent pattern, a nice thing would be to remove the noise. Noise removal analyses are probably the most important contribution of signal treatment research and many can be applied here such as seasonality decomposition, Hidden Markov Models and power spectrum analysis.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;dtw-cluster-with-seasonality-decomposition&#34; class=&#34;section level2&#34;&gt;
@@ -791,7 +1130,7 @@ plt_layout &amp;lt;- rbind(c(NA, 2),
                     c(NA, 2))
 #
 grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Well that’s an epic fail I think but let’s have a look why. Different reasons can explain why we have a first cluster with only 3 time series and as second with all the 17 remaining ones:&lt;/p&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;I am using only 2 clusters. In the real life (and in real randomness) a large amount of pattern is possible thus increasing the number of clusters can make the clustering more efficient (if an evaluation of the best fit with cluster number is performed).&lt;/li&gt;
@@ -890,7 +1229,7 @@ plt_layout &amp;lt;- rbind(c(NA, 2),
                     c(NA, 2))
 #
 grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Good news this time, the clusters are almost equally distributed, bad news random plans and pattern plans are mixed together. However we can see that the HMM is creating surprisingly nice pattern which can be easily clustered with a higher number of cluster. The drawback is the low distance between each time series which can make the clustering method more complicated.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;dtw-cluster-by-power-spectral-density&#34; class=&#34;section level2&#34;&gt;
@@ -981,7 +1320,7 @@ plt_layout &amp;lt;- rbind(c(NA, 2),
                     c(NA, 2))
 #
 grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 0.05))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-27-time-series-clustering-with-dynamic-time-warping-part-2_files/figure-html/unnamed-chunk-15-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This frequency decomposition looks amazing but be careful because the power frequency are average and as stated in &lt;a href=&#34;http://www.hs-stat.com/projects/WaveletComp/WaveletComp_guided_tour.pdf&#34;&gt;“WaveletComp 1.1:A guided tour through the R package”&lt;/a&gt;, “The average power plot cannot distinguish between consecutive periods and overlapping periods”. This is annoying but average power is definitely a first step toward a nice classification of training plan patterns.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -990,9 +1329,9 @@ grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 
     
     <item>
       <title>A simple introduction to statistical test and statistical significance</title>
-      <link>/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</link>
       <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/a-simple-introduction-to-statistical-test-and-statistical-significance/</guid>
       <description>
 
 
@@ -1006,9 +1345,9 @@ grid.arrange(grobs = plt_list, layout_matrix = plt_layout, heights = c(0.04, 1, 
     
     <item>
       <title>Time series clustering with Dynamic Time Warping</title>
-      <link>/post/time-series-clustering-with-dynamic-time-warp/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/time-series-clustering-with-dynamic-time-warp/</link>
       <pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>/post/time-series-clustering-with-dynamic-time-warp/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/time-series-clustering-with-dynamic-time-warp/</guid>
       <description>
 
 
@@ -1052,7 +1391,7 @@ ts_sim_wall_run &amp;lt;- c(ts_sim_part1,ts_sim_part2) %&amp;gt;%
   as.ts(.)
 
 ts.plot(ts_sim_wall_run, xlab = &amp;quot;Distance [x100m]&amp;quot;, ylab = &amp;quot;Differential pace [min/km]&amp;quot;, main = &amp;quot;Example of wall run&amp;quot;, ylim=c(0,25))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;384&#34; /&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;384&#34; /&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-2-2.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;A much nicer way would be to use ARIMA with an auto regressive model (AR).&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pace_min &amp;lt;- 5 # min/km (corresponds to fast run)
 pace_wall &amp;lt;- 20 # min/km (corresponds to very slow run) 
@@ -1070,7 +1409,7 @@ ts_sim_wall_run &amp;lt;- ts.union(ts_sim_part1,ts_sim_part2)
 ts_sim_wall_run&amp;lt;- pmin(ts_sim_wall_run[,1], ts_sim_wall_run[,2], na.rm = TRUE)
 
 ts.plot(ts_sim_wall_run, xlab = &amp;quot;Distance [x100m]&amp;quot;, ylab = &amp;quot;Differential pace [min/km]&amp;quot;, main = &amp;quot;Example of wall run&amp;quot;, ylim=c(0,25))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;384&#34; /&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;384&#34; /&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-3-2.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;bootstrap&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Bootstrap&lt;/h2&gt;
@@ -1102,7 +1441,7 @@ ts_sim_df %&amp;gt;%
     Rowv = FALSE,
     labRow = FALSE
   )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can already see an accurate clustering between classic and wall runs but we are interested in DTW analysis so let’s implement &lt;code&gt;TSclust&lt;/code&gt; and &lt;code&gt;dtwclust&lt;/code&gt; packages.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;dtw-cluster&#34; class=&#34;section level1&#34;&gt;
@@ -1147,7 +1486,7 @@ gp1&amp;lt;-ggplotGrob(p1)
 gp2&amp;lt;-ggplotGrob(p2) 
 
 grid.arrange(gp2, gp1, ncol=2, widths=c(4,2))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;As expected, The results of &lt;code&gt;TSclust&lt;/code&gt;show two different groups, one with the classic runs and one with wall runs. However we can see that wall runs are not sorted perfectly according their shape. Let’s have a look at &lt;code&gt;dtwclust&lt;/code&gt; to see if the results are similar.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;using-dtwclust&#34; class=&#34;section level2&#34;&gt;
@@ -1189,7 +1528,7 @@ gp1&amp;lt;-ggplotGrob(p1)
 gp2&amp;lt;-ggplotGrob(p2) 
 
 grid.arrange(gp2, gp1, ncol=2, widths=c(4,2))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Now with the cluster are well distributed between classic and wall runs but also inside the clusters where similar shapes appears to be grouped together.&lt;/p&gt;
 &lt;p&gt;It is possible to modify some argument in order to perform this hierarchical DTW clustering based on z-scores with centroid based on the built-in “shape_extraction” function.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cluster_dtw_h2 &amp;lt;- dtwclust::tsclust(t(ts_sim_df), type = &amp;quot;h&amp;quot;, k = 2L,
@@ -1225,7 +1564,7 @@ gp1&amp;lt;-ggplotGrob(p1)
 gp2&amp;lt;-ggplotGrob(p2) 
 
 grid.arrange(gp2, gp1, ncol=2, widths=c(4,2))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Based on &lt;code&gt;dtwclust&lt;/code&gt; package vignette, it is possible to register a new DTW function adapted to normalized and asymmetric DTW.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Normalized DTW
 ndtw &amp;lt;- function(x, y, ...) {
@@ -1241,7 +1580,7 @@ proxy::pr_DB$set_entry(FUN = ndtw, names = c(&amp;quot;nDTW&amp;quot;),
 cluster_dtw_h2 &amp;lt;- dtwclust::tsclust(t(ts_sim_df), k = 2L,distance = &amp;quot;nDTW&amp;quot;)
 
 plot(cluster_dtw_h2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://damien-datasci-blog.netlify.com/post/2018-09-06-time-series-clustering-with-dynamic-time-warp_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Even if it looks great with &lt;code&gt;sine&lt;/code&gt; simulated data, it is not very accurate with ARIMA models. Moreover I haven’t been able to extract the dendrogram from this last “cluster_dtw_h2” object because of the partitional clustering process but one can be interested in the distance matrix provided in “cluster_dtw_h2” object.&lt;/p&gt;
 &lt;p&gt;After this short analysis with Dynamic Time Warping, the next steps will be to increase the difference between the time series to check the clustering accuracy and obviously to test it with real data.&lt;/p&gt;
 &lt;/div&gt;
@@ -1251,9 +1590,9 @@ plot(cluster_dtw_h2)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Publishing blogdown, some insights from my own experience</title>
-      <link>/post/publishing-blogdown-some-insights-from-my-own-experience/</link>
+      <link>https://damien-datasci-blog.netlify.com/post/publishing-blogdown-some-insights-from-my-own-experience/</link>
       <pubDate>Tue, 04 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>/post/publishing-blogdown-some-insights-from-my-own-experience/</guid>
+      <guid>https://damien-datasci-blog.netlify.com/post/publishing-blogdown-some-insights-from-my-own-experience/</guid>
       <description>
 
 
