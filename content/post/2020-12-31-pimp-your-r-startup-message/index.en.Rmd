@@ -36,8 +36,10 @@ library(here)
 
 Every R user knows the verbose of the R startup message. It contains essential information such as the R version and that R is an open-source platform. However, seeing this message every day ... multiple times a day ... can be a bit boring. What about seeing something different and nice every time you start RStudio?
 
+![Classic startup message for R version 4.0.3. Nothing bad at all but it could be more entertaining](images/r_startup_v403.png)
+
 ```{r echo=FALSE, fig.cap="Classic startup message for R version 4.0.3. Nothing bad at all but it could be more entertaining", fig.align="center"}
-knitr::include_graphics("/img/r_startup_v403.png", error = FALSE)
+#knitr::include_graphics("/img/r_startup_v403.png", error = FALSE)
 ```
 
 I took a look at how to modify the startup message after a couple of tweets from Kara Woo [here](https://twitter.com/kara_woo/status/1216036265650294784) and [here](https://twitter.com/kara_woo/status/1097912398269173760). After reading the community's answers I had to do someting.
@@ -154,8 +156,10 @@ My knowledge of art possibilities in R console is very limited but I'm sure ther
 
 Possibilities are limitless ...
 
+![A joke or a philosophical quote is more entertaining but here you go!](images/r_startup_custom.png)
+
 ```{r echo=FALSE, fig.cap="A joke or a philosophical quote is more entertaining but here you go!", fig.align="center"}
-knitr::include_graphics("/img/r_startup_custom.png", error = FALSE)
+#knitr::include_graphics("/img/r_startup_custom.png", error = FALSE)
 ```
 
 Don't hesitate to tell me if I forgot an amazing R package for quotes or for console display! 
@@ -181,3 +185,20 @@ I have found on StackExchange code golf [an amazing code displaying a digital ra
   )
 ```
 
+## Edit: Use `httr::content()` instead of `jsonlite::fromJSON(rawToChar())`
+
+I recently replied to a tweet about [how to display Ted Lasso's quote on RStudio startup](https://twitter.com/damien_dupre/status/1469632268297719809) and I realised that `jsonlite::fromJSON(rawToChar())` could be replaced by a simple call to `httr::content()` which made the code much easier as shown below:
+
+```{r eval=FALSE}
+setHook("rstudio.sessionInit", function(newSession) {
+  cat("\014")
+  cowsay::say(
+    what = paste(
+      httr::content(httr::GET("https://tedlassoquotes.com/v1/quote"))[1:2],
+      collapse = " "),
+    by = "random",
+    what_color = randomcoloR::randomColor(),
+    by_color = randomcoloR::randomColor()
+  )
+}, action = "append")
+```
