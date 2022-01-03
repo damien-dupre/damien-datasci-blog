@@ -85,3 +85,11 @@ knit: (
   )
 ---
 ```
+
+## Edit: No need to use `system()` with MacOS M1 if you copy the python library in a specific location
+
+The problem in using the absolute path to the docx2pdf library is that it is not fully reproducible and [I really don't want Jenny Bryan to set my computer on fire by using non reproducible paths](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/). I suppose the issue with the function `docx2pdf()` not working is because of the classic multiple environments of python which means that my python executable was not the one hosting the libraries that I have installed.
+
+Indeed, the function `docx2pdf()` from {doconv} uses a the function `python_exec()` from its dependency package {locatexec} to locate the python executable file (created by [David Gohel](https://github.com/ardata-fr/locatexec) as well). The path given by `python_exec()` was not the same as the python executable hosting the docx2pdf library.
+
+Therefore, to solve this issue, you can copy the file identified by `which docx2pdf` on the mac Terminal and paste it in the  folder corresponding to `dirname(locatexec::python_exec())`.
