@@ -1,0 +1,107 @@
+---
+title: 'Generating Multiple PDF at Once: A use case of Rmarkdown render in a purrr
+  loop'
+author: Package Build
+date: '2022-01-06'
+slug: []
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2022-01-06T15:04:53Z'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="{{< blogdown/postref >}}index.en_files/header-attrs/header-attrs.js"></script>
+
+
+<p>As my previous post about using docx template to create PDF with Rmarkdown files had quite a success, people might be interested by more content on how I use Rmarkdown files in my daily activities. Indeed, I have a couple of more interesting use cases to show and among them, generating multiple pdf documents at once is one of my favorite.</p>
+<p>Here is some context: for some modules that I teach, I am assessing students on their ability to write short research papers and I require them to submit a PDF document. PDFs have a lot of advantages however it is difficult to annotate them to provide feedback to students. For this reason, I am creating a PDF report for each student containing my feedback on each section of their research paper.</p>
+<p>Now, I could write a document for each student and save it as PDF but it appears much more efficient to write my comments in a spreadsheet and then to generate the PDF report for all the students at the same time!</p>
+<p>The trick to create multiple PDF documents from a Rmd file is not mine, I just applied what the fantastic Alison Hill presented in her slides <a href="https://alison.netlify.app/rmd-valentine">“Made with YAML, strings, and glue. An R Markdown valentine for you</a>. If you are interested in doing it yourself, this presentation is amazing and far more useful than this blog post alone. However, it is always good to have different use cases and I am sure that mine can be interesting somehow.</p>
+<p>Enough talk, time to code!</p>
+<div id="step-1-the-data" class="section level2">
+<h2>Step 1: The data</h2>
+<p>To make this example more interesting, let’s make a table with some of my favorite TV show characters and some of their quotes:</p>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="34%" />
+<col width="30%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">fullname</th>
+<th align="left">quote_1</th>
+<th align="left">quote_2</th>
+<th align="left">quote_3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Michael Scott</td>
+<td align="left">Sometimes I’ll start a sentence and I don’t even know where it’s going. I just hope I find it along the way.</td>
+<td align="left">I’m not superstitious, but I am a little stitious.</td>
+<td align="left">Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.</td>
+</tr>
+<tr class="even">
+<td align="left">Leslie Knope</td>
+<td align="left">We have to remember what’s important in life: friends, waffles, and work. Or waffles, friends, work. But work has to come third.</td>
+<td align="left">What I hear when I’m being yelled at is people caring really loudly at me.</td>
+<td align="left">There’s nothing we can’t do if we work hard, never sleep, and shirk from all other responsibilities in our lives.</td>
+</tr>
+<tr class="odd">
+<td align="left">Jake Peralta</td>
+<td align="left">Fine, but in protest, I’m walking over there extremely slowly!</td>
+<td align="left">I wasn’t hurt that badly. The doctor said all my bleeding was internal. That’s where the blood’s supposed to be.</td>
+<td align="left">I appealed to their sense of teamwork and camaraderie with a rousing speech that would put Shakespeare to shame.</td>
+</tr>
+</tbody>
+</table>
+<p>The table has to be saved as “data_batch.csv” to be used in the batch processing.</p>
+</div>
+<div id="step-2-the-rmd-template" class="section level2">
+<h2>Step 2: The Rmd template</h2>
+<p>Now, we need a Rmd template document called “index.Rmd” which will read the data file, use each row and produce a PDF with these personalized data. Here is the YAML of this “index.Rmd” file:</p>
+<pre class="r"><code>---
+title: &quot;Batch PDF processing - `r params$fullname` quotes&quot;
+output: pdf_document
+params:
+  fullname: &quot;TV Show Character&quot;
+---</code></pre>
+<p>In this “index.Rmd”, the key is the use of the YAML option <code>params:</code> with the column header to iterate on (e.g., fullname) and a null value that will be replaced by the name of each TV show character (e.g., “TV Show Character”). Note, the title of the PDF includes a variable reference to the characters’ name with an inline code.</p>
+<p>It is also important to read the data file in this “index.Rmd” and to filter with <code>params$fullname</code> in order to keep only the row corresponding to the character of the iteration.</p>
+<p>Then, two solutions to input the data in the text. The first and most natural solution would be use inline r code as follow:</p>
+<p><img src="images/index_simple.png" /></p>
+<p>The second solution is the one introduced by Alison, using <a href="https://github.com/gadenbuie/epoxy">the package {epoxy}</a> created by the genious Garrick Aden-Buie. This package allows to glue field of the data very easily in R chunks. This is a bit overkill in this use case as there are only 4 columns in the data but it would be very useful in a text having many different variables.</p>
+<p><img src="images/index_epoxy.png" /></p>
+</div>
+<div id="step-3-the-purrr-loop" class="section level2">
+<h2>Step 3: The purrr loop</h2>
+<p>In a new R script called “_render_batch.R”, read the data file in an object here called “data_batch”.</p>
+<p>Then, with a <code>purrr::walk()</code> function, we can iterate over each TV show character (i.e., each row) to produce a PDF that includes their corresponding quotes.</p>
+<pre class="r"><code>data_batch &lt;- readr::read_csv(&quot;data_batch.csv&quot;)
+
+purrr::walk(
+  .x = data_batch$fullname,
+  ~ rmarkdown::render(
+    input = &quot;index.Rmd&quot;,
+    output_file = glue::glue(&quot;PDF output - {.x} quotes.pdf&quot;),
+    params = list(fullname = {.x})
+  )
+)</code></pre>
+<p>Basically, <code>purrr::walk()</code> has two arguments:</p>
+<ul>
+<li><code>.x</code> a list or vector containing each element to iterate over (e.g., TV show character names)</li>
+<li><code>.f</code> a function used for each element of the previous list or vector</li>
+</ul>
+<p>While <code>.x</code> is naturally <code>data_batch$fullname</code> containing all the characters’ names from the data file previously read, <code>.f</code> is the function <code>rmarkdown::render()</code> which will get the template, replace <code>params$fullname</code> with the value of <code>.x</code> and knit the document. Q.E.D!</p>
+<p>Note the essential use of <code>glue::glue()</code> to include the value of <code>.x</code> in the name of the PDF file obtained in order not not overwrite the same document for each value of <code>.x</code>!</p>
+</div>
