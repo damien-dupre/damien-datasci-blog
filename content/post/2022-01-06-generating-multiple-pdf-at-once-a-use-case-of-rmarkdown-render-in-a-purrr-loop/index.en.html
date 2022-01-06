@@ -104,4 +104,5 @@ purrr::walk(
 </ul>
 <p>While <code>.x</code> is naturally <code>data_batch$fullname</code> containing all the characters’ names from the data file previously read, <code>.f</code> is the function <code>rmarkdown::render()</code> which will get the template, replace <code>params$fullname</code> with the value of <code>.x</code> and knit the document. Q.E.D!</p>
 <p>Note the essential use of <code>glue::glue()</code> to include the value of <code>.x</code> in the name of the PDF file obtained in order not not overwrite the same document for each value of <code>.x</code>!</p>
+<p><img src="images/project_folder.png" /></p>
 </div>

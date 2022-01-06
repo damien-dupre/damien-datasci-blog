@@ -111,3 +111,5 @@ Basically, `purrr::walk()` has two arguments:
 While `.x` is naturally `data_batch$fullname` containing all the characters' names from the data file previously read, `.f` is the function `rmarkdown::render()` which will get the template, replace `params$fullname` with the value of `.x` and knit the document. Q.E.D!
 
 Note the essential use of `glue::glue()` to include the value of `.x` in the name of the PDF file obtained in order not not overwrite the same document for each value of `.x`!
+
+![](images/project_folder.png)
